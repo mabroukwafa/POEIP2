@@ -34,8 +34,8 @@ Feature: Accès à la page d'accueil
 	#L'utilisateur doit pouvoir accéder à une page d’accueil
 	@POEI25P2G4-23 @POEI25P2G4-78 @P2G4 @TNR
 	Scenario: Accès à la page d'accueil --> "Sign in"
-		When I click on "Sign in"
-		Then I am redirected to the "Sign in" page
+		When I click on Sign in
+		Then I am redirected to the Sign in page
 		
 	#L'utilisateur doit pouvoir accéder à la page d’accueil
 	@POEI25P2G4-22 @POEI25P2G4-78 @P2G4 @TNR

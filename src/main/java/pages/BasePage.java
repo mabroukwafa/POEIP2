@@ -37,15 +37,10 @@ public class BasePage {
     @FindBy(xpath = "//a[@class='account']/span[text()='Valid valid']")
     private WebElement myName;
 
-    public BasePage(WebDriver driver){
-        PageFactory.initElements(driver,this);
-
     @FindBy(xpath = "//a[text()='Blog']")
     private WebElement blogTab;
 
-
-
-    public BasePage(WebDriver webDriver){
+   public BasePage(WebDriver webDriver){
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver,this);
     }
