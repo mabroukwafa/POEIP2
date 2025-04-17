@@ -13,8 +13,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import utils.ConfigReader;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 
@@ -33,33 +37,41 @@ public class Setup {
         }
 
         @Before
-        public void setupDriverAndPages(){
+        public void setupDriverAndPages() throws MalformedURLException {
             String url = ConfigReader.getProperty("homePageUrl");
+            boolean useGrid = Boolean.parseBoolean(ConfigReader.getProperty("useGrid"));
             int seconds = Integer.parseInt(ConfigReader.getProperty("timeout"));
-            boolean headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
-            switch (ConfigReader.getProperty("browser").toLowerCase()){
-                case "edge":
-                    EdgeOptions edgeOptions = new EdgeOptions();
-                    if (headless) edgeOptions.addArguments("--headless");
-                    edgeOptions.addArguments("--maximize");
-                    driver = new EdgeDriver(edgeOptions);
-                    break;
-
-                case "firefox":
-                    FirefoxOptions firefoxOptions= new FirefoxOptions();
-                    if (headless) firefoxOptions.addArguments("--headless");
-                    firefoxOptions.addArguments("--maximize");
-                    driver = new FirefoxDriver(firefoxOptions);
-                    break;
-
-                default:
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    if (headless) chromeOptions.addArguments("--headless");
-                    chromeOptions.addArguments("--maximize");
-                    driver = new ChromeDriver(chromeOptions);
-                    break;
+            if (useGrid) {
+                String gridUrl = ConfigReader.getProperty("gridURL");
+                DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                desiredCapabilities.setBrowserName(ConfigReader.getProperty("browser").toLowerCase());
+                driver = new RemoteWebDriver(new URL(gridUrl), desiredCapabilities);
             }
+            else {
+                boolean headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
+                switch (ConfigReader.getProperty("browser").toLowerCase()) {
+                    case "edge":
+                        EdgeOptions edgeOptions = new EdgeOptions();
+                        if (headless) edgeOptions.addArguments("--headless");
+                        edgeOptions.addArguments("--maximize");
+                        driver = new EdgeDriver(edgeOptions);
+                        break;
 
+                    case "firefox":
+                        FirefoxOptions firefoxOptions = new FirefoxOptions();
+                        if (headless) firefoxOptions.addArguments("--headless");
+                        firefoxOptions.addArguments("--maximize");
+                        driver = new FirefoxDriver(firefoxOptions);
+                        break;
+
+                    default:
+                        ChromeOptions chromeOptions = new ChromeOptions();
+                        if (headless) chromeOptions.addArguments("--headless");
+                        chromeOptions.addArguments("--maximize");
+                        driver = new ChromeDriver(chromeOptions);
+                        break;
+                }
+            }
             driver.get(url);
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 
