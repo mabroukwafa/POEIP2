@@ -1,0 +1,57 @@
+pipeline {
+    agent any
+
+parameters {
+        string(name: 'KEYS', defaultValue: 'POEI25P2G4-95', description: 'Veuillez renseigner les cles de test a executer separees par un ;')
+    }
+
+  environment {
+        JIRA_ID    = credentials('JIRA_IDS')
+
+    }
+    stages {
+         stage('Build'){
+            steps{
+                bat 'mvn clean'
+            }
+        }
+      stage('Curl') {
+  steps {
+    script{
+        def keys_array = params.KEYS.split(';')
+        bat 'curl -H "Content-Type: application/json" -X POST --data "{ \\"client_id\\": \\"%JIRA_ID_USR%\\",\\"client_secret\\": \\"%JIRA_ID_PSW%\\" }"  https://xray.cloud.getxray.app/api/v2/authenticate >token.txt'
+        keys_array.each{
+        writeFile (file: 'key.txt', text: it)
+        bat """
+                                set /p TOKEN=<token.txt
+                                set /p KEY=<key.txt
+                                curl -X GET "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=%KEY%" ^
+                                -H "Authorization: Bearer %TOKEN%" ^
+                                -o features.zip
+                                tar -xf features.zip -C src/test/resources/features
+                                del key.txt
+                            """
+
+        }
+}
+      }
+        stage('Test'){
+            steps{
+                bat 'mvn test'
+
+            }
+            post {
+                always {
+                    bat """
+                        set /p TOKEN=<token.txt
+                        curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer %TOKEN%" ^
+                        --data @"target/cucumber.json" https://xray.cloud.getxray.app/api/v2/import/execution/cucumber
+                    """
+                    junit 'target/surefire-reports/*.xml'
+                    cucumber fileIncludePattern: 'target/cucumber.json'
+                    cleanWs()
+                }
+            }
+        }
+    }
+}
