@@ -34,5 +34,5 @@ Feature: Connexion à un compte client
 		And I enter "valid123" in the <Password> field
 		And I click <Sign in>
 		Then I should be redirected to <My Account> page
-		And I should see my name in the menu bar
+		And I should see "Valid valid" in the menu bar
 		

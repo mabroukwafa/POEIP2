@@ -10,8 +10,11 @@ public class LoginPage extends BasePage{
     public LoginPage(WebDriver driver){
         super(driver);
         this.driver = driver;
-       // PageFactory.initElements(driver,this);
     }
+
+
+    @FindBy(xpath = "//h1[@class='page-heading' and text()='Authentication']\n")
+    WebElement title;
 
     @FindBy(xpath = "//input[@id = 'email']")
     WebElement emailField;
@@ -55,6 +58,10 @@ public class LoginPage extends BasePage{
 
     public String errorMessage(){
          return errorMessage.getText();
+    }
+
+    public String getTitle(){
+         return title.getText();
     }
 
 

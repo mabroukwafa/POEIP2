@@ -8,6 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
 
+    public BasePage(WebDriver webDriver){
+        this.webDriver = webDriver;
+        PageFactory.initElements(webDriver,this);
+    }
+
     WebDriver  webDriver;
     @FindBy(xpath = "//img[@class='logo img-responsive']")
     private WebElement logo;
@@ -37,18 +42,12 @@ public class BasePage {
     @FindBy(xpath = "//a[@class='account']/span[text()='Valid valid']")
     private WebElement myName;
 
-    public BasePage(WebDriver driver){
-        PageFactory.initElements(driver,this);
+
 
     @FindBy(xpath = "//a[text()='Blog']")
     private WebElement blogTab;
 
 
-
-    public BasePage(WebDriver webDriver){
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver,this);
-    }
 
     public void clickOnLogo(){
         logo.click();

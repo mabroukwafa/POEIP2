@@ -12,13 +12,17 @@ import pages.LoginPage;
 import pages.MyAccountPage;
 
 
-public class ConnexionSteps {
+public class LoginPageSteps {
     WebDriver driver = Setup.driver;
     BasePage basePage = new BasePage(driver);
     LoginPage loginPage = new LoginPage(driver);
     MyAccountPage myAccountPage = new MyAccountPage(driver);
 
 
+    @Then ("I am redirected to the Sign in page")
+    public void assertOnLoginPage(){
+        Assert.assertEquals(loginPage.getTitle(),"Authentication");
+    }
     @Given("I am on the \"Sign In\" page")
     public void iAmOnTheSignInPage(){
         loginPage.clickOnSignIn();
@@ -44,13 +48,9 @@ public class ConnexionSteps {
         Assert.assertEquals(message, loginPage.errorMessage());
     }
 
-    @Then("I should be redirected to <My Account> page")
-    public void iShouldBeRedirectedToMyAccountPage() {
-        Assert.assertEquals("MY ACCOUNT",myAccountPage.getTitle());
-    }
+    @And("I should see {string} in the menu bar")
+    public void iShouldSeeInTheMenuBar(String myName) {
+        Assert.assertEquals(basePage.getMyname(),myName);
 
-    @And("I should see my name in the menu bar")
-    public void iShouldSeeMyNameInTheMenuBar() {
-        Assert.assertEquals(basePage.getMyname(),"Valid valid");
     }
 }
