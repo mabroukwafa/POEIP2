@@ -36,7 +36,7 @@ public class LoginPage extends BasePage{
 
 
 
-    public void sendEamil(String email){
+    public void sendEmail(String email){
         emailField.sendKeys(email);
     }
 

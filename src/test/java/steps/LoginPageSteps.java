@@ -21,16 +21,17 @@ public class LoginPageSteps {
 
     @Then ("I am redirected to the Sign in page")
     public void assertOnLoginPage(){
-        Assert.assertEquals(loginPage.getTitle(),"Authentication");
+        Assert.assertEquals(loginPage.getTitle(),"AUTHENTICATION");
     }
-    @Given("I am on the \"Sign In\" page")
+
+    @Given("I am on the <Sign In> page")
     public void iAmOnTheSignInPage(){
         loginPage.clickOnSignIn();
     }
 
     @When("I enter {string} in the <Email address> field")
     public void iEnterInTheEmailAddressField(String email) {
-        loginPage.sendEamil(email);
+        loginPage.sendEmail(email);
     }
 
     @And("I enter {string} in the <Password> field")

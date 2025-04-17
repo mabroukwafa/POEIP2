@@ -9,7 +9,6 @@ public class MyAccountPage extends BasePage{
     public MyAccountPage(WebDriver driver){
         super(driver);
         this.driver = driver;
-        // PageFactory.initElements(driver,this);
     }
 
     @FindBy(xpath = "//h1[@class='page-heading' and text()='My account']")
@@ -19,4 +18,5 @@ public class MyAccountPage extends BasePage{
     public String getTitle(){
         return title.getText();
     }
+
 }

@@ -18,7 +18,10 @@ public class BasePage {
     private WebElement logo;
 
     @FindBy(xpath = "//a[@class='login']")
-    private WebElement signIn;
+     WebElement signIn;
+
+    @FindBy(xpath = "//a[@class='logout']")
+    private WebElement signOut;
 
     @FindBy(xpath = "//input[@id='search_query_top']")
     private WebElement fieldSearch;
@@ -55,6 +58,9 @@ public class BasePage {
     public  void clickOnSignIn(){
         signIn.click();
     }
+    public  void clickOnSignOut(){
+        signOut.click();
+    }
 
     public void insertInFieldSearch(String string){
         fieldSearch.sendKeys(string);
@@ -85,9 +91,11 @@ public class BasePage {
         return myName.getText();
     }
 
-
     public void clickOnBlogTab(){
         blogTab.click();
+    }
+    public String getSignInText(){
+        return signIn.getText();
     }
 
 
