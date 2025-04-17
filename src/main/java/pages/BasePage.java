@@ -2,10 +2,13 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
+
+    WebDriver  webDriver;
     @FindBy(xpath = "//img[@class='logo img-responsive']")
     private WebElement logo;
 
@@ -30,8 +33,14 @@ public class BasePage {
     @FindBy(xpath = "//a[@title='T-shirts']")
     private WebElement filtreTShirts;
 
-    public BasePage(WebDriver driver){
-        PageFactory.initElements(driver,this);
+    @FindBy(xpath = "//a[text()='Blog']")
+    private WebElement blogTab;
+
+
+
+    public BasePage(WebDriver webDriver){
+        this.webDriver = webDriver;
+        PageFactory.initElements(webDriver,this);
     }
 
     public void clickOnLogo(){
@@ -65,6 +74,12 @@ public class BasePage {
     public void clickOnFiltreTShirts(){
         filtreTShirts.click();
     }
+
+    public void clickOnBlogTab(){
+        blogTab.click();
+    }
+
+
 
 
 

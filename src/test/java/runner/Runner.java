@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         glue={"steps","hooks", "utils", "pages"},
         monochrome = true,
         plugin = {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber.json"}
-        //,tags = "@POEI20252-461"
+        ,tags = "@POEI25P2G4-27"
 )
 
 public class Runner {
