@@ -43,7 +43,6 @@ public class BasePage {
     private WebElement myName;
 
 
-
     @FindBy(xpath = "//a[text()='Blog']")
     private WebElement blogTab;
 
