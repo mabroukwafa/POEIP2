@@ -30,6 +30,9 @@ public class BasePage {
     @FindBy(xpath = "//a[@title='T-shirts']")
     private WebElement filtreTShirts;
 
+    @FindBy(xpath = "//a[@class='account']/span[text()='Valid valid']")
+    private WebElement myName;
+
     public BasePage(WebDriver driver){
         PageFactory.initElements(driver,this);
     }
@@ -38,7 +41,7 @@ public class BasePage {
         logo.click();
     }
 
-    public void clickOnSignIn(){
+    public  void clickOnSignIn(){
         signIn.click();
     }
 
@@ -64,6 +67,10 @@ public class BasePage {
 
     public void clickOnFiltreTShirts(){
         filtreTShirts.click();
+    }
+
+    public String getMyname(){
+        return myName.getText();
     }
 
 
