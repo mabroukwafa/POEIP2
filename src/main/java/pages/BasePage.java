@@ -49,6 +49,10 @@ public class BasePage {
     @FindBy(xpath = "//a[text()='Blog']")
     private WebElement blogTab;
 
+    @FindBy(xpath = "//a[@title='Contact us']")
+    private WebElement contactUs;
+
+
 
 
     public void clickOnLogo(){
@@ -97,6 +101,12 @@ public class BasePage {
     public String getSignInText(){
         return signIn.getText();
     }
+
+    public void clickOnContactUs(){
+        contactUs.click();
+    }
+
+
 
 
 

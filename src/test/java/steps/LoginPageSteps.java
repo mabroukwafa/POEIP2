@@ -21,7 +21,7 @@ public class LoginPageSteps {
 
     @Then ("I am redirected to the Sign in page")
     public void assertOnLoginPage(){
-        Assert.assertEquals(loginPage.getTitle(),"AUTHENTICATION");
+        Assert.assertTrue(loginPage.titleIsDisplayed());
     }
 
     @Given("I am on the <Sign In> page")

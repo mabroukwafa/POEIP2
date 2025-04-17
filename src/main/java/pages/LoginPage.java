@@ -64,6 +64,10 @@ public class LoginPage extends BasePage{
          return title.getText();
     }
 
+    public boolean titleIsDisplayed(){
+        return title.isDisplayed();
+    }
+
 
 
 }
