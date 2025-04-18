@@ -1,7 +1,7 @@
 package utils;
 
 public class Utils {
-    public static int MAX = 26;
+    public static final int MAX = 26;
     public static String generateRandomString(int length){
         {
             char []alphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',

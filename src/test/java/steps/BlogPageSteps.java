@@ -10,7 +10,7 @@ import pages.HomePage;
 
 public class BlogPageSteps {
 
-    private final WebDriver webDriver = Setup.driver;
+    WebDriver webDriver = Setup.driver;
     BlogPage blogPage = new BlogPage(webDriver);
 
 

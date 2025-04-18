@@ -14,7 +14,7 @@ import utils.ConfigReader;
 
 public class HomePageSteps {
 
-    private final WebDriver webDriver = Setup.driver;
+    WebDriver webDriver = Setup.driver;
     HomePage homePage = new HomePage(webDriver);
     BasePage basePage = new BasePage(webDriver);
 

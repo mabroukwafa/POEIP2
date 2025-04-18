@@ -8,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import pages.ContactUsPage;
 
 public class ContactUsPageSteps {
-    private WebDriver WebDriver  = Setup.driver;
-    ContactUsPage contactUsPage = new ContactUsPage(WebDriver);
+    WebDriver webDriver  = Setup.driver;
+    ContactUsPage contactUsPage = new ContactUsPage(webDriver);
 
 
 

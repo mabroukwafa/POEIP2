@@ -11,7 +11,7 @@ import pages.BlogPage;
 
 public class BasePageSteps {
 
-    private final WebDriver webDriver = Setup.driver;
+    WebDriver webDriver = Setup.driver;
     BasePage basePage = new BasePage(webDriver);
 
 
