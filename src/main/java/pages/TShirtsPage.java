@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
  * Page Object Model (POM) pour la page T-Shirts.
  * Cette classe représente les éléments et interactions possibles sur la page des produits T-Shirts.
  */
-public class TShirtsPage {
+public class TShirtsPage extends BasePage{
 
     // Driver Selenium pour interagir avec le navigateur
     WebDriver webDriver;
@@ -28,8 +28,7 @@ public class TShirtsPage {
      * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
     public TShirtsPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver, this);
+        super(webDriver);
     }
 
     /**
