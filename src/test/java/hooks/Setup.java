@@ -42,7 +42,7 @@ public class Setup {
             boolean useGrid = Boolean.parseBoolean(ConfigReader.getProperty("useGrid"));
             int seconds = Integer.parseInt(ConfigReader.getProperty("timeout"));
             if (useGrid) {
-                String gridUrl = ConfigReader.getProperty("gridURL");
+                String gridUrl = ConfigReader.getProperty("gridUrl");
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setBrowserName(ConfigReader.getProperty("browser").toLowerCase());
                 driver = new RemoteWebDriver(new URL(gridUrl), desiredCapabilities);
