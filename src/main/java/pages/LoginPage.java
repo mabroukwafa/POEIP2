@@ -36,13 +36,17 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//button[@id = 'SubmitLogin']")
     WebElement buttonSignIn ;
 
-    @FindBy(xpath = "//input[@id = 'email']")
+    @FindBy(xpath = "//input[@id = 'email_create']")
     WebElement emailCreateField;
 
-    @FindBy(xpath = "//button[@id = 'email_create']")
+    @FindBy(xpath = "//button[@id = 'submitAccount']")
+    WebElement buttonCreateAccount2 ;
+
+    @FindBy(xpath = "//button[@name = 'SubmitCreate']")
     WebElement buttonCreateAccount ;
 
-    @FindBy(xpath = "//div[@class='alert alert-danger']/ol/li")
+
+    @FindBy(xpath = "//div[@id= 'create_account_error']")
     WebElement errorMessage ;
 
     @FindBy(xpath = "//a[@href='http://www.automationpractice.pl/index.php?controller=password']")
@@ -78,13 +82,16 @@ public class LoginPage extends BasePage{
     public void clickCreateAccountButton(){
          buttonCreateAccount.click();
     }
+    public void clickCreateAccountButton2(){
+        buttonCreateAccount2.click();
+    }
 
     /**
      * Insère l'email dans le champ associé.
      * @param email L'email à insérer
      */
     public void sendEmailCreate(String email){
-        emailCreateField.sendKeys();
+        emailCreateField.sendKeys(email);
     }
 
     /**
