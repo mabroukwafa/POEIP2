@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
  * Page Object Model (POM) pour la page Women.
  * Cette classe représente les éléments et interactions possibles sur la page des produits Women.
  */
-public class WomenPage {
+public class WomenPage extends BasePage{
 
     // Driver Selenium pour interagir avec le navigateur
     WebDriver webDriver;
@@ -28,8 +28,7 @@ public class WomenPage {
      * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
     public WomenPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver, this);
+        super(webDriver);
     }
 
     /**

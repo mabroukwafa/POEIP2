@@ -6,9 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
-
-
 public class BasePage {
 
     public BasePage(WebDriver webDriver){
@@ -21,7 +18,7 @@ public class BasePage {
     private WebElement logo;
 
     @FindBy(xpath = "//a[@class='login']")
-    WebElement signIn;
+     WebElement signIn;
 
     @FindBy(xpath = "//a[@class='logout']")
     private WebElement signOut;
@@ -55,15 +52,13 @@ public class BasePage {
     @FindBy(xpath = "//a[@title='Contact us']")
     private WebElement contactUs;
 
-    @FindBy(xpath = "//div[@class='ac_results']/ul/il")
-    List<WebElement> suggestionsList;
-
 
 
 
     public void clickOnLogo(){
         logo.click();
     }
+    public String getLogoText(){return logo.getText();}
 
     public  void clickOnSignIn(){
         signIn.click();
@@ -74,17 +69,6 @@ public class BasePage {
 
     public void insertInFieldSearch(String string){
         fieldSearch.sendKeys(string);
-    }
-
-    public Boolean isFieldSearchVisible(){
-        return fieldSearch.isDisplayed();
-    }
-
-    public void chooseSuggestion(String suggestion){
-        for (WebElement suggestionElement:suggestionsList){
-            if (suggestion.equals(suggestionElement.getText())) suggestionElement.click();
-
-        }
     }
 
     public void clickOnLoupeSearch(){

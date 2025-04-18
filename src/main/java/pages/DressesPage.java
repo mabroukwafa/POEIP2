@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
  * Page Object Model (POM) pour la page Dresses.
  * Représente les éléments et interactions possibles sur la page des robes.
  */
-public class DressesPage {
+public class DressesPage extends BasePage{
 
     // Driver Selenium pour interagir avec le navigateur
     WebDriver webDriver;
@@ -26,8 +26,7 @@ public class DressesPage {
      * @param webDriver Instance WebDriver pour interagir avec le navigateur
      */
     public DressesPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver, this);
+        super(webDriver);
     }
 
     /**

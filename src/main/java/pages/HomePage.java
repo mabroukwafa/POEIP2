@@ -26,8 +26,6 @@ public class HomePage extends BasePage {
      */
     public HomePage(WebDriver driver) {
         super(driver); // Appelle le constructeur parent de BasePage
-        this.webDriver = driver;
-        PageFactory.initElements(webDriver, this);
     }
 
     /**
