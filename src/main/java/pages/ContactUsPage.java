@@ -5,18 +5,33 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ContactUsPage {
-    WebDriver webDriver;
-
+/**
+ * Cette classe représente la page "Contact Us" du site de PrestaShop.
+ * Elle hérite de la classe de base BasePage.
+ * Elle contient des éléments et méthodes spécifiques à cette page.
+ */
+public class ContactUsPage extends BasePage{
+    /**
+     * Localisateur XPath pour le titre de la page "Contact Us".
+     * Il trouve l'élément h1 avec la classe 'page-heading bottom-indent'.
+     */
     @FindBy(xpath = "//h1[@class='page-heading bottom-indent']")
     WebElement contactUsTitle;
 
-
+    /**
+     * Constructeur de la classe BasePage que la classe ContactUsPage hérite.
+     * *
+     * @param webDriver Le WebDriver utilisé pour interagir avec le navigateur
+     */
     public ContactUsPage(WebDriver webDriver){
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver,this);
+        super(webDriver);
     }
 
+    /**
+     * Vérifie si le titre de la page "Contact Us" est affiché.
+     *
+     * @return true si le titre est visible, false sinon
+     */
     public boolean contactUsTitleIsDisplayed(){
         return contactUsTitle.isDisplayed();
     }
