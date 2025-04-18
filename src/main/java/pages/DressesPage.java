@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 public class DressesPage {
 
     // Driver Selenium pour interagir avec le navigateur
-    private final WebDriver webDriver;
+    WebDriver webDriver;
 
     /**
      * Localisateur XPath pour le titre de la page Dresses.
