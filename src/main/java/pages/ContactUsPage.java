@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ContactUsPage {
+public class ContactUsPage extends BasePage{
     WebDriver webDriver;
 
     @FindBy(xpath = "//h1[@class='page-heading bottom-indent']")
@@ -13,8 +13,7 @@ public class ContactUsPage {
 
 
     public ContactUsPage(WebDriver webDriver){
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver,this);
+        super(webDriver);
     }
 
     public boolean contactUsTitleIsDisplayed(){
