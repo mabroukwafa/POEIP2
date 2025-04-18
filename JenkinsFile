@@ -2,7 +2,7 @@ pipeline {
     agent any
 
 parameters {
-        string(name: 'KEYS', defaultValue: 'POEI25P2G4-95', description: 'Veuillez renseigner les cles de test a executer separees par un ;')
+        string(name: 'KEYS', defaultValue: 'POEI25P2G4-90', description: 'Veuillez renseigner les cles de test a executer separees par un ;')
     }
 
   environment {
