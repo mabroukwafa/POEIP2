@@ -34,6 +34,9 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//div[@class='alert alert-danger']/ol/li")
     WebElement errorMessage ;
 
+    @FindBy(xpath = "//a[@href='http://www.automationpractice.pl/index.php?controller=password']")
+    WebElement ForgotPassword ;
+
 
 
     public void sendEmail(String email){
@@ -64,9 +67,14 @@ public class LoginPage extends BasePage{
          return title.getText();
     }
 
+    public void clickForgotPassword(){
+          ForgotPassword.click();
+    }
+
     public boolean titleIsDisplayed(){
         return title.isDisplayed();
     }
+
 
 
 

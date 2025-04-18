@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
+import pages.PasswordResetPage;
 import pages.LoginPage;
 import pages.MyAccountPage;
 
@@ -17,6 +18,7 @@ public class LoginPageSteps {
     BasePage basePage = new BasePage(driver);
     LoginPage loginPage = new LoginPage(driver);
     MyAccountPage myAccountPage = new MyAccountPage(driver);
+    PasswordResetPage forgotYourPswdPage = new PasswordResetPage(driver);
 
 
     @Then ("I am redirected to the Sign in page")
@@ -54,4 +56,12 @@ public class LoginPageSteps {
         Assert.assertEquals(basePage.getMyname(),myName);
 
     }
+
+    @When("I click on the <Forgot your password?>")
+    public void iClickOnTheForgotYourPassword() {
+        loginPage.clickForgotPassword();
+    }
+
+
+
 }
