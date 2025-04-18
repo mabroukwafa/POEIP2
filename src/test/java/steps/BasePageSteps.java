@@ -59,4 +59,23 @@ public class BasePageSteps {
     }
 
 
+    @And("the search bar is visible")
+    public void theSearchBarIsVisible() {
+        Assert.assertTrue(basePage.isFieldSearchVisible());
+    }
+
+    @When("I type {string} in the search bar")
+    public void iTypeInTheSearchBar(String search) {
+        basePage.insertInFieldSearch(search);
+    }
+
+    @And("I click on the search icon")
+    public void iClickOnTheSearchIcon() {
+        basePage.clickOnLoupeSearch();
+    }
+
+    @And("I select the suggestion {string}")
+    public void iSelectTheSuggestion(String suggestion) {
+        basePage.chooseSuggestion(suggestion);
+    }
 }
