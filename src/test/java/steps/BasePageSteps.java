@@ -2,18 +2,23 @@ package steps;
 
 import hooks.Setup;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
 import pages.BlogPage;
+import pages.LoginPage;
+import pages.MyAccountPage;
+import utils.ConfigReader;
 
 public class BasePageSteps {
 
     WebDriver webDriver = Setup.driver;
     BasePage basePage = new BasePage(webDriver);
-
+    LoginPage loginPage = new LoginPage(webDriver);
+    MyAccountPage myAccountPage=new MyAccountPage(webDriver);
 
     @When("I click on the Blog tab")
     public void IClickOnTheBlogTab() {
@@ -58,5 +63,30 @@ public class BasePageSteps {
         }
     }
 
+    @When("I click on the cart link in the header")
+    public void iClickOnTheCartLinkInTheHeader() {
+        basePage.clickOnAccessCart();
+    }
+
+    @Given("I am on the {string} page")
+    public void iAmOnThePage(String page) {
+          switch (page.toLowerCase()) {
+                case "home":
+                    break;
+                case "login":
+                    basePage.clickOnSignIn();
+                    break;
+                case "my account":
+                    basePage.clickOnSignIn();
+                    loginPage.sendEmail(ConfigReader.getProperty("emailValid"));
+                    loginPage.sendPassword(ConfigReader.getProperty("mdpValid"));
+                    loginPage.clickLoginButton();
+                    Assert.assertEquals("MY ACCOUNT",myAccountPage.getTitle());
+                    break;
+
+                default:
+                    throw new IllegalArgumentException("Page inconnue : " + page);
+            }
+        }
 
 }

@@ -65,4 +65,6 @@ public class HomePageSteps {
     public void iClickOnAnAdvertisement() {
         homePage.clickOnAdvertisement();
     }
+
+
 }
