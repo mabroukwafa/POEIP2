@@ -11,9 +11,6 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class TShirtsPage extends BasePage{
 
-    // Driver Selenium pour interagir avec le navigateur
-    WebDriver webDriver;
-
     /**
      * Localisateur XPath pour le titre de la page T-Shirts.
      * Trouve l'élément span avec classe 'cat-name' dont le texte commence par 'T-shirts'
@@ -22,9 +19,7 @@ public class TShirtsPage extends BasePage{
     private WebElement tShirtTitle;
 
     /**
-     * Constructeur de la classe TShirtsPage.
-     * Initialise les éléments de la page avec PageFactory.
-     *
+     * Constructeur de la classe BasePage que la classe DressesPage hérite.
      * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
     public TShirtsPage(WebDriver webDriver) {
