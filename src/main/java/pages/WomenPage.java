@@ -5,22 +5,33 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class WomenPage {
+/**
+ * Page Object Model (POM) pour la page Women.
+ * Cette classe représente les éléments et interactions possibles sur la page des produits Women.
+ */
+public class WomenPage extends BasePage{
 
-    WebDriver webDriver;
-
+    /**
+     * Localisateur XPath pour le titre de la page Women.
+     * Trouve l'élément span avec classe 'cat-name' dont le texte commence par 'Women'
+     */
     @FindBy(xpath = "//span[@class='cat-name' and starts-with(normalize-space(), 'Women')]")
-    WebElement womenTitle;
+    private WebElement womenTitle;
 
-
-    public WomenPage(WebDriver webDriver){
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver,this);
+    /**
+     * Constructeur de la classe BasePage que la classe DressesPage hérite.
+     * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
+     */
+    public WomenPage(WebDriver webDriver) {
+        super(webDriver);
     }
 
-    public boolean womenTitleIsDisplayed(){
+    /**
+     * Vérifie si le titre de la page Women est affiché.
+     *
+     * @return true si le titre est visible, false sinon
+     */
+    public boolean womenTitleIsDisplayed() {
         return womenTitle.isDisplayed();
     }
-
-
 }

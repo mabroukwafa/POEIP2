@@ -5,10 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class PasswordResetPage extends BasePage{
-    WebDriver driver;
+
     public PasswordResetPage(WebDriver driver){
         super(driver);
-        this.driver = driver;
     }
 
     @FindBy(xpath = "//h1[@class='page-subheading' and text()='Forgot your password?']")

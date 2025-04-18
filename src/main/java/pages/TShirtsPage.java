@@ -5,22 +5,33 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class TShirtsPage {
+/**
+ * Page Object Model (POM) pour la page T-Shirts.
+ * Cette classe représente les éléments et interactions possibles sur la page des produits T-Shirts.
+ */
+public class TShirtsPage extends BasePage{
 
-    WebDriver webDriver;
-
+    /**
+     * Localisateur XPath pour le titre de la page T-Shirts.
+     * Trouve l'élément span avec classe 'cat-name' dont le texte commence par 'T-shirts'
+     */
     @FindBy(xpath = "//span[@class='cat-name' and starts-with(normalize-space(), 'T-shirts')]")
-    WebElement tShirtTitle;
+    private WebElement tShirtTitle;
 
-
-    public TShirtsPage(WebDriver webDriver){
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver,this);
+    /**
+     * Constructeur de la classe BasePage que la classe DressesPage hérite.
+     * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
+     */
+    public TShirtsPage(WebDriver webDriver) {
+        super(webDriver);
     }
 
-    public boolean tShirtTitleIsDisplayed(){
+    /**
+     * Vérifie si le titre de la page T-Shirts est affiché.
+     *
+     * @return true si le titre est visible, false sinon
+     */
+    public boolean tShirtTitleIsDisplayed() {
         return tShirtTitle.isDisplayed();
     }
-
-
 }

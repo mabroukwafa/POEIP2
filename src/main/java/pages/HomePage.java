@@ -11,9 +11,6 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class HomePage extends BasePage {
 
-    // Driver Selenium pour interagir avec le navigateur
-    WebDriver webDriver;
-
     // Localisateur XPath pour la bannière publicitaire
     @FindBy(xpath = "(//img[contains(@src, 'banner-img')])[1]")
     private WebElement advertisement;
@@ -26,8 +23,6 @@ public class HomePage extends BasePage {
      */
     public HomePage(WebDriver driver) {
         super(driver); // Appelle le constructeur parent de BasePage
-        this.webDriver = driver;
-        PageFactory.initElements(webDriver, this);
     }
 
     /**
