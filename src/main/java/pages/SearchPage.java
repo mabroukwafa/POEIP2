@@ -13,7 +13,7 @@ public class SearchPage extends BasePage{
     List<WebElement> productList;
 
 
-    @FindBy(xpath = "//div[@class='breadcrumb clearfix']")
+    @FindBy(xpath = "//h1[@class='page-heading  product-listing']")
     WebElement currentPageName;
 
     public SearchPage(WebDriver driver){
@@ -28,7 +28,8 @@ public class SearchPage extends BasePage{
     }
 
     public Boolean beOnSearchPage(){
-        return currentPageName.getText().contains("Search");
+        System.out.println(currentPageName.getText());
+        return currentPageName.getText().toLowerCase().contains("search");
     }
 
 }

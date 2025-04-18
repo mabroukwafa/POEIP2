@@ -5,7 +5,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import pages.BasePage;
 import pages.SearchPage;
 
 public class SearchPageSteps {
