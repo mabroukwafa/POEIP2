@@ -43,7 +43,7 @@ public class BasePage {
     @FindBy(xpath = "//button[contains(@class, 'button-search')]")
     private WebElement loupeSearch;
 
-    @FindBy(xpath = "//a[b='Cart']")
+    @FindBy(xpath = "//a[@title=\"View my shopping cart\"]/b[text()=\"Cart\"]\n")
     private WebElement accessCart;
 
     @FindBy(xpath = "//div[@id = 'block_top_menu']/ul/li[1]/a")
