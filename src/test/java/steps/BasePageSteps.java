@@ -3,34 +3,45 @@ package steps;
 import hooks.Setup;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
-import pages.BlogPage;
 import pages.LoginPage;
 import pages.MyAccountPage;
 import utils.ConfigReader;
 
+/*
+* Cette classe contient les étapes de définition de BasePage.
+ */
 public class BasePageSteps {
 
+    /*
+    * Initialisation du WebDriver via la classe Setup (hooks Cucumber)
+     */
     WebDriver webDriver = Setup.driver;
+
+    /*
+    * Instances des Pages Objects nécessaires
+     */
     BasePage basePage = new BasePage(webDriver);
     LoginPage loginPage = new LoginPage(webDriver);
     MyAccountPage myAccountPage=new MyAccountPage(webDriver);
 
+    /*
+    * Implémentation de l'étape "I am on the Home page".
+     */
     @When("I click on the Blog tab")
     public void IClickOnTheBlogTab() {
         basePage.clickOnBlogTab();
 
-        //fetch handles of all windows, there will be two, [0]- default, [1] - new window
+        // Changement de fenêtre
         Object[] windowHandles = webDriver.getWindowHandles().toArray();
         webDriver.switchTo().window((String) windowHandles[1]);
 
     }
 
-
+    // Implémentation de l'étape "I click on Sign in"
     @When("I click on Sign in")
     public void iClickOnSignIn() {
         basePage.clickOnSignIn();
