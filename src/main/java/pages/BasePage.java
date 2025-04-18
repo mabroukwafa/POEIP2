@@ -58,6 +58,7 @@ public class BasePage {
     public void clickOnLogo(){
         logo.click();
     }
+    public String getLogoText(){return logo.getText();}
 
     public  void clickOnSignIn(){
         signIn.click();

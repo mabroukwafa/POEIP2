@@ -11,8 +11,6 @@ import org.junit.runner.RunWith;
         monochrome = true,
         plugin = {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber.json"}
 
-        ,tags = "@POEI25P2G4-23"
-
 )
 
 public class Runner {
