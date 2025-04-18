@@ -31,5 +31,11 @@ public class HomePageSteps {
 
     }
 
+    @When("I click on an advertisement")
+    public void iClickOnAnAdvertisement() {
+        homePage.clickOnAdvertisement();
+    }
+
+
 
 }
