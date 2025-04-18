@@ -65,7 +65,7 @@ public class BasePage {
     @FindBy(xpath = "//a[@title='Contact us']")
     private WebElement contactUs;
 
-    @FindBy(xpath = "//div[@class='ac_results']/ul/il")
+    @FindBy(xpath = "//div[@class='ac_results']/ul/li")
     List<WebElement> suggestionsList;
 
 
@@ -112,7 +112,7 @@ public class BasePage {
      */
     public void chooseSuggestion(String suggestion){
         for (WebElement suggestionElement:suggestionsList){
-            if (suggestion.equals(suggestionElement.getText())) suggestionElement.click();
+            if (suggestionElement.getText().contains(suggestion)) suggestionElement.click();
 
         }
     }
