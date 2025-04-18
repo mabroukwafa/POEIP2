@@ -15,7 +15,7 @@ public class BasePageSteps {
     BasePage basePage = new BasePage(webDriver);
 
 
-    @When("I click on the \"BLOG\" tab")
+    @When("I click on the Blog tab")
     public void IClickOnTheBlogTab() {
         basePage.clickOnBlogTab();
 
@@ -43,23 +43,20 @@ public class BasePageSteps {
         basePage.clickOnLogo();
     }
 
-    @And("the search bar is visible")
-    public void theSearchBarIsVisible() {
-        Assert.assertTrue(basePage.isFieldSearchVisible());
+    @When("I click on the {string} tab")
+    public void iClickOnTheTab(String arg0) {
+        switch (arg0){
+            case "Women":
+                basePage.clickOnFiltreWomen();
+                break;
+            case "Dresses":
+                basePage.clickOnFiltreDresses();
+                break;
+            case "T-Shirts":
+                basePage.clickOnFiltreTShirts();
+                break;
+        }
     }
 
-    @When("I type {string} in the search bar")
-    public void iTypeInTheSearchBar(String item) {
-        basePage.insertInFieldSearch(item);
-    }
 
-    @And("I select the suggestion {string}")
-    public void iSelectTheSuggestion(String suggestion) {
-        basePage.chooseSuggestion(suggestion);
-    }
-
-    @And("I click on the search icon")
-    public void iClickOnTheSearchIcon() {
-        basePage.clickOnLoupeSearch();
-    }
 }
