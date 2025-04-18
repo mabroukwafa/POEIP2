@@ -32,13 +32,13 @@ public class BasePage {
     @FindBy(xpath = "//a[b='Cart']")
     private WebElement accessCart;
 
-    @FindBy(xpath = "//a[@title='Women']")
+    @FindBy(xpath = "//div[@id = 'block_top_menu']/ul/li[1]/a")
     private WebElement filtreWomen;
 
-    @FindBy(xpath = "//a[@title='Dresses']")
+    @FindBy(xpath = "//div[@id = 'block_top_menu']/ul/li[2]/a")
     private WebElement filtreDresses;
 
-    @FindBy(xpath = "//a[@title='T-shirts']")
+    @FindBy(xpath = "//div[@id = 'block_top_menu']/ul/li[3]/a")
     private WebElement filtreTShirts;
 
 

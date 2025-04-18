@@ -15,7 +15,7 @@ public class BasePageSteps {
     BasePage basePage = new BasePage(webDriver);
 
 
-    @When("I click on the \"BLOG\" tab")
+    @When("I click on the Blog tab")
     public void IClickOnTheBlogTab() {
         basePage.clickOnBlogTab();
 
@@ -42,4 +42,21 @@ public class BasePageSteps {
     public void iClickOnTheLogo() {
         basePage.clickOnLogo();
     }
+
+    @When("I click on the {string} tab")
+    public void iClickOnTheTab(String arg0) {
+        switch (arg0){
+            case "Women":
+                basePage.clickOnFiltreWomen();
+                break;
+            case "Dresses":
+                basePage.clickOnFiltreDresses();
+                break;
+            case "T-Shirts":
+                basePage.clickOnFiltreTShirts();
+                break;
+        }
+    }
+
+
 }
