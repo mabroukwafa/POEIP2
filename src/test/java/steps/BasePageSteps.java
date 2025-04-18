@@ -42,4 +42,24 @@ public class BasePageSteps {
     public void iClickOnTheLogo() {
         basePage.clickOnLogo();
     }
+
+    @And("the search bar is visible")
+    public void theSearchBarIsVisible() {
+        Assert.assertTrue(basePage.isFieldSearchVisible());
+    }
+
+    @When("I type {string} in the search bar")
+    public void iTypeInTheSearchBar(String item) {
+        basePage.insertInFieldSearch(item);
+    }
+
+    @And("I select the suggestion {string}")
+    public void iSelectTheSuggestion(String suggestion) {
+        basePage.chooseSuggestion(suggestion);
+    }
+
+    @And("I click on the search icon")
+    public void iClickOnTheSearchIcon() {
+        basePage.clickOnLoupeSearch();
+    }
 }
