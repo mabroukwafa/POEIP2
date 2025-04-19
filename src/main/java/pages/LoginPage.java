@@ -45,7 +45,7 @@ public class LoginPage extends BasePage{
     WebElement buttonCreateAccount ;
 
 
-    @FindBy(xpath = "//div[@id= 'create_account_error']")
+    @FindBy(xpath = "//div[@class= 'alert alert-danger']/ol/li")
     WebElement errorMessage ;
 
     @FindBy(xpath = "//a[@href='http://www.automationpractice.pl/index.php?controller=password']")
