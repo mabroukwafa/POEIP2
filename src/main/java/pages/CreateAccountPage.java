@@ -24,6 +24,12 @@ public class CreateAccountPage extends BasePage {
     @FindBy(xpath = "//input[@id = 'email']")
     WebElement emailCreateField;
 
+    @FindBy(xpath ="(//input[@id='email']/..)[contains(@class,'error')]")
+    WebElement formErrorOnEmailField;
+
+    @FindBy(xpath ="(//input[@id='email']/..)[contains(@class,'ok')]")
+    WebElement formCheckOnEmailField;
+
     @FindBy(xpath = "//button[@name = 'SubmitCreate']")
     WebElement buttonCreateAccount ;
 
@@ -54,9 +60,11 @@ public class CreateAccountPage extends BasePage {
     @FindBy(id = "newsletter")
     public WebElement newsletterCheckbox;
 
-
     @FindBy(id = "submitAccount")
     public WebElement registerButton;
+
+    @FindBy(xpath = "//h1[@class = 'page-heading' and contains(text(),'C')]")
+    WebElement pageTitle;
 
 
     /**
@@ -68,7 +76,7 @@ public class CreateAccountPage extends BasePage {
     public void enterEmailToCreateAccount(String email) {
         emailCreateField.clear();
         emailCreateField.sendKeys(email);
-        buttonCreateAccount.click();
+        enterPassword.click();
     }
 
     /**
@@ -87,7 +95,7 @@ public class CreateAccountPage extends BasePage {
 
     /**
      * Méthode pour sélectionner le genre.
-     * @param gender Le genre à sélectionné ("Mr" ou "Mrs").
+     * @param gender Le genre à sélectionner ("Mr" ou "Mrs").
      */
     public void selectGender(String gender) {
         if (gender.equalsIgnoreCase("Mr")) {
@@ -118,7 +126,6 @@ public class CreateAccountPage extends BasePage {
         dayDropdown.sendKeys(days);
         monthDropdown.sendKeys(months);
         yearDropdown.sendKeys(years);
-
     }
 
     /**
@@ -135,6 +142,10 @@ public class CreateAccountPage extends BasePage {
 
     }
 
+    public String getPageTitle(){
+        return pageTitle.getText();
+    }
+
 
 //    public void subscribeToNewsletter() {
 //        WebElement newsletterCheckbox = driver.findElement(By.id("newsletter"));
@@ -148,6 +159,14 @@ public class CreateAccountPage extends BasePage {
      */
     public void clickRegisterButton() {
         registerButton.click();
+    }
+
+    public Boolean isEmailErrorVisible(){
+        return formErrorOnEmailField.isDisplayed();
+    }
+
+    public Boolean isEmailCheckVisible(){
+        return formCheckOnEmailField.isDisplayed();
     }
 
 }

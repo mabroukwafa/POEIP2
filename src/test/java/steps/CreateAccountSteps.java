@@ -1,11 +1,11 @@
 package steps;
 
 import hooks.Setup;
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import pages.CreateAccountPage;
@@ -46,8 +46,7 @@ public class CreateAccountSteps {
      */
     @When("I enter {string} in the Email address field from the Create an account page")
     public void iEnterInTheEmailAddressField(String email) {
-        loginPage.sendEmailCreate(email);
-        loginPage.clickCreateAccountButton();
+        createAccountPage.enterEmailToCreateAccount(email);
     }
 
     /**
@@ -58,21 +57,14 @@ public class CreateAccountSteps {
     @Then("no error message appears")
     public void no_error_message_appears() {
         try {
-            String error = loginPage.errorMessage();
+            String error = loginPage.getLoginErrorMessage();
             assertTrue("Un message d'erreur est affiché : " + error, error.trim().isEmpty());
         } catch (NoSuchElementException e) {
 
         }
     }
 
-    /**
-     * Implémentation de l'étape "I click on Create an account".
-     * Cette méthode clique sur le bouton de création de compte.
-     */
-    @Then("I click on Create an account")
-    public void iClickOnCreateAnAccount() {
-        createAccountPage.clickRegisterButton();
-    }
+
 
     /**
      * Implémentation de l'étape "an Invalid email address message appears".
@@ -81,7 +73,7 @@ public class CreateAccountSteps {
     // TODO: Assert ?
     @Then("an Invalid email address message appears")
     public void anInvalidEmailAddressMessageAppears() {
-        loginPage.errorMessage();
+        loginPage.getLoginErrorMessage();
     }
 
 
@@ -194,4 +186,18 @@ public class CreateAccountSteps {
         System.out.println("Using password: " + password);
     }
 
+    @Then("I am redirected to the Create an account page")
+    public void iAmRedirectedToTheCreateAnAccountPage() {
+        Assert.assertTrue(createAccountPage.getPageTitle().toLowerCase().contains("create an account"));
+    }
+
+    @Then("the email field is flagged as incorrect")
+    public void theEmailFieldIsFlaggedAsIncorrect() {
+        Assert.assertTrue(createAccountPage.isEmailErrorVisible());
+    }
+
+    @Then("the email field is flagged as correct")
+    public void theEmailFieldIsFlaggedAsCorrect() {
+        Assert.assertTrue(createAccountPage.isEmailCheckVisible());
+    }
 }

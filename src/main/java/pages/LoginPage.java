@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * Page Object Model (POM) pour la page de connexion.
@@ -46,7 +45,10 @@ public class LoginPage extends BasePage{
 
 
     @FindBy(xpath = "//div[@class= 'alert alert-danger']/ol/li")
-    WebElement errorMessage ;
+    WebElement loginErrorMessage ;
+
+    @FindBy(xpath = "//div[@id= 'create_account_error']")
+    WebElement createAccounterrorMessage ;
 
     @FindBy(xpath = "//a[@href='http://www.automationpractice.pl/index.php?controller=password']")
     WebElement ForgotPassword ;
@@ -97,8 +99,8 @@ public class LoginPage extends BasePage{
      * Récupère le message d'erreur affiché.
      * @return Le message d'erreur
      */
-    public String errorMessage(){
-         return errorMessage.getText();
+    public String getLoginErrorMessage(){
+         return loginErrorMessage.getText();
     }
 
     /**
