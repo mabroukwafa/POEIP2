@@ -10,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
  * Elle hérite de la classe {@link BasePage}.
  */
 public class CreateAccountPage extends BasePage {
-    WebDriver driver;
 
     public CreateAccountPage(WebDriver driver) {
         super(driver);
@@ -56,21 +55,36 @@ public class CreateAccountPage extends BasePage {
     public WebElement registerButton;
 
 
-    // Méthode pour entrer l'email et soumettre la création du compte
+    /**
+     * Méthode pour entrer l'email pour créer un compte.
+     * Cette méthode remplit le champ d'email et clique sur le bouton de création de compte.
+     * Après avoir nettoyé le champ d'email.
+     * @param email L'email à entrer dans le champ de création de compte.
+     */
     public void enterEmailToCreateAccount(String email) {
         emailCreateField.clear();
         emailCreateField.sendKeys(email);
         buttonCreateAccount.click();
     }
+
+    /**
+     * Méthode pour cliquer sur le bouton "Create an account".
+     */
     public void clickCreateAccountButton() {
         buttonCreateAccount.click(); // Cette ligne clique sur le bouton "Create an account"
     }
 
+    /**
+     * Méthode pour cliquer sur le bouton "Register".
+     */
     public void clickRegister() {
         registerButton.click();
     }
 
-    // Méthode pour sélectionner le genre
+    /**
+     * Méthode pour sélectionner le genre.
+     * @param gender Le genre à sélectionné ("Mr" ou "Mrs").
+     */
     public void selectGender(String gender) {
         if (gender.equalsIgnoreCase("Mr")) {
             genderMrRadio.click();
@@ -79,7 +93,17 @@ public class CreateAccountPage extends BasePage {
         }
     }
 
-    // Méthode pour remplir les informations de base pour la création du compte
+    /**
+     * Méthode pour remplir les détails de base du compte de l'utilisateur.
+     * @param firstName prénom de l'utilisateur
+     * @param lastName nom de l'utilisateur
+     * @param password mot de passe de l'utilisateur
+     * @param newsletter abonnement à la newsletter
+     * @param gender genre de l'utilisateur
+     * @param days jour de naissance de l'utilisateur
+     * @param months mois de naissance de l'utilisateur
+     * @param years année de naissance de l'utilisateur
+     */
     public void fillBasicAccountDetails(String firstName, String lastName, String password,
                                         String newsletter, String gender, String days, String months, String years) {
         firstNameInput.sendKeys(firstName);
@@ -91,9 +115,14 @@ public class CreateAccountPage extends BasePage {
         monthDropdown.sendKeys(months);
         yearDropdown.sendKeys(years);
 
-
-
     }
+
+    /**
+     * Méthode pour remplir les champs obligatoires du compte de l'utilisateur.
+     * @param firstName prénom de l'utilisateur
+     * @param lastName nom de l'utilisateur
+     * @param password mot de passe de l'utilisateur
+     */
     public void fillrequired(String firstName, String lastName, String password) {
         firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
@@ -110,7 +139,9 @@ public class CreateAccountPage extends BasePage {
 //        }
 //    }
 
-    // Méthode pour soumettre la création du compte
+    /*
+     * Méthode pour cliquer sur le bouton "Register".
+     */
     public void clickRegisterButton() {
         registerButton.click();
     }

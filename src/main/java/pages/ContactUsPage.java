@@ -18,8 +18,7 @@ public class ContactUsPage extends BasePage{
     WebElement contactUsTitle;
 
     /**
-     * Constructeur de la classe BasePage que la classe ContactUsPage hérite.
-     * *
+     * Constructeur de la classe {@link ContactUsPage} que la classe ContactUsPage hérite.
      * @param webDriver Le WebDriver utilisé pour interagir avec le navigateur
      */
     public ContactUsPage(WebDriver webDriver){

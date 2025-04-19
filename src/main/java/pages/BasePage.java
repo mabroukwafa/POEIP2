@@ -14,7 +14,7 @@ import java.util.List;
 public class BasePage {
 
     /**
-     * Le constructeur de la classe BasePage.
+     * Constructeur de la classe {@link BasePage} .
      * @param webDriver instance de WebDriver pour interagir avec le navigateur
      */
     public BasePage(WebDriver webDriver){

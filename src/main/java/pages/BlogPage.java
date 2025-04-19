@@ -22,7 +22,7 @@ public class BlogPage {
     private WebElement blogTitle;
 
     /**
-     * Constructeur de la classe BlogPage.
+     * Constructeur de la classe {@link BlogPage}.
      * @param driver instance de WebDriver pour interagir avec le navigateur
      */
     public BlogPage(WebDriver driver) {
