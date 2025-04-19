@@ -8,11 +8,12 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
+import pages.BlogPage;
 import pages.HomePage;
 import utils.ConfigReader;
 
 /**
- * Classe implémentant les étapes Cucumber relatives à la page d'accueil.
+ * Classe implémentant les étapes Cucumber relatives à la page {@link HomePage}.
  * Contient les définitions des steps pour les scénarios de test impliquant la HomePage.
  */
 public class HomePageSteps {

@@ -13,10 +13,7 @@ import pages.LoginPage;
 import pages.MyAccountPage;
 
 /***
- * This class contains step definitions for the Password Reset page.
- * It includes methods to interact with the Password Reset page elements
- * and verify the expected outcomes.
- * @author Wafa
+ * Cette classe contient les étapes de définition de {@link PasswordResetPage}.
  */
 public class PasswordResetPageSteps {
     WebDriver driver = Setup.driver;

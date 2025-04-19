@@ -7,6 +7,9 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.SearchPage;
 
+/**
+ * Cette classe contient les étapes de test pour la page {@link SearchPage}
+ */
 public class SearchPageSteps {
     WebDriver driver = Setup.driver;
     SearchPage searchPage = new SearchPage(driver);

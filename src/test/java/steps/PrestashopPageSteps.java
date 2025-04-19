@@ -9,17 +9,14 @@ import pages.BasePage;
 import pages.PrestashopPage;
 
 /**
- * Classe contenant les étapes (steps) Cucumber pour les tests relatifs à la page PrestaShop.
- * Cette classe implémente les définitions des étapes Gherkin pour les scénarios de test.
+ * Cette classe contient les étapes de test pour la page {@link PrestashopPage}
  */
 public class PrestashopPageSteps {
 
-    // Initialisation du WebDriver à partir de la configuration de l'environnement
-    // (récupéré via la classe Setup contenant les hooks Cucumber)
+    // Une instance de WebDriver de la classe Setup
     WebDriver driver = Setup.driver;
 
     // Création d'une instance de la page PrestaShop
-    // Permet d'interagir avec les éléments de la page via le Page Object Model
     PrestashopPage prestashopPage = new PrestashopPage(driver);
 
     /**

@@ -7,8 +7,7 @@ import org.openqa.selenium.WebDriver;
 import pages.TShirtsPage;
 
 /**
- * Classe implémentant les étapes Cucumber relatives à la page "T-Shirts".
- * Contient les définitions des steps pour les scénarios de test impliquant la page des produits T-Shirts.
+ * Cette classe contient les étapes de test pour la page {@link TShirtsPage}
  */
 public class TShirtsPageSteps {
 
