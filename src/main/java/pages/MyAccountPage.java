@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 */
 public class MyAccountPage extends BasePage{
 
-    /*
+    /**
     * Constructeur de la classe {@link BasePage} que la classe MyAccountPage hérite.
     * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
      */

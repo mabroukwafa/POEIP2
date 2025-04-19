@@ -36,7 +36,7 @@ public class PasswordResetPage extends BasePage{
     @FindBy(xpath = "//p[contains(@class, 'alert-success') and contains(text(), 'Your password has been successfully reset')]")
     WebElement confirmationMessageAfterReset;
 
-    /*
+    /**
      * Méthode pour récupérer le titre de la page de réinitialisation de mot de passe.
      * @return Le texte du titre de la page
      */
