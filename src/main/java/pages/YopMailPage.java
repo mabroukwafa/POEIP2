@@ -71,7 +71,6 @@ public class YopMailPage extends BasePage {
     public void clickPasswordResetLink(){
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10),Duration.ofSeconds(1));
         wait.until(Utils.frameToBeAvailableAndSwitchToIt(iframeMail));
-        System.out.println(passwordResetLink.getText());
         passwordResetLink.click();
     }
 
