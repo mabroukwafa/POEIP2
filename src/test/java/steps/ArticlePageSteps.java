@@ -20,6 +20,8 @@ public class ArticlePageSteps {
      * correspondant au nom de l'article donné.
      *
      * @param articleName Le nom de l'article attendu.
+     * @throws AssertionError si le nom de l'article affiché
+     *  ne correspond pas au nom de l'article attendu.
      */
     @Then("I am redirected to the article page related to {string}")
     public void assertOnRightArticle(String articleName) {
