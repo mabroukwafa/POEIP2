@@ -4,10 +4,11 @@ import hooks.Setup;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import pages.ArticlePage;
 import pages.BlogPage;
 
-/*
- * Cette classe contient les étapes de test pour la page du blog.
+/**
+ * Cette classe contient les étapes de test pour la page {@link BlogPage}.
  */
 public class BlogPageSteps {
     // Une instance de WebDriver de la classe Setup

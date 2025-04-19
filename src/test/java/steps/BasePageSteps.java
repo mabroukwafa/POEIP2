@@ -7,12 +7,13 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
+import pages.BlogPage;
 import pages.LoginPage;
 import pages.MyAccountPage;
 import utils.ConfigReader;
 
-/*
-* Cette classe contient les étapes de définition de BasePage.
+/**
+ * Cette classe contient les étapes de définition de {@link BasePage}.
  */
 public class BasePageSteps {
 

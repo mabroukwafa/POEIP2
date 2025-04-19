@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import pages.ArticlePage;
 
 /**
- * Cette classe contient les étapes de test pour la page d'article.
+ * Cette classe contient les étapes de test pour la page {@link ArticlePage}.
  */
 public class ArticlePageSteps {
 
