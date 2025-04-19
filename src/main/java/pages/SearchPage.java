@@ -6,6 +6,10 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+/**
+ * Page Object Model (POM) pour la page de recherche.
+ * Elle hérite de la classe {@link BasePage}.
+ */
 public class SearchPage extends BasePage{
 
 

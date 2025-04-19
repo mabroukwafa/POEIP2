@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * Page Object Model (POM) for the Blog page.
+ * Page Object Model (POM) pour la page Blog.
  * Contient les éléments et les interactions possibles sur la page Blog.
  */
 public class BlogPage {

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 /**
  * Page Object Model (POM) pour la page Dresses.
- * Représente les éléments et interactions possibles sur la page des robes.
+ * Elle hérite de la classe {@link BasePage}.
  */
 public class DressesPage extends BasePage{
 

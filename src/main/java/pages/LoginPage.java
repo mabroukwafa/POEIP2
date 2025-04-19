@@ -6,9 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * Page Object Model (POM) for the Login page.
- * Contient les éléments et les interactions possibles sur la page de connexion.
- * Elle hérite de la classe BasePage.
+ * Page Object Model (POM) pour la page de connexion.
+    * Elle hérite de la classe {@link BasePage}.
  */
 public class LoginPage extends BasePage{
 

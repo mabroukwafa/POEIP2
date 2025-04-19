@@ -6,9 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * Cette classe représente la page "Contact Us" du site de PrestaShop.
- * Elle hérite de la classe de base BasePage.
- * Elle contient des éléments et méthodes spécifiques à cette page.
+ * Page Object Model (POM) pour la page "Contact Us".
+ * Elle hérite de la classe {@link BasePage}.
  */
 public class ContactUsPage extends BasePage{
     /**

@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/*
+/**
  * Page Object Model (POM) pour la page Mon Compte.
- * Cette classe représente les éléments et les interactions possibles sur la page MyAccount.
- */
+ * Elle hérite de la classe {@link BasePage}.
+*/
 public class MyAccountPage extends BasePage{
 
     /*

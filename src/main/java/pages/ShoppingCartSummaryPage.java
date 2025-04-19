@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/*
+/**
  * Page Object Model (POM) pour la page de résumé du panier d'achat.
- * Cette classe représente les éléments et les interactions possibles sur la page ShoppingCartSummary.
+ * Elle hérite de la classe {@link BasePage}.
  */
 public class ShoppingCartSummaryPage extends BasePage {
 

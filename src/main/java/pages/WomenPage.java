@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 /**
  * Page Object Model (POM) pour la page Women.
- * Cette classe représente les éléments et interactions possibles sur la page des produits Women.
+ * Elle hérite de la classe {@link BasePage}.
  */
 public class WomenPage extends BasePage{
 

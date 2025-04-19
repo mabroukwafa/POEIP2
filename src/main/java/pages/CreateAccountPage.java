@@ -5,7 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+/**
+ * Page Object Model (POM) pour la page de création de compte.
+ * Elle hérite de la classe {@link BasePage}.
+ */
 public class CreateAccountPage extends BasePage {
     WebDriver driver;
 

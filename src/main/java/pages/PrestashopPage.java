@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 /**
  * Page Object Model (POM) pour la page Prestashop.
- * Cette classe représente les éléments et les interactions possibles sur la page Prestashop.
  */
 public class PrestashopPage {
 

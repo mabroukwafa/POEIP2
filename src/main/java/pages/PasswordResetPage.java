@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 /**
  * Page Object Model (POM) pour la page de réinitialisation de mot de passe.
+ * Cette classe hérite de la classe {@link BasePage}.
  */
 public class PasswordResetPage extends BasePage{
 

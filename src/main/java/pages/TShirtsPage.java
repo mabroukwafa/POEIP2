@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 /**
  * Page Object Model (POM) pour la page T-Shirts.
- * Cette classe représente les éléments et interactions possibles sur la page des produits T-Shirts.
+ * Elle hérite de la classe {@link BasePage}.
  */
 public class TShirtsPage extends BasePage{
 
