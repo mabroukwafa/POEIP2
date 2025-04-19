@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 public class PasswordResetPage extends BasePage{
 
     /**
-     * Constructeur de la classe BasePage que la classe PasswordResetPage hérite.
+     * Constructeur de la classe {@link BasePage} que la classe PasswordResetPage hérite.
      * @param driver Instance WebDriver pour interagir avec le navigateur
      */
     public PasswordResetPage(WebDriver driver){

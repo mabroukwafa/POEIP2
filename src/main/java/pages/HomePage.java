@@ -16,9 +16,7 @@ public class HomePage extends BasePage {
     private WebElement advertisement;
 
     /**
-     * Constructeur de la classe HomePage.
-     * Initialise les éléments de la page avec PageFactory.
-     *
+     * Constructeur de la classe {@link BasePage} que la classe HomePage hérite.
      * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
     public HomePage(WebDriver driver) {

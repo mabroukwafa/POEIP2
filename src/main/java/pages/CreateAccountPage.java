@@ -11,12 +11,16 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class CreateAccountPage extends BasePage {
 
+    /**
+     * Constructeur de la classe {@link BasePage} que la classe CreateAccountPage hérite.
+     * @param driver le WebDriver utilisé pour interagir avec le navigateur
+     */
     public CreateAccountPage(WebDriver driver) {
         super(driver);
     }
 
 
-    // ----- Account creation form (visible after email is submitted) -----
+    //Xpath
     @FindBy(xpath = "//input[@id = 'email']")
     WebElement emailCreateField;
 

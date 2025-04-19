@@ -10,8 +10,8 @@ import org.openqa.selenium.support.FindBy;
  */
 public class ShoppingCartSummaryPage extends BasePage {
 
-    /*
-     * Constructeur de la classe BasePage que la classe ShoppingCartSummaryPage hérite.
+    /**
+     * Constructeur de la classe {@link BasePage} que la classe ShoppingCartSummaryPage hérite.
      * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
     public ShoppingCartSummaryPage(WebDriver driver){

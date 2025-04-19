@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage extends BasePage{
 
     /**
-     * Constructeur de la classe BasePage que la classe LoginPage hérite.
+     * Constructeur de la classe {@link BasePage} que la classe LoginPage hérite.
      * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
     public LoginPage(WebDriver driver){

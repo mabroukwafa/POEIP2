@@ -19,7 +19,7 @@ public class DressesPage extends BasePage{
     private WebElement dressesTitle;
 
     /**
-     * Constructeur de la classe BasePage que la classe DressesPage hérite.
+     * Constructeur de la classe {@link BasePage} que la classe DressesPage hérite.
      * @param webDriver Instance WebDriver pour interagir avec le navigateur
      */
     public DressesPage(WebDriver webDriver) {
