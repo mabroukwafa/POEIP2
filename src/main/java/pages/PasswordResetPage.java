@@ -27,11 +27,14 @@ public class PasswordResetPage extends BasePage{
     @FindBy(xpath = "//input[@id='email' and @name='email']")
     WebElement emailField;
 
-    @FindBy(xpath = "//button[@type='submit']//span[contains(text(), 'Retrieve Password')]\n")
+    @FindBy(xpath = "//button[@type='submit']//span[contains(text(), 'Retrieve Password')]")
     WebElement buttonRetrievePassword;
 
-    @FindBy(xpath = "//p[contains(@class, 'alert-success') and contains(text(), 'confirmation email has been sent')]\n")
-    WebElement ConfirmationMessage;
+    @FindBy(xpath = "//p[contains(@class, 'alert-success') and contains(text(), 'confirmation email has been sent')]")
+    WebElement confirmationMessageBeforeReset;
+
+    @FindBy(xpath = "//p[contains(@class, 'alert-success') and contains(text(), 'Your password has been successfully reset')]")
+    WebElement confirmationMessageAfterReset;
 
     /*
      * Méthode pour récupérer le titre de la page de réinitialisation de mot de passe.
@@ -44,8 +47,8 @@ public class PasswordResetPage extends BasePage{
     /*
     * Méthode pour récupérer le message de confirmation.
      */
-    public String getConfirmationMessage(){
-        return ConfirmationMessage.getText();
+    public String getConfirmationMessageBeforeReset(){
+        return confirmationMessageBeforeReset.getText();
     }
 
     /*
@@ -61,6 +64,15 @@ public class PasswordResetPage extends BasePage{
     public void clickButton(){
             buttonRetrievePassword.click();
     }
+
+    public Boolean isConfirmationMessageBeforeResetVisible(){
+        return confirmationMessageBeforeReset.isDisplayed();
+    }
+
+    public Boolean isConfirmationMessageAfterResetVisible(){
+        return confirmationMessageAfterReset.isDisplayed();
+    }
+
 
 
 }

@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class BasePage {
 
+
+    WebDriver  webDriver;
     /**
      * Constructeur de la classe {@link BasePage} .
      * @param webDriver instance de WebDriver pour interagir avec le navigateur
@@ -22,7 +24,6 @@ public class BasePage {
         PageFactory.initElements(webDriver,this);
     }
 
-    WebDriver  webDriver;
 
     /**
      * Localisateur XPath pour le logo de la page d'accueil.
