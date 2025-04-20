@@ -65,10 +65,18 @@ public class PasswordResetPage extends BasePage{
             buttonRetrievePassword.click();
     }
 
+    /**
+     * Méthode pour vérifier si le message de confirmation avant la réinitialisation est visible.
+     * @return true si le message est visible, sinon false
+     */
     public Boolean isConfirmationMessageBeforeResetVisible(){
         return confirmationMessageBeforeReset.isDisplayed();
     }
 
+    /**
+     * Méthode pour vérifier si le message de confirmation après la réinitialisation est visible.
+     * @return true si le message est visible, sinon false
+     */
     public Boolean isConfirmationMessageAfterResetVisible(){
         return confirmationMessageAfterReset.isDisplayed();
     }

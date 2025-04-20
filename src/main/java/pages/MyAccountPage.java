@@ -46,15 +46,30 @@ public class MyAccountPage extends BasePage{
         return title.getText();
     }
 
+    /**
+     * Méthode pour cliquer sur le bouton "My addresses".
+     */
     public void clickMyAddressButton(){
         myAddressButton.click();
     }
+
+    /**
+     * Méthode pour cliquer sur le bouton "Home".
+     */
     public void clickHomeButton(){
         homeButton.click();
     }
+
+    /**
+     * Méthode pour cliquer sur le bouton "Orders".
+     */
     public void clickOrderButton(){
         ordersButton.click();
     }
+
+    /**
+     * Méthode pour cliquer sur le bouton "Information".
+     */
     public void clickPersonalInformationButton(){
         personalInformationButton.click();
     }
