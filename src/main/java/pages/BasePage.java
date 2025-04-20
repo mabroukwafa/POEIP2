@@ -10,13 +10,13 @@ import java.util.List;
 
 
 public class BasePage {
-
+    WebDriver  webDriver;
     public BasePage(WebDriver webDriver){
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver,this);
     }
 
-    WebDriver  webDriver;
+
     @FindBy(xpath = "//img[@class='logo img-responsive']")
     private WebElement logo;
 

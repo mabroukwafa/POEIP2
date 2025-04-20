@@ -37,5 +37,20 @@ public class MyAccountPageSteps {
         basePage.clickOnSignOut();
     }
 
+    @When("I click on <My Addresses>")
+    public void iClickOnAddAddress() {
+        myAccountPage.clickMyAddressButton();
+    }
 
+
+    @When("I click on <Home> button")
+    public void iClickOnHomeButton() {
+        myAccountPage.clickHomeButton();
+
+    }
+
+    @When("I click on the <Personal information> button")
+    public void iClickOnThePersonalInformationButton() {
+        myAccountPage.clickPersonalInformationButton();
+    }
 }

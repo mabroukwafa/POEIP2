@@ -20,6 +20,8 @@ import utils.ConfigReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Setup {
@@ -33,11 +35,13 @@ public class Setup {
                 byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
                 scenario.attach(screenshot, "image/png", scenario.getName());
             }
-            driver.quit();
+           // driver.quit();
         }
 
         @Before
         public void setupDriverAndPages() throws MalformedURLException {
+
+
             String url = ConfigReader.getProperty("homePageUrl");
             boolean useGrid = Boolean.parseBoolean(ConfigReader.getProperty("useGrid"));
             int seconds = Integer.parseInt(ConfigReader.getProperty("timeout"));
@@ -67,7 +71,11 @@ public class Setup {
                     default:
                         ChromeOptions chromeOptions = new ChromeOptions();
                         if (headless) chromeOptions.addArguments("--headless");
-                        chromeOptions.addArguments("--maximize");
+                        chromeOptions.addArguments("--start-maximized");
+                        chromeOptions.addArguments("--disable-extensions");
+                        chromeOptions.addArguments("--disable-popup-blocking");
+                        chromeOptions.addArguments("--no-default-browser-check");
+
                         driver = new ChromeDriver(chromeOptions);
                         break;
                 }
