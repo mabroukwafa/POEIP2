@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import pages.BasePage;
 import pages.LoginPage;
 import pages.MyAccountPage;
+import pages.MyCreditSlipsPage;
 import utils.ConfigReader;
 
 public class MyAccountPageSteps {
@@ -17,6 +18,7 @@ public class MyAccountPageSteps {
     BasePage basePage = new BasePage(driver);
     LoginPage loginPage = new LoginPage(driver);
     MyAccountPage myAccountPage = new MyAccountPage(driver);
+    MyCreditSlipsPage myCreditSlipsPage = new MyCreditSlipsPage(driver);
 
     @Then("I should be redirected to <My Account> page")
     public void iShouldBeRedirectedToMyAccountPage() {
@@ -52,5 +54,20 @@ public class MyAccountPageSteps {
     @When("I click on the <Personal information> button")
     public void iClickOnThePersonalInformationButton() {
         myAccountPage.clickPersonalInformationButton();
+    }
+
+    @When("I click on the <Order history> option")
+    public void iClickOnTheOrderHistoryOption() {
+        myAccountPage.clickOrderButton();
+    }
+
+    @When("I click on the <My Credit Slips> option")
+    public void iClickOnTheMyCreditSlipsOption() {
+        myAccountPage.clickCreditsButton();
+    }
+
+    @When("I click on <Add my first Address>")
+    public void iClickOnAddMyFirstAddress() {
+        myAccountPage.clickAddNewAddressButton();
     }
 }

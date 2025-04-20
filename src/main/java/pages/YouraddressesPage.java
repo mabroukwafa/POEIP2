@@ -11,6 +11,9 @@ public class YouraddressesPage extends BasePage{
         super(webDriver);
         PageFactory.initElements(webDriver,this);
     }
+    @FindBy(xpath = "//h1[@class='page-heading']")
+    private WebElement pageTitle;
+
     @FindBy(xpath = "//input[@id='firstname']")
     private WebElement firstnameField;
 
@@ -112,6 +115,9 @@ public class YouraddressesPage extends BasePage{
     public void sendCountry(String country){
         Select select = new Select(countryField);
        select.selectByVisibleText(country);
+    }
+    public String pageTitle(){
+        return pageTitle.getText();
     }
 
 

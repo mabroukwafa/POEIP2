@@ -3,7 +3,9 @@ package steps;
 import hooks.Setup;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.*;
 
@@ -45,5 +47,10 @@ public class yourAddressesPageSteps {
         List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
         addressesPage.sendMobilephone(rows.get(0).get("phone"));
         addressesPage.sendAddress1(rows.get(0).get("address"));
+    }
+
+    @Then("I am redirected to the address entry page")
+    public void iAmRedirectedToTheAddressEntryPage() {
+        Assert.assertEquals(addressesPage.pageTitle(), "MY ADDRESSES");
     }
 }
