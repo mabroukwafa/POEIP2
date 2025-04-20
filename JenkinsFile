@@ -27,7 +27,7 @@ parameters {
   steps {
     script{
         def keys_array = params.KEYS.split(';')
-        bat 'del src\main\resources\config.properties'
+        bat 'del "src\main\resources\config.properties"'
         writeFile (file: 'src/main/resources/config.properties', text: "browser = ${params.BROWSER}\nhomePageUrl = ${params.URL}\nheadless = ${params.HEADLESS}\nuseGrid = ${params.USE_GRID}\ngridUrl = ${params.GRID_URL}\ntimeout = ${params.TIMEOUT}\nemailValid = ${params.EMAIL}\nmdpValid = ${params.PWD}")
         bat 'curl -H "Content-Type: application/json" -X POST --data "{ \\"client_id\\": \\"%JIRA_ID_USR%\\",\\"client_secret\\": \\"%JIRA_ID_PSW%\\" }"  https://xray.cloud.getxray.app/api/v2/authenticate >token.txt'
         keys_array.each{
