@@ -11,6 +11,8 @@ parameters {
         string(name: 'TIMEOUT', defaultValue: '10', description: 'La duree maximale (en secondes) pour realiser une action')
         string(name: 'EMAIL', defaultValue: 'account.with.address@group4.com', description: 'L adresse mail utilisee pour se connecter a un compte valide')
         string(name: 'PWD', defaultValue: 'password', description: 'Le mot de passe utilise pour se connecter a un compte valide')
+        string(name: 'EMAIL_2', defaultValue: 'account.without.address@group4.com', description: 'L adresse mail utilisee pour se connecter a un compte sans adresse')
+        string(name: 'PWD_2', defaultValue: 'password', description: 'Le mot de passe utilise pour se connecter a un compte sans adresse')
     }
 
   environment {
@@ -28,7 +30,7 @@ parameters {
     script{
         def keys_array = params.KEYS.split(';')
         bat 'del "src\\main\\resources\\config.properties"'
-        writeFile (file: 'src/main/resources/config.properties', text: "browser = ${params.BROWSER}\nhomePageUrl = ${params.URL}\nheadless = ${params.HEADLESS}\nuseGrid = ${params.USE_GRID}\ngridUrl = ${params.GRID_URL}\ntimeout = ${params.TIMEOUT}\nemailValid = ${params.EMAIL}\nmdpValid = ${params.PWD}")
+        writeFile (file: 'src/main/resources/config.properties', text: "browser = ${params.BROWSER}\nhomePageUrl = ${params.URL}\nheadless = ${params.HEADLESS}\nuseGrid = ${params.USE_GRID}\ngridUrl = ${params.GRID_URL}\ntimeout = ${params.TIMEOUT}\nemailValid = ${params.EMAIL}\nmdpValid = ${params.PWD}\nemailValid2 = ${params.EMAIL_2}\nmdpValid2 = ${params.PWD_2}")
         bat 'curl -H "Content-Type: application/json" -X POST --data "{ \\"client_id\\": \\"%JIRA_ID_USR%\\",\\"client_secret\\": \\"%JIRA_ID_PSW%\\" }"  https://xray.cloud.getxray.app/api/v2/authenticate >token.txt'
         keys_array.each{
         writeFile (file: 'key.txt', text: it)
