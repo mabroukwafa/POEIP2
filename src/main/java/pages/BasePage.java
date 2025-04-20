@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class BasePage {
 
-
     WebDriver  webDriver;
     /**
      * Constructeur de la classe {@link BasePage} .
