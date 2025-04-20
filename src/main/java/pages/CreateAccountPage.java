@@ -109,13 +109,6 @@ public class CreateAccountPage extends BasePage {
     }
 
     /**
-     * Méthode pour cliquer sur le bouton "Create an account".
-     */
-    public void clickCreateAccountButton() {
-        buttonCreateAccount.click(); // Cette ligne clique sur le bouton "Create an account"
-    }
-
-    /**
      * Méthode pour cliquer sur le bouton "Register".
      */
     public void clickRegister() {
@@ -155,6 +148,7 @@ public class CreateAccountPage extends BasePage {
         dayDropdown.sendKeys(days);
         monthDropdown.sendKeys(months);
         yearDropdown.sendKeys(years);
+        selectGender(gender);
     }
 
     /**
@@ -178,15 +172,6 @@ public class CreateAccountPage extends BasePage {
     public String getPageTitle(){
         return pageTitle.getText();
     }
-
-
-//    public void subscribeToNewsletter() {
-//        WebElement newsletterCheckbox = driver.findElement(By.id("newsletter"));
-//        if (!newsletterCheckbox.isSelected()) {
-//            newsletterCheckbox.click();
-//        }
-//    }
-
     /*
      * Méthode pour cliquer sur le bouton "Register".
      */
