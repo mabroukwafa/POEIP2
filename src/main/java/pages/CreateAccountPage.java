@@ -91,6 +91,7 @@ public class CreateAccountPage extends BasePage {
         reinitElements();
         emailCreateField.clear();
         emailCreateField.sendKeys(email);
+        reinitElements();
         subtitle.click();
     }
 
@@ -98,6 +99,7 @@ public class CreateAccountPage extends BasePage {
         reinitElements();
         enterPassword.clear();
         enterPassword.sendKeys(password);
+        reinitElements();
         subtitle.click();
     }
 
