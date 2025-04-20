@@ -5,6 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
 /**
  * Page Object Model (POM) pour la page de création de compte.
  * Elle hérite de la classe {@link BasePage}.
@@ -48,6 +53,12 @@ public class CreateAccountPage extends BasePage {
     @FindBy(id = "passwd")
     public WebElement enterPassword;
 
+    @FindBy(xpath ="(//input[@id='passwd']/..)[contains(@class,'error')]")
+    WebElement formErrorOnPasswordField;
+
+    @FindBy(xpath ="(//input[@id='passwd']/..)[contains(@class,'ok')]")
+    WebElement formCheckOnPasswordField;
+
     @FindBy(id = "days")
     public WebElement dayDropdown;
 
@@ -66,6 +77,9 @@ public class CreateAccountPage extends BasePage {
     @FindBy(xpath = "//h1[@class = 'page-heading' and contains(text(),'C')]")
     WebElement pageTitle;
 
+    @FindBy(xpath = "//h3")
+    WebElement subtitle;
+
 
     /**
      * Méthode pour entrer l'email pour créer un compte.
@@ -74,9 +88,17 @@ public class CreateAccountPage extends BasePage {
      * @param email L'email à entrer dans le champ de création de compte.
      */
     public void enterEmailToCreateAccount(String email) {
+        reinitElements();
         emailCreateField.clear();
         emailCreateField.sendKeys(email);
-        enterPassword.click();
+        subtitle.click();
+    }
+
+    public void enterPasswordToCreateAccount(String password){
+        reinitElements();
+        enterPassword.clear();
+        enterPassword.sendKeys(password);
+        subtitle.click();
     }
 
     /**
@@ -167,6 +189,14 @@ public class CreateAccountPage extends BasePage {
 
     public Boolean isEmailCheckVisible(){
         return formCheckOnEmailField.isDisplayed();
+    }
+
+    public Boolean isPasswordErrorVisible(){
+        return formErrorOnPasswordField.isDisplayed();
+    }
+
+    public Boolean isPasswordCheckVisible(){
+        return formCheckOnPasswordField.isDisplayed();
     }
 
 }

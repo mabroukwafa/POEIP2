@@ -183,4 +183,7 @@ public class BasePage {
         contactUs.click();
     }
 
+    public void reinitElements(){
+        PageFactory.initElements(webDriver,this);
+    }
 }

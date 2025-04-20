@@ -88,15 +88,7 @@ public class CreateAccountSteps {
 
         String firstName = data.get("First Name");
         String lastName = data.get("Last Name");
-        String email = data.get("Email address");
         String password = data.get("Password");
-
-        // DEBUG
-        System.out.println("First Name: " + firstName);
-        System.out.println("Last Name: " + lastName);
-        System.out.println("Email address: " + email);
-        System.out.println("Password: " + password);
-
 
         createAccountPage.fillrequired(firstName, lastName, password);
     }
@@ -112,15 +104,6 @@ public class CreateAccountSteps {
     }
 
     /**
-     * Implémentation de l'étape "I am redirected to My account with the message Your account has been created".
-     * Cette méthode vérifie que l'utilisateur est redirigé vers la page de son compte avec le message de succès.
-     */
-    //TODO: step vide
-    @Then("I am redirected to My account with the message Your account has been created.")
-    public void iAmRedirectedToMyAccountWithTheMessageYourAccountHasBeenCreated() {
-    }
-
-    /**
      * Implémentation de l'étape "I fill in all fields with valid information".
      * Cette méthode remplit tous les champs du formulaire de création de compte avec des informations valides.
      * @param dataTable Les données à remplir dans le formulaire.
@@ -133,19 +116,12 @@ public class CreateAccountSteps {
             String gender = data.get("Gender");
             String firstName = data.get("First Name");
             String lastName = data.get("Last Name");
-            String email = data.get("Email address");
             String password = data.get("Password");
             String newsletter = data.get("Newsletter");
             String days = data.get("Days");
             String months = data.get("Months");
             String years = data.get("Years");
 
-            // DEBUG
-            System.out.println("First Name: " + firstName);
-            System.out.println("Last Name: " + lastName);
-            System.out.println("Email address: " + email);
-            System.out.println("Password: " + password);
-            System.out.println("Gender");
             createAccountPage.fillBasicAccountDetails(firstName, lastName, password,newsletter, gender, days, months, years);
     }
 
@@ -158,19 +134,7 @@ public class CreateAccountSteps {
     @When("I fill in the fields with a password shorter than {int} characters")
     public void iFillInTheFieldsWithAPasswordShorterThanCharacters(int length) {
         String shortPassword = "a".repeat(Math.max(0, length - 1));
-        // Remplir les champs avec ce mot de passe
-        System.out.println("Using password: " + shortPassword);
-    }
-
-    /*
-     * Implémentation de l'étape "an Password is invalid message appears".
-     * Cette méthode vérifie qu'un message d'erreur "Password is invalid" est affiché.
-     */
-    //TODO: step vide
-    @Then("an Password is invalid message appears")
-    public void anPasswordIsInvalidMessageAppears() {
-
-
+        createAccountPage.enterPasswordToCreateAccount(shortPassword);
     }
 
     /**
@@ -180,10 +144,8 @@ public class CreateAccountSteps {
     //TODO: entrer le mot de passe
     @When("I fill in the fields with a valid password")
     public void iFillInTheFieldsWithAValidPassword() {
-        // Ici tu peux générer un mot de passe valide
         String password = "mdp12!";
-        // Remplir les champs avec ce mot de passe
-        System.out.println("Using password: " + password);
+        createAccountPage.enterPasswordToCreateAccount(password);
     }
 
     @Then("I am redirected to the Create an account page")
@@ -199,5 +161,15 @@ public class CreateAccountSteps {
     @Then("the email field is flagged as correct")
     public void theEmailFieldIsFlaggedAsCorrect() {
         Assert.assertTrue(createAccountPage.isEmailCheckVisible());
+    }
+
+    @Then("the password field is flagged as incorrect")
+    public void thePasswordFieldIsFlaggedAsIncorrect() {
+        Assert.assertTrue(createAccountPage.isPasswordErrorVisible());
+    }
+
+    @Then("the password field is flagged as correct")
+    public void thePasswordFieldIsFlaggedAsCorrect() {
+        Assert.assertTrue(createAccountPage.isPasswordCheckVisible());
     }
 }
