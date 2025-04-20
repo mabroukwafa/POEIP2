@@ -47,9 +47,6 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//div[@class= 'alert alert-danger']/ol/li")
     WebElement loginErrorMessage ;
 
-    @FindBy(xpath = "//div[@id= 'create_account_error']")
-    WebElement createAccounterrorMessage ;
-
     @FindBy(xpath = "//a[@href='http://www.automationpractice.pl/index.php?controller=password']")
     WebElement ForgotPassword ;
 
@@ -101,14 +98,6 @@ public class LoginPage extends BasePage{
      */
     public String getLoginErrorMessage(){
          return loginErrorMessage.getText();
-    }
-
-    /**
-     * Récupère le titre de la page.
-     * @return Le titre de la page
-     */
-    public String getTitle(){
-         return title.getText();
     }
 
     /**

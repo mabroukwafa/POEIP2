@@ -193,7 +193,7 @@ public class YouraddressesPage extends BasePage{
      * Méthode pour récupérer le titre de la page.
      * @return Le titre de la page
      */
-    public String pageTitle(){
+    public String getPageTitle(){
         return pageTitle.getText();
     }
 

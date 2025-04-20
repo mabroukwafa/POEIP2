@@ -4,7 +4,6 @@ import hooks.Setup;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.*;
@@ -51,6 +50,6 @@ public class yourAddressesPageSteps {
 
     @Then("I am redirected to the address entry page")
     public void iAmRedirectedToTheAddressEntryPage() {
-        Assert.assertEquals(addressesPage.pageTitle(), "YOUR ADDRESSES");
+        Assert.assertEquals(addressesPage.getPageTitle(), "YOUR ADDRESSES");
     }
 }
