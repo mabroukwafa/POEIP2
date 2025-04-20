@@ -95,6 +95,11 @@ public class CreateAccountPage extends BasePage {
         subtitle.click();
     }
 
+    /**
+     * Méthode pour entrer le mot de passe pour créer un compte.
+     * Cette méthode remplit le champ de mot de passe et clique sur le sous-titre.
+     * @param password Le mot de passe à entrer dans le champ de création de compte.
+     */
     public void enterPasswordToCreateAccount(String password){
         reinitElements();
         enterPassword.clear();
@@ -166,6 +171,10 @@ public class CreateAccountPage extends BasePage {
 
     }
 
+    /**
+     * Méthode pour récupérer le texte du titre de la page.
+     * @return Le texte du titre de la page.
+     */
     public String getPageTitle(){
         return pageTitle.getText();
     }
