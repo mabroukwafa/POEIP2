@@ -12,9 +12,6 @@ import java.util.List;
  * Elle contient les éléments et les méthodes communes à toutes les pages.
  */
 public class BasePage {
-<<<<<<< HEAD
-    WebDriver  webDriver;
-=======
 
 
     WebDriver  webDriver;
@@ -22,19 +19,13 @@ public class BasePage {
      * Constructeur de la classe {@link BasePage} .
      * @param webDriver instance de WebDriver pour interagir avec le navigateur
      */
->>>>>>> cdf657f568ca1afbe0a5986be876445d9bf2a43f
     public BasePage(WebDriver webDriver){
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver,this);
     }
-
-
-<<<<<<< HEAD
-=======
     /**
      * Localisateur XPath pour le logo de la page d'accueil.
      */
->>>>>>> cdf657f568ca1afbe0a5986be876445d9bf2a43f
     @FindBy(xpath = "//img[@class='logo img-responsive']")
     private WebElement logo;
 
