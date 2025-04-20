@@ -6,8 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * Page Object Model (POM) for the Blog page.
- * Contains web elements and methods to interact with the Blog page.
+ * Page Object Model (POM) pour la page Blog.
+ * Contient les éléments et les interactions possibles sur la page Blog.
  */
 public class BlogPage {
 
@@ -15,15 +15,15 @@ public class BlogPage {
     WebDriver webDriver;
 
     /**
-     * Locator for the Blog page title element.
-     * Finds the h1 element with exact text "Blog"
+     * Localisateur XPath pour le titre de la page Blog.
+     * Trouver l'élément h1 dont le texte est 'Blog'.
      */
     @FindBy(xpath = "//h1[text()='Blog']")
     private WebElement blogTitle;
 
     /**
-     * Constructor to initialize the BlogPage.
-     * @param driver WebDriver instance to be used for page interactions
+     * Constructeur de la classe {@link BlogPage}.
+     * @param driver instance de WebDriver pour interagir avec le navigateur
      */
     public BlogPage(WebDriver driver) {
         this.webDriver = driver;
@@ -31,8 +31,8 @@ public class BlogPage {
     }
 
     /**
-     * Verifies if the Blog page title is displayed.
-     * @return true if the title is visible, false otherwise
+     * Vérifie si le titre de la page Blog est affiché.
+     * @return vrai si le titre est visible, faux sinon
      */
     public boolean blogTitleIsDisplayed() {
         return blogTitle.isDisplayed();

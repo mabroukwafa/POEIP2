@@ -11,6 +11,7 @@ import pages.BasePage;
 import pages.PasswordResetPage;
 import pages.LoginPage;
 import pages.MyAccountPage;
+import utils.Utils;
 
 
 public class LoginPageSteps {
@@ -48,7 +49,7 @@ public class LoginPageSteps {
 
     @Then("I should see {string} error message")
     public void iShouldSeeErrorMessage(String message) {
-        Assert.assertEquals(message, loginPage.errorMessage());
+        Assert.assertEquals(message, loginPage.getLoginErrorMessage());
     }
 
     @And("I should see {string} in the menu bar")
@@ -63,5 +64,22 @@ public class LoginPageSteps {
     }
 
 
+    @When("I enter {string} in the <Email address> field to create an account")
+    public void iEnterInTheEmailAddressFieldToCreateAnAccount(String email) {
+        loginPage.sendEmailCreate(email);
+    }
 
+    /**
+     * Implémentation de l'étape "I click on Create an account".
+     * Cette méthode clique sur le bouton de création de compte.
+     */
+    @Then("I click on Create an account")
+    public void iClickOnCreateAnAccount() {
+        loginPage.clickCreateAccountButton();
+    }
+
+    @When("I enter a valid email in the <Email address> field to create an account")
+    public void iEnterAValidEmailInTheEmailAddressFieldToCreateAnAccount() {
+        loginPage.sendEmailCreate(Utils.generateRandomEmail(5,6));
+    }
 }

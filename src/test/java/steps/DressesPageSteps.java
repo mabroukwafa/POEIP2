@@ -4,10 +4,11 @@ import hooks.Setup;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import pages.BlogPage;
 import pages.DressesPage;
 
 /**
- * Classe implémentant les étapes Cucumber relatives à la page "Dresses".
+ * Classe implémentant les étapes Cucumber relatives à la page {@link DressesPage}.
  * Contient les définitions des steps pour les scénarios de test impliquant la page des robes.
  */
 public class DressesPageSteps {

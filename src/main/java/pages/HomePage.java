@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 /**
  * Page Object Model (POM) pour la page d'accueil.
- * Hérite de BasePage pour les fonctionnalités communes à toutes les pages.
+ * Elle hérite de la classe {@link BasePage}.
  */
 public class HomePage extends BasePage {
 
@@ -16,9 +16,7 @@ public class HomePage extends BasePage {
     private WebElement advertisement;
 
     /**
-     * Constructeur de la classe HomePage.
-     * Initialise les éléments de la page avec PageFactory.
-     *
+     * Constructeur de la classe {@link BasePage} que la classe HomePage hérite.
      * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
     public HomePage(WebDriver driver) {

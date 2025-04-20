@@ -57,14 +57,14 @@ public class Setup {
                     case "edge":
                         EdgeOptions edgeOptions = new EdgeOptions();
                         if (headless) edgeOptions.addArguments("--headless");
-                        edgeOptions.addArguments("--maximize");
+                        edgeOptions.addArguments("start-maximized");
                         driver = new EdgeDriver(edgeOptions);
                         break;
 
                     case "firefox":
                         FirefoxOptions firefoxOptions = new FirefoxOptions();
                         if (headless) firefoxOptions.addArguments("--headless");
-                        firefoxOptions.addArguments("--maximize");
+                        firefoxOptions.addArguments("start-maximized");
                         driver = new FirefoxDriver(firefoxOptions);
                         break;
 
@@ -75,6 +75,7 @@ public class Setup {
                         chromeOptions.addArguments("--disable-extensions");
                         chromeOptions.addArguments("--disable-popup-blocking");
                         chromeOptions.addArguments("--no-default-browser-check");
+
 
                         driver = new ChromeDriver(chromeOptions);
                         break;

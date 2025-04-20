@@ -13,5 +13,5 @@ import org.junit.runner.RunWith;
         ,tags = "@POEI25P2G4-71"
 )
 
-public class Runner {
+public class RunnerTest {
 }

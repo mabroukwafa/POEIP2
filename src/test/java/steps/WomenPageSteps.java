@@ -8,8 +8,7 @@ import pages.TShirtsPage;
 import pages.WomenPage;
 
 /**
- * Classe implémentant les étapes Cucumber relatives à la page "Women".
- * Contient les définitions des steps pour les scénarios de test impliquant la page des produits Women.
+ * Cette classe contient les étapes de test pour la page {@link WomenPage}
  */
 public class WomenPageSteps {
 

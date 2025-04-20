@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 /**
  * Page Object Model (POM) pour la page T-Shirts.
- * Cette classe représente les éléments et interactions possibles sur la page des produits T-Shirts.
+ * Elle hérite de la classe {@link BasePage}.
  */
 public class TShirtsPage extends BasePage{
 
@@ -19,7 +19,7 @@ public class TShirtsPage extends BasePage{
     private WebElement tShirtTitle;
 
     /**
-     * Constructeur de la classe BasePage que la classe DressesPage hérite.
+     * Constructeur de la classe {@link BasePage} que la classe TShirtsPage hérite.
      * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
     public TShirtsPage(WebDriver webDriver) {
