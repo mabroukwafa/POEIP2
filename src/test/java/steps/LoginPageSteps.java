@@ -11,6 +11,7 @@ import pages.BasePage;
 import pages.PasswordResetPage;
 import pages.LoginPage;
 import pages.MyAccountPage;
+import utils.ConfigReader;
 import utils.Utils;
 
 
@@ -81,5 +82,14 @@ public class LoginPageSteps {
     @When("I enter a valid email in the <Email address> field to create an account")
     public void iEnterAValidEmailInTheEmailAddressFieldToCreateAnAccount() {
         loginPage.sendEmailCreate(Utils.generateRandomEmail(5,6));
+    }
+
+
+    @Given("I'm logged in without a saved address")
+    public void iMLoggedInWithoutASavedAddress() {
+        basePage.clickOnSignIn();
+        loginPage.sendEmail(ConfigReader.getProperty("emailValid2"));
+        loginPage.sendPassword(ConfigReader.getProperty("mdpValid2"));
+        loginPage.clickLoginButton();
     }
 }

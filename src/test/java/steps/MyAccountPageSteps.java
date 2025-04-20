@@ -34,6 +34,7 @@ public class MyAccountPageSteps {
         loginPage.clickLoginButton();
     }
 
+
     @When("I click on the <Sign out> button")
     public void iClickOnTheSignOutButton() {
         basePage.clickOnSignOut();

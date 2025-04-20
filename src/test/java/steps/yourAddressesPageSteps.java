@@ -51,6 +51,6 @@ public class yourAddressesPageSteps {
 
     @Then("I am redirected to the address entry page")
     public void iAmRedirectedToTheAddressEntryPage() {
-        Assert.assertEquals(addressesPage.pageTitle(), "MY ADDRESSES");
+        Assert.assertEquals(addressesPage.pageTitle(), "YOUR ADDRESSES");
     }
 }

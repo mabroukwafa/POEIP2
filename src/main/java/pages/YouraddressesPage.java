@@ -11,7 +11,7 @@ public class YouraddressesPage extends BasePage{
         super(webDriver);
         PageFactory.initElements(webDriver,this);
     }
-    @FindBy(xpath = "//h1[@class='page-heading']")
+    @FindBy(xpath = "//div[@id='center_column']//h1[normalize-space()='Your addresses']")
     private WebElement pageTitle;
 
     @FindBy(xpath = "//input[@id='firstname']")
@@ -95,7 +95,6 @@ public class YouraddressesPage extends BasePage{
         additionalInformationField.sendKeys(information);
     }
     public void sendAddressTitle(String addressTitle){
-
         addressTitleField.clear();
         addressTitleField.sendKeys(addressTitle);
     }
