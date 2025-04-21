@@ -18,7 +18,7 @@ public class PersonalInformationPage extends BasePage{
         super(webDriver);
     }
 
-    //XPath
+
     @FindBy(xpath = "//h1[@class='page-subheading']")
     WebElement pageTitle;
 

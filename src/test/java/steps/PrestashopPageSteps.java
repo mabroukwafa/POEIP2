@@ -29,7 +29,7 @@ public class PrestashopPageSteps {
         // Assertion pour vérifier que le titre de la page PrestaShop est affiché
         Assert.assertTrue(
                 "Le titre de la page PrestaShop devrait être affiché",
-                prestashopPage.titrePrestashopIsDisplayed()
+                prestashopPage.isPrestashopTitleDisplayed()
         );
     }
 }

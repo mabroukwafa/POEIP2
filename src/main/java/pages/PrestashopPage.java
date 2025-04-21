@@ -10,11 +10,9 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class PrestashopPage {
 
-    // Localisateur XPath pour le titre de la page Prestashop
     @FindBy(xpath = "//h1[@class='color-3 t0--5 t0 title']")
-    private WebElement titrePrestashop;
+    WebElement prestashopTitle;
 
-    // Driver Selenium pour interagir avec le navigateur
     WebDriver webDriver;
 
     /**
@@ -33,7 +31,7 @@ public class PrestashopPage {
      *
      * @return true si le titre est visible, false sinon
      */
-    public boolean titrePrestashopIsDisplayed(){
-        return titrePrestashop.isDisplayed();
+    public boolean isPrestashopTitleDisplayed(){
+        return prestashopTitle.isDisplayed();
     }
 }
