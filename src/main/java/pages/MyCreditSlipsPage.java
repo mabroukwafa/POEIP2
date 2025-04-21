@@ -18,7 +18,6 @@ public class MyCreditSlipsPage extends BasePage{
         super(webDriver);
     }
 
-    //XPath
     @FindBy(xpath = "//h1[@class='page-heading bottom-indent']")
     WebElement pageTitle;
 
@@ -26,7 +25,7 @@ public class MyCreditSlipsPage extends BasePage{
      * Méthode pour récupérer le titre de la page des avoirs.
      * @return Le texte du titre de la page
      */
-    public String pageTitle(){
+    public String getPageTitle(){
         return pageTitle.getText();
     }
 }

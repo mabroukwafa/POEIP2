@@ -22,7 +22,7 @@ public class MyCreditSlipsPageSteps {
      */
     @Then("I see the list of my assets")
     public void iSeeTheListOfMyAssets(){
-               Assert.assertEquals("CREDIT SLIPS", myCreditSlipsPage.pageTitle());
+               Assert.assertEquals("CREDIT SLIPS", myCreditSlipsPage.getPageTitle());
     }
 
 }
