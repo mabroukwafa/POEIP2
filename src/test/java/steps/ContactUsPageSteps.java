@@ -4,8 +4,6 @@ import hooks.Setup;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import pages.BlogPage;
 import pages.ContactUsPage;
 
 /**

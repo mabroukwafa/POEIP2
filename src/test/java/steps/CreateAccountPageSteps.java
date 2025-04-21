@@ -6,7 +6,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import pages.CreateAccountPage;
 import pages.HomePage;
@@ -15,9 +14,6 @@ import utils.ConfigReader;
 import utils.Utils;
 
 import java.util.Map;
-
-import static org.junit.Assert.assertTrue;
-import static utils.Utils.generateRandomEmail;
 
 /**
  * Cette classe contient les étapes de test pour la page {@link CreateAccountPage}.
