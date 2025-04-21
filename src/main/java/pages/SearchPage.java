@@ -12,10 +12,8 @@ import java.util.List;
  */
 public class SearchPage extends BasePage{
 
-    //Xpath
     @FindBy(xpath = "//ul[@class='product_list grid row']//a[@class='product-name']")
     List<WebElement> productList;
-
 
     @FindBy(xpath = "//h1[@class='page-heading  product-listing']")
     WebElement currentPageName;

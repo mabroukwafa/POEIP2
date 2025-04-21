@@ -10,6 +10,9 @@ import org.openqa.selenium.support.FindBy;
  */
 public class ShoppingCartSummaryPage extends BasePage {
 
+    @FindBy(xpath = " //div[@id='center_column']//h1[@id='cart_title']")
+    WebElement title;
+
     /**
      * Constructeur de la classe {@link BasePage} que la classe ShoppingCartSummaryPage hérite.
      * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
@@ -18,13 +21,7 @@ public class ShoppingCartSummaryPage extends BasePage {
         super(webDriver);
     }
 
-    /*
-     * Localisateur XPath
-     */
-    @FindBy(xpath = " //div[@id='center_column']//h1[@id='cart_title']")
-    WebElement title;
-
-    /*
+    /**
      * Méthode pour récupérer le titre de la page de résumé du panier d'achat.
      */
     public String getTitle(){
