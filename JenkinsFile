@@ -26,7 +26,7 @@ parameters {
                 bat 'mvn clean'
             }
         }
-      stage('Curl') {
+      stage('Main') {
   steps {
     script{
         def keys_array = params.KEYS.split(';')
@@ -36,31 +36,29 @@ parameters {
         keys_array.each{
         writeFile (file: 'key.txt', text: it)
         bat """
-                                set /p TOKEN=<token.txt
-                                set /p KEY=<key.txt
-                                curl -X GET "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=%KEY%" ^
-                                -H "Authorization: Bearer %TOKEN%" ^
-                                -o features.zip
-                                tar -xf features.zip -C src/test/resources/features
-                                del key.txt
-                            """
+            set /p TOKEN=<token.txt
+            set /p KEY=<key.txt
+            curl -X GET "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=%KEY%" ^
+            -H "Authorization: Bearer %TOKEN%" ^
+            -o features.zip
+            tar -xf features.zip -C src/test/resources/features
+            del features.zip
+            del key.txt
+        """
+        catchError (buildResult: 'FAILURE', stageResult: 'FAILURE'){bat 'mvn test'}
+        bat"""
+            set /p TOKEN=<token.txt
+            curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer %TOKEN%" ^
+            --data @"target/cucumber.json" https://xray.cloud.getxray.app/api/v2/import/execution/cucumber
+            cd "src\\test\\resources\\features"
+            del *.feature
+        """
 
         }
 }
       }
-}
-        stage('Test'){
-            steps{
-                bat 'mvn test'
-
-            }
             post {
                 always {
-                    bat """
-                        set /p TOKEN=<token.txt
-                        curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer %TOKEN%" ^
-                        --data @"target/cucumber.json" https://xray.cloud.getxray.app/api/v2/import/execution/cucumber
-                    """
                     junit 'target/surefire-reports/*.xml'
                     cucumber fileIncludePattern: 'target/cucumber.json'
                     cleanWs()
