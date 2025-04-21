@@ -15,8 +15,8 @@ import java.util.Map;
  * Cette classe contient les étapes de test pour la page {@link YourAddressesPage}.
  */
 public class YourAddressesPageSteps {
-    WebDriver driver = Setup.driver;
-    YourAddressesPage addressesPage = new YourAddressesPage(driver);
+    WebDriver webDriver = Setup.driver;
+    YourAddressesPage addressesPage = new YourAddressesPage(webDriver);
 
     /**
      * Implémentation de l'étape "I fill in the following fields:".
