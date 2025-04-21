@@ -34,12 +34,12 @@ public class MyAccountPage extends BasePage{
     WebElement ordersButton;
 
     @FindBy(xpath = "//a[@title='Credit slips']")
-    WebElement myCreditsLipsButton;
+    WebElement myCreditSlipsButton;
 
     @FindBy(xpath = "//a[@title='Add my first address']")
     WebElement addMyFirstAddressButton;
 
-    /*
+    /**
      * Méthode pour récupérer le titre de la page Mon Compte.
      */
     public String getTitle(){
@@ -67,8 +67,11 @@ public class MyAccountPage extends BasePage{
         ordersButton.click();
     }
 
+    /**
+     * Méthode pour cliquer sur le bouton "My Credit Slips"
+     */
     public void clickCreditsButton(){
-        myCreditsLipsButton.click();
+        myCreditSlipsButton.click();
     }
 
     /**
@@ -78,6 +81,9 @@ public class MyAccountPage extends BasePage{
         personalInformationButton.click();
     }
 
+    /**
+     * Méthode pour cliquer sur le bouton "Add my first address"
+     */
     public void clickAddMyFirstAddressButton(){
         addMyFirstAddressButton.click();
     }
