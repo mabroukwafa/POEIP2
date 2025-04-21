@@ -211,4 +211,14 @@ public class BasePage {
         Select select = new Select(selectElement);
         select.selectByVisibleText(text);
     }
+
+    /**
+     * Méthode permettant de choisir une proposition dans un select à partir de sa valeur
+     * @param selectElement Le select contenant les propositions
+     * @param value La valeur de la proposition à choisir
+     */
+    public void chooseSelectionByValue(WebElement selectElement,String value){
+        Select select = new Select(selectElement);
+        select.selectByValue(value);
+    }
 }
