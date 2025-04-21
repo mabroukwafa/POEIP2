@@ -18,15 +18,12 @@ public class MyAddressesPage extends BasePage{
         super(webDriver);
     }
 
-    //Xpath
     @FindBy(xpath = "//a[@title='Add an address']")
     WebElement addAddressButton;
 
-    //je modifie la premiere adresse dans la liste
     @FindBy(xpath = "//a[@title='Update']")
     WebElement updateButton;
 
-    // je teste tjrs sur la derniere adresse dans la list
     @FindBy(xpath = "//ul[contains(@class, 'last_item')]//li/h3")
     WebElement addressTitle;
 
@@ -37,7 +34,7 @@ public class MyAddressesPage extends BasePage{
     WebElement title;
 
     @FindBy(xpath = "//ul[contains(@class, 'last_item')]//li/span[@class='address_address1']")
-    WebElement UpdatedAddress1 ;
+    WebElement updatedAddress;
 
     @FindBy(xpath = "//ul[contains(@class, 'last_item')]//li/span[@class='address_name'][1]")
     WebElement myFirstName ;
@@ -75,7 +72,7 @@ public class MyAddressesPage extends BasePage{
      * @return le titre de l'adresse mise à jour.
      */
     public String getUpdatedAddress1Title(){
-        return UpdatedAddress1.getText();
+        return updatedAddress.getText();
     }
 
     /**
@@ -110,6 +107,9 @@ public class MyAddressesPage extends BasePage{
         return myLastName.getText();
     }
 
+    /**
+     * Méthode permettant de supprimer la dernière adresse crée
+     */
     public void deleteLastAddress(){
         deleteLastAddressButton.click();
         webDriver.switchTo().alert().accept();
