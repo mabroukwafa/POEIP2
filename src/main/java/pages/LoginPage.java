@@ -20,7 +20,7 @@ public class LoginPage extends BasePage{
 
 
     /**
-     * Localisateur XPath
+     * Localisateurs
      */
     @FindBy(xpath = "//h1[@class='page-heading' and text()='Authentication']\n")
     WebElement title;
@@ -29,17 +29,16 @@ public class LoginPage extends BasePage{
     WebElement emailField;
 
     @FindBy(xpath = "//input[@id = 'passwd']")
-    WebElement passwdField;
+    WebElement passwordField;
 
     @FindBy(xpath = "//button[@id = 'SubmitLogin']")
-    WebElement buttonSignIn ;
+    WebElement signInButton;
 
     @FindBy(xpath = "//input[@id = 'email_create']")
     WebElement emailCreateField;
 
     @FindBy(xpath = "//button[@name = 'SubmitCreate']")
-    WebElement buttonCreateAccount ;
-
+    WebElement createAccountButton;
 
     @FindBy(xpath = "//div[@class= 'alert alert-danger']/ol/li")
     WebElement loginErrorMessage ;
@@ -48,7 +47,7 @@ public class LoginPage extends BasePage{
     WebElement createAccountErrorMessage ;
 
     @FindBy(xpath = "//a[@href='http://www.automationpractice.pl/index.php?controller=password']")
-    WebElement ForgotPassword ;
+    WebElement forgotPasswordLink;
 
 
     /**
@@ -64,21 +63,21 @@ public class LoginPage extends BasePage{
      * @param password Le mot de passe à insérer
      */
     public void sendPassword(String password){
-        passwdField.sendKeys(password);
+        passwordField.sendKeys(password);
     }
 
     /**
      * Clique sur le bouton de connexion.
      */
     public void clickLoginButton(){
-        buttonSignIn.click();
+        signInButton.click();
     }
 
     /**
      * Clique sur le bouton de création de compte.
      */
     public void clickCreateAccountButton(){
-         buttonCreateAccount.click();
+         createAccountButton.click();
     }
 
     /**
@@ -98,8 +97,8 @@ public class LoginPage extends BasePage{
     }
 
     /**
-     * Récupère le message d'erreur affiché.
-     * @return Le message d'erreur
+     * Vérifie si un message d'erreur est affiché.
+     * @return Le message d'erreur est-il affiché ou non
      */
     public Boolean isCreateAccountErrorMessageVisible(){
         return createAccountErrorMessage.isDisplayed();
@@ -109,7 +108,7 @@ public class LoginPage extends BasePage{
      * Clique sur le lien de mot de passe oublié.
      */
     public void clickForgotPassword(){
-          ForgotPassword.click();
+          forgotPasswordLink.click();
     }
 
     /**

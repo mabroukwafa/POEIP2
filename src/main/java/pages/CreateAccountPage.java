@@ -1,14 +1,8 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 /**
  * Page Object Model (POM) pour la page de création de compte.
@@ -48,7 +42,7 @@ public class CreateAccountPage extends BasePage {
     public WebElement lastNameInput;
 
     @FindBy(id = "passwd")
-    public WebElement enterPassword;
+    public WebElement passwordField;
 
     @FindBy(xpath ="(//input[@id='passwd']/..)[contains(@class,'error')]")
     WebElement formErrorOnPasswordField;
@@ -94,13 +88,14 @@ public class CreateAccountPage extends BasePage {
 
     /**
      * Méthode pour entrer le mot de passe pour créer un compte.
-     * Cette méthode remplit le champ de mot de passe et clique sur le sous-titre.
+     * Cette méthode remplit le champ de mot de passe et clique sur le sous-titre afin de
+     * faire apparaître la croix ou le check.
      * @param password Le mot de passe à entrer dans le champ de création de compte.
      */
     public void enterPasswordToCreateAccount(String password){
         reinitElements();
-        enterPassword.clear();
-        enterPassword.sendKeys(password);
+        passwordField.clear();
+        passwordField.sendKeys(password);
         reinitElements();
         subtitle.click();
     }
@@ -139,9 +134,8 @@ public class CreateAccountPage extends BasePage {
                                         String newsletter, String gender, String days, String months, String years) {
         firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
-        enterPassword.sendKeys(password);
-        newsletterCheckbox.sendKeys(newsletter);
-        genderMrRadio.click();
+        passwordField.sendKeys(password);
+        if (newsletter.equalsIgnoreCase("yes")) newsletterCheckbox.click();
         dayDropdown.sendKeys(days);
         monthDropdown.sendKeys(months);
         yearDropdown.sendKeys(years);
@@ -157,7 +151,7 @@ public class CreateAccountPage extends BasePage {
     public void fillrequired(String firstName, String lastName, String password) {
         firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
-        enterPassword.sendKeys(password);
+        passwordField.sendKeys(password);
 
 
     }
@@ -171,20 +165,19 @@ public class CreateAccountPage extends BasePage {
     }
 
 
-    public Boolean isEmailErrorVisible(){
-        return formErrorOnEmailField.isDisplayed();
-    }
-
-    public Boolean isEmailCheckVisible(){
-        return formCheckOnEmailField.isDisplayed();
-    }
-
-    public Boolean isPasswordErrorVisible(){
-        return formErrorOnPasswordField.isDisplayed();
-    }
-
-    public Boolean isPasswordCheckVisible(){
-        return formCheckOnPasswordField.isDisplayed();
+    /**
+     * Méthode permettant de savoir si le champ email ou mot de passe affiche une check ou une croix
+     * @return un booléen indiquant si le champ email ou mot de passe affiche une check ou une croix
+     */
+    public Boolean isFieldCheckOrErrorVisible(String field, String status){
+        if (field.equalsIgnoreCase("email")){
+            if (status.equalsIgnoreCase("correct")) return formCheckOnEmailField.isDisplayed();
+            else return formErrorOnEmailField.isDisplayed();
+        }
+        else{
+            if (status.equalsIgnoreCase("correct")) return formCheckOnPasswordField.isDisplayed();
+            else return formErrorOnPasswordField.isDisplayed();
+        }
     }
 
 }

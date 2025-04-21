@@ -19,7 +19,7 @@ public class BlogPage {
      * Trouver l'élément h1 dont le texte est 'Blog'.
      */
     @FindBy(xpath = "//h1[text()='Blog']")
-    private WebElement blogTitle;
+    WebElement blogTitle;
 
     /**
      * Constructeur de la classe {@link BlogPage}.

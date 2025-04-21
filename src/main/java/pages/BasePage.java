@@ -22,46 +22,44 @@ public class BasePage {
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver,this);
     }
-    /**
-     * Localisateur XPath pour le logo de la page d'accueil.
-     */
+
     @FindBy(xpath = "//img[@class='logo img-responsive']")
-    private WebElement logo;
+    WebElement logo;
 
     @FindBy(xpath = "//a[@class='login']")
     WebElement signIn;
 
     @FindBy(xpath = "//a[@class='logout']")
-    private WebElement signOut;
+    WebElement signOut;
 
     @FindBy(xpath = "//input[@id='search_query_top']")
-    private WebElement fieldSearch;
+    WebElement searchField;
 
     @FindBy(xpath = "//button[contains(@class, 'button-search')]")
-    private WebElement loupeSearch;
+    WebElement loupeSearch;
 
     @FindBy(xpath = "//a[@title=\"View my shopping cart\"]/b[text()=\"Cart\"]\n")
-    private WebElement accessCart;
+    WebElement accessCart;
 
     @FindBy(xpath = "//div[@id = 'block_top_menu']/ul/li[1]/a")
-    private WebElement filtreWomen;
+    WebElement womenFilter;
 
     @FindBy(xpath = "//div[@id = 'block_top_menu']/ul/li[2]/a")
-    private WebElement filtreDresses;
+    WebElement dressesFilter;
 
     @FindBy(xpath = "//div[@id = 'block_top_menu']/ul/li[3]/a")
-    private WebElement filtreTShirts;
+    WebElement tShirtsFilter;
 
 
     @FindBy(xpath = "//a[@class='account']/span[text()='Valid valid']")
-    private WebElement myName;
+    WebElement connectedAccountName;
 
 
     @FindBy(xpath = "//a[text()='Blog']")
-    private WebElement blogTab;
+    WebElement blogTab;
 
     @FindBy(xpath = "//a[@title='Contact us']")
-    private WebElement contactUs;
+    WebElement contactUs;
 
     @FindBy(xpath = "//div[@class='ac_results']/ul/li")
     List<WebElement> suggestionsList;
@@ -92,16 +90,16 @@ public class BasePage {
      * Méthode pour insérer une chaîne de caractères dans le champ de recherche.
      * @param string chaîne de caractères à insérer dans le champ de recherche
      */
-    public void insertInFieldSearch(String string){
-        fieldSearch.sendKeys(string);
+    public void insertInSearchField(String string){
+        searchField.sendKeys(string);
     }
 
     /**
      * Méthode pour vérifier si le champ de recherche est visible.
      * @return vrai si le champ de recherche est affiché, faux sinon
      */
-    public Boolean isFieldSearchVisible(){
-        return fieldSearch.isDisplayed();
+    public Boolean isSearchFieldVisible(){
+        return searchField.isDisplayed();
     }
 
     /**
@@ -132,30 +130,30 @@ public class BasePage {
     /**
      * Méthode pour cliquer sur l'élément de filtre pour les femmes.
      */
-    public void clickOnFiltreWomen(){
-        filtreWomen.click();
+    public void clickOnWomenFilter(){
+        womenFilter.click();
     }
 
     /**
      * Méthode pour cliquer sur l'élément de filtre pour les robes.
      */
-    public void clickOnFiltreDresses(){
-        filtreDresses.click();
+    public void clickOnDressesFilter(){
+        dressesFilter.click();
     }
 
     /**
      * Méthode pour cliquer sur l'élément de filtre pour les T-shirts.
      */
-    public void clickOnFiltreTShirts(){
-        filtreTShirts.click();
+    public void clickOnTShirtsFilter(){
+        tShirtsFilter.click();
     }
 
     /**
      * Méthode pour obtenir le nom de l'utilisateur connecté.
      * @return le texte du nom d'utilisateur
      */
-    public String getMyname(){
-        return myName.getText();
+    public String getConnectedAccountName(){
+        return connectedAccountName.getText();
     }
 
     /**
@@ -189,10 +187,16 @@ public class BasePage {
         webDriver.switchTo().window((String) windowHandles[tabIndex]);
     }
 
+    /**
+     * Méthode permettant d'initialiser à nouveau les éléments d'une page
+     */
     public void reinitElements(){
         PageFactory.initElements(webDriver,this);
     }
 
+    /**
+     * Méthode permettant de fermer l'onglet actif
+     */
     public void closeTab(){
         webDriver.close();
     }

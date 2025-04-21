@@ -25,22 +25,6 @@ public class HomePageSteps {
     HomePage homePage = new HomePage(webDriver);
 
     /**
-     * Implémentation de l'étape "I am on the Home page".
-     * Vérifie que l'URL courante correspond bien à l'URL de la page d'accueil
-     * définie dans le fichier de configuration.
-     *
-     * @throws AssertionError si l'URL ne correspond pas
-     */
-    @Given("I am on the Home page")
-    public void iAmOnTheHomePage() {
-        Assert.assertEquals(
-                "L'URL devrait être celle de la page d'accueil",
-                ConfigReader.getProperty("homePageUrl"),
-                webDriver.getCurrentUrl()
-        );
-    }
-
-    /**
      * Implémentation de l'étape "I click on an advertisement".
      * Effectue un clic sur la bannière publicitaire de la page d'accueil.
      * Cette action déclenche normalement une redirection.

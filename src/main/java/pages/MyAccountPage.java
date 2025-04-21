@@ -18,9 +18,6 @@ public class MyAccountPage extends BasePage{
         super(webDriver);
     }
 
-    /*
-    * Localisateur XPath pour le titre de la page Mon Compte.
-     */
     @FindBy(xpath = "//h1[@class='page-heading' and text()='My account']")
     WebElement title;
 
@@ -37,10 +34,10 @@ public class MyAccountPage extends BasePage{
     WebElement ordersButton;
 
     @FindBy(xpath = "//a[@title='Credit slips']")
-    WebElement myCreditslipsButton;
+    WebElement myCreditsLipsButton;
 
     @FindBy(xpath = "//a[@title='Add my first address']")
-    WebElement addNewAddressButton;
+    WebElement addMyFirstAddressButton;
 
     /*
      * Méthode pour récupérer le titre de la page Mon Compte.
@@ -71,7 +68,7 @@ public class MyAccountPage extends BasePage{
     }
 
     public void clickCreditsButton(){
-        myCreditslipsButton.click();
+        myCreditsLipsButton.click();
     }
 
     /**
@@ -81,8 +78,8 @@ public class MyAccountPage extends BasePage{
         personalInformationButton.click();
     }
 
-    public void clickAddNewAddressButton(){
-        addNewAddressButton.click();
+    public void clickAddMyFirstAddressButton(){
+        addMyFirstAddressButton.click();
     }
 
 }

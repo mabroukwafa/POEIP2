@@ -63,13 +63,13 @@ public class BasePageSteps {
     public void iClickOnTheTab(String tabName) {
         switch (tabName){
             case "Women":
-                basePage.clickOnFiltreWomen();
+                basePage.clickOnWomenFilter();
                 break;
             case "Dresses":
-                basePage.clickOnFiltreDresses();
+                basePage.clickOnDressesFilter();
                 break;
             case "T-Shirts":
-                basePage.clickOnFiltreTShirts();
+                basePage.clickOnTShirtsFilter();
                 break;
         }
     }
@@ -83,6 +83,11 @@ public class BasePageSteps {
     public void iAmOnThePage(String page) {
           switch (page.toLowerCase()) {
                 case "home":
+                    Assert.assertEquals(
+                        "L'URL devrait être celle de la page d'accueil",
+                        ConfigReader.getProperty("homePageUrl"),
+                        webDriver.getCurrentUrl()
+                    );
                     break;
                 case "login":
                     basePage.clickOnSignIn();
@@ -102,12 +107,12 @@ public class BasePageSteps {
 
     @And("the search bar is visible")
     public void theSearchBarIsVisible() {
-        Assert.assertTrue(basePage.isFieldSearchVisible());
+        Assert.assertTrue(basePage.isSearchFieldVisible());
     }
 
     @When("I type {string} in the search bar")
     public void iTypeInTheSearchBar(String search) {
-        basePage.insertInFieldSearch(search);
+        basePage.insertInSearchField(search);
     }
 
     @And("I click on the search icon")
@@ -122,7 +127,7 @@ public class BasePageSteps {
 
     @And("I should see {string} in the menu bar")
     public void iShouldSeeInTheMenuBar(String myName) {
-        Assert.assertEquals(basePage.getMyname(),myName);
+        Assert.assertEquals(basePage.getConnectedAccountName(),myName);
     }
 
     @When("I click on the <Sign out> button")

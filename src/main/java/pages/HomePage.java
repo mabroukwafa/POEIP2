@@ -13,7 +13,7 @@ public class HomePage extends BasePage {
 
     // Localisateur XPath pour la bannière publicitaire
     @FindBy(xpath = "(//img[contains(@src, 'banner-img')])[1]")
-    private WebElement advertisement;
+    WebElement advertisement;
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe HomePage hérite.

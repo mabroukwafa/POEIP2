@@ -123,23 +123,8 @@ public class CreateAccountPageSteps {
         Assert.assertTrue(createAccountPage.getPageTitle().toLowerCase().contains("create an account"));
     }
 
-    @Then("the email field is flagged as incorrect")
-    public void theEmailFieldIsFlaggedAsIncorrect() {
-        Assert.assertTrue(createAccountPage.isEmailErrorVisible());
-    }
-
-    @Then("the email field is flagged as correct")
-    public void theEmailFieldIsFlaggedAsCorrect() {
-        Assert.assertTrue(createAccountPage.isEmailCheckVisible());
-    }
-
-    @Then("the password field is flagged as incorrect")
-    public void thePasswordFieldIsFlaggedAsIncorrect() {
-        Assert.assertTrue(createAccountPage.isPasswordErrorVisible());
-    }
-
-    @Then("the password field is flagged as correct")
-    public void thePasswordFieldIsFlaggedAsCorrect() {
-        Assert.assertTrue(createAccountPage.isPasswordCheckVisible());
+    @Then("the {string} field is flagged as {string}")
+    public void assertFieldFlag(String field, String status) {
+        Assert.assertTrue(createAccountPage.isFieldCheckOrErrorVisible(field, status));
     }
 }

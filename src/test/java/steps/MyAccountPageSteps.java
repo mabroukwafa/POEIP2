@@ -1,13 +1,11 @@
 package steps;
 
 import hooks.Setup;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.*;
-import utils.ConfigReader;
 
 /**
  * Cette classe contient les étapes de test pour la page {@link MyAccountPage}
@@ -81,6 +79,6 @@ public class MyAccountPageSteps {
      */
     @When("I click on <Add my first Address>")
     public void iClickOnAddMyFirstAddress() {
-        myAccountPage.clickAddNewAddressButton();
+        myAccountPage.clickAddMyFirstAddressButton();
     }
 }
