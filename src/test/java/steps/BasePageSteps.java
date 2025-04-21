@@ -28,11 +28,13 @@ public class BasePageSteps {
     LoginPage loginPage = new LoginPage(webDriver);
     MyAccountPage myAccountPage=new MyAccountPage(webDriver);
 
-    /*
-    * Implémentation de l'étape "I am on the Home page".
+
+    /**
+     * Implémentation de l'étape "I click on the Blog tab".
+     * Clique sur le bouton redirigeant vers le blog
      */
     @When("I click on the Blog tab")
-    public void IClickOnTheBlogTab() {
+    public void clickOnBlogTab() {
         basePage.clickOnBlogTab();
 
         // Changement de fenêtre
@@ -41,26 +43,40 @@ public class BasePageSteps {
 
     }
 
-    // Implémentation de l'étape "I click on Sign in"
+    /**
+     * Implémentation de l'étape "I click on Sign in".
+     * Clique sur le bouton sign in
+     */
     @When("I click on Sign in")
-    public void iClickOnSignIn() {
+    public void clickOnSignIn() {
         basePage.clickOnSignIn();
     }
 
-
+    /**
+     * Implémentation de l'étape "I click on Contact us"
+     * Clique sur le bouton Contact us
+     */
     @When("I click on Contact us")
-    public void iClickOnContactUs() {
+    public void clickOnContactUs() {
         basePage.clickOnContactUs();
     }
 
-
+    /**
+     * Implémentation de l'étape "I click on the logo".
+     * Clique sur le logo
+     */
     @When("I click on the logo")
-    public void iClickOnTheLogo() {
+    public void clickOnLogo() {
         basePage.clickOnLogo();
     }
 
+    /**
+     * Implémentation de l'étape "I click on the {string} tab".
+     * Clique sur un onglet
+     * @param tabName le nom de l'onglet sur lequel cliquer
+     */
     @When("I click on the {string} tab")
-    public void iClickOnTheTab(String tabName) {
+    public void chooseTab(String tabName) {
         switch (tabName){
             case "Women":
                 basePage.clickOnWomenFilter();
@@ -74,13 +90,22 @@ public class BasePageSteps {
         }
     }
 
+    /**
+     * Implémentation de l'étape "I click on the cart link in the header".
+     * Clique sur le panier
+     */
     @When("I click on the cart link in the header")
-    public void iClickOnTheCartLinkInTheHeader() {
+    public void clickOnCartLink() {
         basePage.clickOnAccessCart();
     }
 
+    /**
+     * Implémentation de l'étape "I am on the {string} page".
+     * Rejoins la page demandée depuis la page d'accueil
+     * @param page le page à rejoindre
+     */
     @Given("I am on the {string} page")
-    public void iAmOnThePage(String page) {
+    public void goToPage(String page) {
           switch (page.toLowerCase()) {
                 case "home":
                     Assert.assertEquals(
@@ -105,33 +130,60 @@ public class BasePageSteps {
             }
         }
 
+    /**
+     * Implémentation de l'étape "the search bar is visible".
+     * S'assure que la barre de recherche est visible
+     */
     @And("the search bar is visible")
-    public void theSearchBarIsVisible() {
+    public void assertSearchBarVisible() {
         Assert.assertTrue(basePage.isSearchFieldVisible());
     }
 
+    /**
+     * Implémentation de l'étape "I type {string} in the search bar".
+     * Entre la valeur donnée dans la barre de recherche
+     * @param search la valeur à entrer
+     */
     @When("I type {string} in the search bar")
-    public void iTypeInTheSearchBar(String search) {
+    public void sendToSearchBar(String search) {
         basePage.insertInSearchField(search);
     }
 
+    /**
+     * Implémentation de l'étape "I click on the search icon".
+     * Clique sur la loupe de recherche
+     */
     @And("I click on the search icon")
-    public void iClickOnTheSearchIcon() {
+    public void clickOnSearchIcon() {
         basePage.clickOnLoupeSearch();
     }
 
+    /**
+     * Implémentation de l'étape "I select the suggestion {string}".
+     * Choisit la suggestion demandée dans la liste de suggestion de la barre de recherche
+     * @param suggestion la suggestion à choisir
+     */
     @And("I select the suggestion {string}")
-    public void iSelectTheSuggestion(String suggestion) {
+    public void selectSuggestion(String suggestion) {
         basePage.chooseSuggestion(suggestion);
     }
 
+    /**
+     * Implémentation de l'étape "I should see {string} in the menu bar".
+     * Vérifie le nom associé au compte connecté
+     * @param myName le nom attendu
+     */
     @And("I should see {string} in the menu bar")
-    public void iShouldSeeInTheMenuBar(String myName) {
+    public void assertNameOfAccount(String myName) {
         Assert.assertEquals(basePage.getConnectedAccountName(),myName);
     }
 
+    /**
+     * Implémentation de l'étape "I click on the <Sign out> button".
+     * Clique sur le bouton Sign out
+     */
     @When("I click on the <Sign out> button")
-    public void iClickOnTheSignOutButton() {
+    public void clickOnSignOutButton() {
         basePage.clickOnSignOut();
     }
 
@@ -143,7 +195,7 @@ public class BasePageSteps {
      * @throws AssertionError si le texte ne correspond pas
      */
     @And("the menu bar should show {string}")
-    public void theMenuBarShouldShow(String signIn) {
+    public void assertRightMenuBar(String signIn) {
         Assert.assertEquals(
                 "Le texte du menu SignIn ne correspond pas",
                 basePage.getSignInText(),
