@@ -35,9 +35,11 @@ public class YopMailPageSteps {
     /**
      * Implémentation de l'étape "I check my emails".
      * Cette méthode permet de vérifier les e-mails reçus dans la boîte de réception.
+     * @throws InterruptedException si le thread est interrompu pendant le sleep
      */
     @And("I check my emails")
-    public void iCheckMyEmails() {
+    public void iCheckMyEmails() throws InterruptedException {
+        Thread.sleep(1000L *  Integer.parseInt(ConfigReader.getProperty("yopmailTimeout")));
         yopMailPage.goToYopMailHomePage();
         yopMailPage.enterLogin(resetPasswordMail);
         yopMailPage.goToMail();
@@ -50,7 +52,6 @@ public class YopMailPageSteps {
      */
     @And("I click on the reset password link")
     public void iClickOnTheResetPasswordLink() throws InterruptedException {
-        Thread.sleep(1000L *  Integer.parseInt(ConfigReader.getProperty("yopmailTimeout")));
         yopMailPage.clickRefreshButton();
         yopMailPage.clickPasswordResetLink();
         yopMailPage.goToTab(2);
