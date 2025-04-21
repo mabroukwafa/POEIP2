@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * Page Object Model (POM) pour la page "My Addresses".
@@ -31,19 +30,22 @@ public class MyAddressesPage extends BasePage{
     @FindBy(xpath = "//ul[contains(@class, 'last_item')]//li/h3")
     WebElement addressTitle;
 
+    @FindBy(xpath = "//ul[contains(@class, 'last_item')]//a[@title = 'Delete']")
+    WebElement deleteLastAddressButton;
+
     @FindBy(xpath = "//div[@id='center_column']/h1")
     WebElement title;
 
-    @FindBy(xpath = "//ul[contains(@class, 'first_item')]//li/span[@class='address_address1']")
+    @FindBy(xpath = "//ul[contains(@class, 'last_item')]//li/span[@class='address_address1']")
     WebElement UpdatedAddress1 ;
 
-    @FindBy(xpath = "//ul[contains(@class, 'first_item')]//li/span[@class='address_name'][1]")
+    @FindBy(xpath = "//ul[contains(@class, 'last_item')]//li/span[@class='address_name'][1]")
     WebElement myFirstName ;
 
-    @FindBy(xpath = "//ul[contains(@class, 'first_item')]//li/span[@class='address_name'][2]")
+    @FindBy(xpath = "//ul[contains(@class, 'last_item')]//li/span[@class='address_name'][2]")
     WebElement myLastName ;
 
-    @FindBy(xpath = "//ul[contains(@class, 'first_item')]//li/span[@class='address_phone_mobile']")
+    @FindBy(xpath = "//ul[contains(@class, 'last_item')]//li/span[@class='address_phone_mobile']")
     WebElement updatedPhone ;
 
     /**
@@ -64,7 +66,7 @@ public class MyAddressesPage extends BasePage{
      * Récupère le titre de l'adresse affichée sur la page.
      * @return le titre de l'adresse.
      */
-    public String AddressTitle(){
+    public String getAddressTitle(){
         return addressTitle.getText();
     }
 
@@ -72,7 +74,7 @@ public class MyAddressesPage extends BasePage{
      * Récupère le titre de l'adresse mise à jour affichée sur la page.
      * @return le titre de l'adresse mise à jour.
      */
-    public String UpdatedAddress1Title(){
+    public String getUpdatedAddress1Title(){
         return UpdatedAddress1.getText();
     }
 
@@ -80,7 +82,7 @@ public class MyAddressesPage extends BasePage{
      * Récupère le numéro de téléphone affiché sur la page.
      * @return le numéro de téléphone.
      */
-    public String UpdatedPhone(){
+    public String getUpdatedPhone(){
         return updatedPhone.getText();
     }
 
@@ -88,7 +90,7 @@ public class MyAddressesPage extends BasePage{
      * Récupère le titre de la page affichée.
      * @return le titre de la page.
      */
-    public String pageTitle(){
+    public String getPageTitle(){
         return title.getText();
     }
 
@@ -96,7 +98,7 @@ public class MyAddressesPage extends BasePage{
      * Récupère le prénom affiché sur la page.
      * @return le prénom.
      */
-    public String myFirstname(){
+    public String getFirstName(){
         return myFirstName.getText();
     }
 
@@ -104,8 +106,14 @@ public class MyAddressesPage extends BasePage{
      * Récupère le nom affiché sur la page.
      * @return le nom.
      */
-    public String myLastname(){
+    public String getLastName(){
         return myLastName.getText();
+    }
+
+    public void deleteLastAddress(){
+        deleteLastAddressButton.click();
+        webDriver.switchTo().alert().accept();
+        clickOnLogo();
     }
 
 

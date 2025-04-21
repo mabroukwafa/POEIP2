@@ -21,7 +21,8 @@ public class MyAddressesPageSteps {
 
     @Then("The displayed title should be {string}")
     public void theDisplayedTitleShouldBe(String title) {
-        assertEquals(myAdressesPage.AddressTitle(), title);
+        assertEquals(myAdressesPage.getAddressTitle(), title);
+        myAdressesPage.deleteLastAddress();
     }
 
     @When("I click on <Update>")
@@ -31,27 +32,27 @@ public class MyAddressesPageSteps {
 
     @And("The displayed address should be {string}")
     public void theDisplayedAddressShouldBe(String address) {
-        assertEquals(myAdressesPage.UpdatedAddress1Title(), address);
+        assertEquals(myAdressesPage.getUpdatedAddress1Title(), address);
     }
 
     @And("The displayed phone should be {string}")
     public void theDisplayedPhoneShouldBe(String phone) {
-        Assert.assertEquals(myAdressesPage.UpdatedPhone(), phone);
+        Assert.assertEquals(myAdressesPage.getUpdatedPhone(), phone);
     }
 
     @Then("I am redirected to the <My Addresses> page")
     public void iAmRedirectedToThePage() {
-    Assert.assertEquals(myAdressesPage.pageTitle(),"MY ADDRESSES");
+    Assert.assertEquals(myAdressesPage.getPageTitle(),"MY ADDRESSES");
     }
 
     @And("The displayed firstname should be {string}")
     public void theDisplayedNameShouldBe(String firstName) {
-        Assert.assertEquals(myAdressesPage.myFirstname(), firstName);
+        Assert.assertEquals(myAdressesPage.getFirstName(), firstName);
     }
 
     @And("The displayed lastname should be {string}")
     public void theDisplayedLastnameShouldBe(String lastName) {
-        Assert.assertEquals(myAdressesPage.myLastname(), lastName);
+        Assert.assertEquals(myAdressesPage.getLastName(), lastName);
 
     }
 

@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Utils;
 
@@ -22,26 +24,23 @@ public class YopMailPage extends BasePage {
     @FindBy(xpath = "//button[@onclick='newgen();']")
     WebElement newGenButton;
 
-    @FindBy(xpath = "//button[@onclick='egengo();']")
-    WebElement goToMailButton;
-
     @FindBy(xpath = "(//span[@class='genytxt'])[1]")
     WebElement beforeAt;
 
-    @FindBy(xpath = "//a[contains(@href,'passw')]")
+    @FindBy(xpath = "(//a)[2]")
     WebElement passwordResetLink;
-
-    @FindBy(id = "aswift_3")
-    WebElement iframePopup;
-
-    @FindBy(id = "dismiss-button")
-    WebElement dismissButton;
 
     @FindBy(id = "refresh")
     WebElement refreshButton;
 
     @FindBy(id = "ifmail")
     WebElement iframeMail;
+
+    @FindBy(id = "login")
+    WebElement loginField;
+
+    @FindBy(xpath = "//button[@class='md']")
+    WebElement confirmationArrow;
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe YopMailPage hérite.
@@ -57,6 +56,14 @@ public class YopMailPage extends BasePage {
     public void goToYopMailGenerator(){
         webDriver.switchTo().newWindow(WindowType.TAB);
         webDriver.get("https://yopmail.com/fr/email-generator");
+    }
+
+    /**
+     * Méthode pour ouvrir un nouvel onglet et accéder à la page YopMail.
+     */
+    public void goToYopMailHomePage(){
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        webDriver.get("https://yopmail.com/fr");
     }
 
     /**
@@ -82,19 +89,10 @@ public class YopMailPage extends BasePage {
     }
 
     /**
-     * Méthode pour changer d'onglet dans le navigateur.
-     * @param tabIndex L'index de l'onglet vers lequel changer.
-     */
-    public void goToTab(int tabIndex){
-        Object[] windowHandles=webDriver.getWindowHandles().toArray();
-        webDriver.switchTo().window((String) windowHandles[tabIndex]);
-    }
-
-    /**
      * Méthode pour cliquer sur le bouton pour accéder à la messagerie.
      */
     public void goToMail(){
-        goToMailButton.click();
+        confirmationArrow.click();
     }
 
     /**
@@ -107,18 +105,14 @@ public class YopMailPage extends BasePage {
     }
 
     /**
-     * Méthode pour fermer la popup de la page YopMail.
-     */
-    public void dismissAdd(){
-        webDriver.switchTo().frame(iframePopup);
-        dismissButton.click();
-        webDriver.switchTo().defaultContent();
-    }
-
-    /**
      * Méthode pour cliquer sur le bouton de rafraîchissement de la page YopMail.
      */
     public void clickRefreshButton(){
         refreshButton.click();
+    }
+
+    public void enterLogin(String login){
+        loginField.clear();
+        loginField.sendKeys(login);
     }
 }

@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
 import pages.YopMailPage;
+import utils.ConfigReader;
 
 /**
  * Cette classe contient les étapes de test pour la page {@link YopMailPage}.
@@ -26,6 +27,7 @@ public class YopMailPageSteps {
         yopMailPage.clickAuthorizeButton();
         yopMailPage.clickNewGenButton();
         resetPasswordMail = yopMailPage.getTextBeforeAt() + "@yopmail.com";
+        yopMailPage.closeTab();
         yopMailPage.goToTab(0);
 
     }
@@ -36,8 +38,8 @@ public class YopMailPageSteps {
      */
     @And("I check my emails")
     public void iCheckMyEmails() {
-        yopMailPage.goToTab(1);
-        yopMailPage.dismissAdd();
+        yopMailPage.goToYopMailHomePage();
+        yopMailPage.enterLogin(resetPasswordMail);
         yopMailPage.goToMail();
     }
 
@@ -48,7 +50,7 @@ public class YopMailPageSteps {
      */
     @And("I click on the reset password link")
     public void iClickOnTheResetPasswordLink() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(1000L *  Integer.parseInt(ConfigReader.getProperty("yopmailTimeout")));
         yopMailPage.clickRefreshButton();
         yopMailPage.clickPasswordResetLink();
         yopMailPage.goToTab(2);

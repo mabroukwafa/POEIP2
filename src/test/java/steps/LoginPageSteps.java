@@ -65,7 +65,7 @@ public class LoginPageSteps {
 
     @When("I enter a valid email in the <Email address> field to create an account")
     public void iEnterAValidEmailInTheEmailAddressFieldToCreateAnAccount() {
-        loginPage.sendEmailCreate(Utils.generateRandomEmail(5,6));
+        loginPage.sendEmailCreate(Utils.generateRandomEmail(15,15));
     }
 
 

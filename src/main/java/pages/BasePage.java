@@ -180,7 +180,20 @@ public class BasePage {
         contactUs.click();
     }
 
+    /**
+     * Méthode pour changer d'onglet dans le navigateur.
+     * @param tabIndex L'index de l'onglet vers lequel changer.
+     */
+    public void goToTab(int tabIndex){
+        Object[] windowHandles=webDriver.getWindowHandles().toArray();
+        webDriver.switchTo().window((String) windowHandles[tabIndex]);
+    }
+
     public void reinitElements(){
         PageFactory.initElements(webDriver,this);
+    }
+
+    public void closeTab(){
+        webDriver.close();
     }
 }
