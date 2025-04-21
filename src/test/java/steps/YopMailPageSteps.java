@@ -6,6 +6,9 @@ import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
 import pages.YopMailPage;
 
+/**
+ * Cette classe contient les étapes de test pour la page {@link YopMailPage}.
+ */
 public class YopMailPageSteps {
 
     WebDriver webDriver = Setup.driver;
@@ -13,6 +16,10 @@ public class YopMailPageSteps {
 
     YopMailPage yopMailPage = new YopMailPage(webDriver);
 
+    /**
+     * Implémentation de l'étape "I created an email".
+     * Cette méthode génère une adresse e-mail temporaire pour les tests.
+     */
     @Given("I created an email")
     public void createYopMail(){
         yopMailPage.goToYopMailGenerator();
@@ -23,6 +30,10 @@ public class YopMailPageSteps {
 
     }
 
+    /**
+     * Implémentation de l'étape "I check my emails".
+     * Cette méthode permet de vérifier les e-mails reçus dans la boîte de réception.
+     */
     @And("I check my emails")
     public void iCheckMyEmails() {
         yopMailPage.goToTab(1);
@@ -30,6 +41,11 @@ public class YopMailPageSteps {
         yopMailPage.goToMail();
     }
 
+    /**
+     * Implémentation de l'étape "I click on the reset password link".
+     * Cette méthode simule le clic sur le lien de réinitialisation du mot de passe dans l'e-mail.
+     * @throws InterruptedException si le thread est interrompu pendant le sleep
+     */
     @And("I click on the reset password link")
     public void iClickOnTheResetPasswordLink() throws InterruptedException {
         Thread.sleep(3000);
