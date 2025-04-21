@@ -16,10 +16,10 @@ public class ArticlePage extends BasePage {
 
     /**
      * Constructeur de la classe {@link BasePage}} que la classe ArticlePage hérite
-     * @param driver le WebDriver utilisé pour interagir avec le navigateur
+     * @param webDriver le WebDriver utilisé pour interagir avec le navigateur
      */
-    public ArticlePage(WebDriver driver) {
-        super(driver);
+    public ArticlePage(WebDriver webDriver) {
+        super(webDriver);
     }
 
     /**

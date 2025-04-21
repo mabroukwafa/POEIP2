@@ -12,10 +12,10 @@ public class LoginPage extends BasePage{
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe LoginPage hérite.
-     * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
+     * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
-    public LoginPage(WebDriver driver){
-        super(driver);
+    public LoginPage(WebDriver webDriver){
+        super(webDriver);
     }
 
 
@@ -37,15 +37,15 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//input[@id = 'email_create']")
     WebElement emailCreateField;
 
-    @FindBy(xpath = "//button[@id = 'submitAccount']")
-    WebElement buttonCreateAccount2 ;
-
     @FindBy(xpath = "//button[@name = 'SubmitCreate']")
     WebElement buttonCreateAccount ;
 
 
     @FindBy(xpath = "//div[@class= 'alert alert-danger']/ol/li")
     WebElement loginErrorMessage ;
+
+    @FindBy(xpath = "//div[@id= 'create_account_error']/ol/li")
+    WebElement createAccountErrorMessage ;
 
     @FindBy(xpath = "//a[@href='http://www.automationpractice.pl/index.php?controller=password']")
     WebElement ForgotPassword ;
@@ -80,9 +80,6 @@ public class LoginPage extends BasePage{
     public void clickCreateAccountButton(){
          buttonCreateAccount.click();
     }
-    public void clickCreateAccountButton2(){
-        buttonCreateAccount2.click();
-    }
 
     /**
      * Insère l'email dans le champ associé.
@@ -98,6 +95,14 @@ public class LoginPage extends BasePage{
      */
     public String getLoginErrorMessage(){
          return loginErrorMessage.getText();
+    }
+
+    /**
+     * Récupère le message d'erreur affiché.
+     * @return Le message d'erreur
+     */
+    public Boolean isCreateAccountErrorMessageVisible(){
+        return createAccountErrorMessage.isDisplayed();
     }
 
     /**

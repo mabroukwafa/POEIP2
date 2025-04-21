@@ -21,11 +21,11 @@ public class PrestashopPage {
      * Constructeur de la classe PrestashopPage.
      * Initialise les éléments de la page avec PageFactory.
      *
-     * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
+     * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
-    public PrestashopPage(WebDriver driver){
-        this.webDriver = driver;
-        PageFactory.initElements(webDriver, this);
+    public PrestashopPage(WebDriver webDriver){
+        this.webDriver = webDriver;
+        PageFactory.initElements(this.webDriver, this);
     }
 
     /**

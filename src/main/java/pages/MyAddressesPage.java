@@ -13,11 +13,10 @@ public class MyAddressesPage extends BasePage{
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe MyAddressesPage hérite.
-     * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
+     * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
-    public MyAddressesPage(WebDriver driver){
-        super(driver);
-        PageFactory.initElements(webDriver,this);
+    public MyAddressesPage(WebDriver webDriver){
+        super(webDriver);
     }
 
     //Xpath

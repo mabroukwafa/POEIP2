@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * Page Object Model (POM) pour la page Mon Compte.
@@ -13,11 +12,10 @@ public class MyAccountPage extends BasePage{
 
     /**
     * Constructeur de la classe {@link BasePage} que la classe MyAccountPage hérite.
-    * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
+    * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
-    public MyAccountPage(WebDriver driver){
-        super(driver);
-        PageFactory.initElements(webDriver,this);
+    public MyAccountPage(WebDriver webDriver){
+        super(webDriver);
     }
 
     /*

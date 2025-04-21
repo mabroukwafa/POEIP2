@@ -23,7 +23,6 @@ public class HomePageSteps {
 
     // Instances des Page Objects nécessaires
     HomePage homePage = new HomePage(webDriver);
-    BasePage basePage = new BasePage(webDriver);
 
     /**
      * Implémentation de l'étape "I am on the Home page".
@@ -38,22 +37,6 @@ public class HomePageSteps {
                 "L'URL devrait être celle de la page d'accueil",
                 ConfigReader.getProperty("homePageUrl"),
                 webDriver.getCurrentUrl()
-        );
-    }
-
-    /**
-     * Implémentation de l'étape "the menu bar should show {string}".
-     * Vérifie que le texte du bouton de connexion correspond à la valeur attendue.
-     *
-     * @param signIn le texte attendu pour le bouton SignIn
-     * @throws AssertionError si le texte ne correspond pas
-     */
-    @And("the menu bar should show {string}")
-    public void theMenuBarShouldShow(String signIn) {
-        Assert.assertEquals(
-                "Le texte du menu SignIn ne correspond pas",
-                basePage.getSignInText(),
-                signIn
         );
     }
 

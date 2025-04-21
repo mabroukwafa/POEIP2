@@ -45,10 +45,10 @@ public class YopMailPage extends BasePage {
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe YopMailPage hérite.
-     * @param driver le WebDriver utilisé pour interagir avec le navigateur
+     * @param webDriver le WebDriver utilisé pour interagir avec le navigateur
      */
-    public YopMailPage(WebDriver driver){
-        super(driver);
+    public YopMailPage(WebDriver webDriver){
+        super(webDriver);
     }
 
     /**

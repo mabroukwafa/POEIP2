@@ -13,24 +13,24 @@ import pages.*;
  * Cette classe contient les étapes de définition de {@link PasswordResetPage}.
  */
 public class PasswordResetPageSteps {
-    WebDriver driver = Setup.driver;
-    BasePage basePage = new BasePage(driver);
-    LoginPage loginPage = new LoginPage(driver);
-    CreateAccountPage createAccountPage = new CreateAccountPage(driver);
-    PasswordResetPage passwordResetPage = new PasswordResetPage(driver);
+    WebDriver webDriver = Setup.driver;
+    HomePage homePage = new HomePage(webDriver);
+    LoginPage loginPage = new LoginPage(webDriver);
+    CreateAccountPage createAccountPage = new CreateAccountPage(webDriver);
+    PasswordResetPage passwordResetPage = new PasswordResetPage(webDriver);
 
-    @Then("I redirected on the <Password reset> page")
+    @Then("I am redirected on the <Password reset> page")
     public void iRedirectedOnThePasswordResetPage() {
         Assert.assertEquals(passwordResetPage.getTitle(),"FORGOT YOUR PASSWORD?");
     }
     @Given("I am on the <Password reset> page")
     public void iAmOnThePasswordResetPage() {
-        basePage.clickOnSignIn();
+        homePage.clickOnSignIn();
         loginPage.sendEmailCreate(YopMailPageSteps.resetPasswordMail);
         loginPage.clickCreateAccountButton();
         createAccountPage.fillrequired("Reset","Password","password");
         createAccountPage.clickRegister();
-        basePage.clickOnSignOut();
+        createAccountPage.clickOnSignOut();
         loginPage.clickForgotPassword();
         Assert.assertEquals(passwordResetPage.getTitle(),"FORGOT YOUR PASSWORD?");
     }

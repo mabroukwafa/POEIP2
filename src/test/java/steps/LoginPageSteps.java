@@ -7,30 +7,20 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import pages.BasePage;
-import pages.PasswordResetPage;
-import pages.LoginPage;
-import pages.MyAccountPage;
+import pages.*;
 import utils.ConfigReader;
 import utils.Utils;
 
 
 public class LoginPageSteps {
-    WebDriver driver = Setup.driver;
-    BasePage basePage = new BasePage(driver);
-    LoginPage loginPage = new LoginPage(driver);
-    MyAccountPage myAccountPage = new MyAccountPage(driver);
-    PasswordResetPage forgotYourPswdPage = new PasswordResetPage(driver);
+    WebDriver webDriver = Setup.driver;
+    HomePage homePage = new HomePage(webDriver);
+    LoginPage loginPage = new LoginPage(webDriver);
 
 
     @Then ("I am redirected to the Sign in page")
     public void assertOnLoginPage(){
         Assert.assertTrue(loginPage.titleIsDisplayed());
-    }
-
-    @Given("I am on the <Sign In> page")
-    public void iAmOnTheSignInPage(){
-        loginPage.clickOnSignIn();
     }
 
     @When("I enter {string} in the <Email address> field")
@@ -51,12 +41,6 @@ public class LoginPageSteps {
     @Then("I should see {string} error message")
     public void iShouldSeeErrorMessage(String message) {
         Assert.assertEquals(message, loginPage.getLoginErrorMessage());
-    }
-
-    @And("I should see {string} in the menu bar")
-    public void iShouldSeeInTheMenuBar(String myName) {
-        Assert.assertEquals(basePage.getMyname(),myName);
-
     }
 
     @When("I click on the <Forgot your password?>")
@@ -87,9 +71,18 @@ public class LoginPageSteps {
 
     @Given("I'm logged in without a saved address")
     public void iMLoggedInWithoutASavedAddress() {
-        basePage.clickOnSignIn();
+        homePage.clickOnSignIn();
         loginPage.sendEmail(ConfigReader.getProperty("emailValid2"));
         loginPage.sendPassword(ConfigReader.getProperty("mdpValid2"));
         loginPage.clickLoginButton();
+    }
+
+    /**
+     * Implémentation de l'étape "an Invalid email address message appears".
+     * Cette méthode vérifie qu'un message d'erreur est affiché.
+     */
+    @Then("an Invalid email address message appears")
+    public void anInvalidEmailAddressMessageAppears() {
+        Assert.assertTrue(loginPage.isCreateAccountErrorMessageVisible());
     }
 }

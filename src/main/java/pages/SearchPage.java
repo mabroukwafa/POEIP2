@@ -22,10 +22,10 @@ public class SearchPage extends BasePage{
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe SearchPage hérite.
-     * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
+     * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
-    public SearchPage(WebDriver driver){
-        super(driver);
+    public SearchPage(WebDriver webDriver){
+        super(webDriver);
     }
 
     /**

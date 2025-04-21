@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Cette classe contient les étapes de test pour la page {@link YouraddressesPage}.
+ * Cette classe contient les étapes de test pour la page {@link YourAddressesPage}.
  */
-public class yourAddressesPageSteps {
+public class YourAddressesPageSteps {
     WebDriver driver = Setup.driver;
-    YouraddressesPage addressesPage = new YouraddressesPage(driver);
+    YourAddressesPage addressesPage = new YourAddressesPage(driver);
 
     /**
      * Implémentation de l'étape "I fill in the following fields:".

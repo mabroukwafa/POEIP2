@@ -17,10 +17,10 @@ public class HomePage extends BasePage {
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe HomePage hérite.
-     * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
+     * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
-    public HomePage(WebDriver driver) {
-        super(driver); // Appelle le constructeur parent de BasePage
+    public HomePage(WebDriver webDriver) {
+        super(webDriver); // Appelle le constructeur parent de BasePage
     }
 
     /**

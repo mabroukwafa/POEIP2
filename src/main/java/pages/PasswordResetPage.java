@@ -12,10 +12,10 @@ public class PasswordResetPage extends BasePage{
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe PasswordResetPage hérite.
-     * @param driver Instance WebDriver pour interagir avec le navigateur
+     * @param webDriver Instance WebDriver pour interagir avec le navigateur
      */
-    public PasswordResetPage(WebDriver driver){
-        super(driver);
+    public PasswordResetPage(WebDriver webDriver){
+        super(webDriver);
     }
 
     /**

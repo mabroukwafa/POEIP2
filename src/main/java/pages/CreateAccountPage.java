@@ -35,9 +35,6 @@ public class CreateAccountPage extends BasePage {
     @FindBy(xpath ="(//input[@id='email']/..)[contains(@class,'ok')]")
     WebElement formCheckOnEmailField;
 
-    @FindBy(xpath = "//button[@name = 'SubmitCreate']")
-    WebElement buttonCreateAccount ;
-
     @FindBy(id = "id_gender1")
     public WebElement genderMrRadio;
 
@@ -172,12 +169,7 @@ public class CreateAccountPage extends BasePage {
     public String getPageTitle(){
         return pageTitle.getText();
     }
-    /*
-     * Méthode pour cliquer sur le bouton "Register".
-     */
-    public void clickRegisterButton() {
-        registerButton.click();
-    }
+
 
     public Boolean isEmailErrorVisible(){
         return formErrorOnEmailField.isDisplayed();

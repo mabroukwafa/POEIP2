@@ -12,10 +12,10 @@ public class ShoppingCartSummaryPage extends BasePage {
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe ShoppingCartSummaryPage hérite.
-     * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
+     * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
-    public ShoppingCartSummaryPage(WebDriver driver){
-        super(driver);
+    public ShoppingCartSummaryPage(WebDriver webDriver){
+        super(webDriver);
     }
 
     /*

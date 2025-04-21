@@ -23,10 +23,10 @@ public class BlogPage {
 
     /**
      * Constructeur de la classe {@link BlogPage}.
-     * @param driver instance de WebDriver pour interagir avec le navigateur
+     * @param webDriver instance de WebDriver pour interagir avec le navigateur
      */
-    public BlogPage(WebDriver driver) {
-        this.webDriver = driver;
+    public BlogPage(WebDriver webDriver) {
+        this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
     }
 

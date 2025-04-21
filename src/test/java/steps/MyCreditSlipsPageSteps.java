@@ -5,14 +5,13 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.MyCreditSlipsPage;
-import pages.OrderHistoryPage;
 
 public class MyCreditSlipsPageSteps {
-    WebDriver driver = Setup.driver;
-    MyCreditSlipsPage myCreditSlipsPage = new MyCreditSlipsPage(driver);
+    WebDriver webDriver = Setup.driver;
+    MyCreditSlipsPage myCreditSlipsPage = new MyCreditSlipsPage(webDriver);
 
     @Then("I see the list of my assets")
-    public void Iseethelistofmyassets(){
+    public void iSeeTheListOfMyAssets(){
                Assert.assertEquals(myCreditSlipsPage.pageTitle(),"CREDIT SLIPS");
     }
 

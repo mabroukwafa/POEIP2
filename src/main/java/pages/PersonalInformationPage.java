@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class PersonalInformationPage extends BasePage{
-    public PersonalInformationPage(WebDriver driver){
-        super(driver);
+    public PersonalInformationPage(WebDriver webDriver){
+        super(webDriver);
     }
 
     @FindBy(xpath = "//h1[@class='page-subheading']")

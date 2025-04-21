@@ -120,4 +120,30 @@ public class BasePageSteps {
     public void iSelectTheSuggestion(String suggestion) {
         basePage.chooseSuggestion(suggestion);
     }
+
+    @And("I should see {string} in the menu bar")
+    public void iShouldSeeInTheMenuBar(String myName) {
+        Assert.assertEquals(basePage.getMyname(),myName);
+    }
+
+    @When("I click on the <Sign out> button")
+    public void iClickOnTheSignOutButton() {
+        basePage.clickOnSignOut();
+    }
+
+    /**
+     * Implémentation de l'étape "the menu bar should show {string}".
+     * Vérifie que le texte du bouton de connexion correspond à la valeur attendue.
+     *
+     * @param signIn le texte attendu pour le bouton SignIn
+     * @throws AssertionError si le texte ne correspond pas
+     */
+    @And("the menu bar should show {string}")
+    public void theMenuBarShouldShow(String signIn) {
+        Assert.assertEquals(
+                "Le texte du menu SignIn ne correspond pas",
+                basePage.getSignInText(),
+                signIn
+        );
+    }
 }

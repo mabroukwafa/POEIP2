@@ -12,10 +12,10 @@ public class OrderHistoryPage extends BasePage{
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe OrderHistoryPage hérite.
-     * @param driver Le WebDriver utilisé pour naviguer et interagir avec la page
+     * @param webDriver Le WebDriver utilisé pour naviguer et interagir avec la page
      */
-    public OrderHistoryPage(WebDriver driver){
-        super(driver);
+    public OrderHistoryPage(WebDriver webDriver){
+        super(webDriver);
     }
 
     //Xpath

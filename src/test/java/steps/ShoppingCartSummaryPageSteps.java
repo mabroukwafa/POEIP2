@@ -5,15 +5,14 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.ShoppingCartSummaryPage;
-import pages.TShirtsPage;
 
 /**
  * Cette classe contient les étapes de test pour la page {@link ShoppingCartSummaryPage}.
  */
 public class ShoppingCartSummaryPageSteps {
 
-    WebDriver driver = Setup.driver;
-    ShoppingCartSummaryPage shoppingCartSummaryPage = new ShoppingCartSummaryPage(driver);
+    WebDriver webDriver = Setup.driver;
+    ShoppingCartSummaryPage shoppingCartSummaryPage = new ShoppingCartSummaryPage(webDriver);
 
     /**
         * Implémentation de l'étape "I am redirected to the Shopping Cart Summary page".

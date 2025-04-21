@@ -21,12 +21,12 @@ import static utils.Utils.generateRandomEmail;
  * Cette classe contient les étapes de test pour la page {@link CreateAccountPage}.
  */
 
-public class CreateAccountSteps {
+public class CreateAccountPageSteps {
 
-    WebDriver driver = Setup.driver;
-    HomePage homePage = new HomePage(driver);
-    LoginPage loginPage = new LoginPage(driver);
-    CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+    WebDriver webDriver = Setup.driver;
+    HomePage homePage = new HomePage(webDriver);
+    LoginPage loginPage = new LoginPage(webDriver);
+    CreateAccountPage createAccountPage = new CreateAccountPage(webDriver);
 
     /**
      * Implémentation de l'étape "I am on the Create an account page".
@@ -63,19 +63,6 @@ public class CreateAccountSteps {
 
         }
     }
-
-
-
-    /**
-     * Implémentation de l'étape "an Invalid email address message appears".
-     * Cette méthode vérifie qu'un message d'erreur "Invalid email address" est affiché.
-     */
-    // TODO: Assert ?
-    @Then("an Invalid email address message appears")
-    public void anInvalidEmailAddressMessageAppears() {
-        loginPage.getLoginErrorMessage();
-    }
-
 
     /**
      * Implémentation de l'étape "I fill in only the required fields".
@@ -130,7 +117,6 @@ public class CreateAccountSteps {
      * Cette méthode remplit les champs avec un mot de passe plus court que la longueur spécifiée.
      * @param length La longueur maximale du mot de passe.
      */
-    //TODO: entrer le mot de passe
     @When("I fill in the fields with a password shorter than {int} characters")
     public void iFillInTheFieldsWithAPasswordShorterThanCharacters(int length) {
         String shortPassword = "a".repeat(Math.max(0, length - 1));
@@ -141,7 +127,6 @@ public class CreateAccountSteps {
      * Implémentation de l'étape "I fill in the fields with a valid password".
      * Cette méthode remplit les champs avec un mot de passe valide.
      */
-    //TODO: entrer le mot de passe
     @When("I fill in the fields with a valid password")
     public void iFillInTheFieldsWithAValidPassword() {
         String password = "mdp12!";

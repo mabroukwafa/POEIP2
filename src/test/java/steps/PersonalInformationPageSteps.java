@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
 import pages.*;
 
 public class PersonalInformationPageSteps {
-    WebDriver driver = Setup.driver;
-   PersonalInformationPage personalInformationPage= new PersonalInformationPage(driver);
+    WebDriver webDriver = Setup.driver;
+    PersonalInformationPage personalInformationPage= new PersonalInformationPage(webDriver);
 
     @Then("I can view my personal information on the Personal information page")
     public void iCanViewMyPersonalInformationOnThePersonalInformationPage() {

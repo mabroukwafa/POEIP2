@@ -8,8 +8,8 @@ import pages.OrderHistoryPage;
 
 public class OrderHistoryPageSteps {
 
-    WebDriver driver = Setup.driver;
-    OrderHistoryPage orderHistoryPage = new OrderHistoryPage(driver);
+    WebDriver webDriver = Setup.driver;
+    OrderHistoryPage orderHistoryPage = new OrderHistoryPage(webDriver);
 
     @Then("I see the list of my orders on the Order History page")
     public void iSeeTheListOfMyOrdersOnTheOrderHistoryPage(){

@@ -6,8 +6,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class MyCreditSlipsPage extends BasePage{
 
-    public MyCreditSlipsPage(WebDriver driver){
-        super(driver);
+    public MyCreditSlipsPage(WebDriver webDriver){
+        super(webDriver);
     }
 
     @FindBy(xpath = "//h1[@class='page-heading bottom-indent']")

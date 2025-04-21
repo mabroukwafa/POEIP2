@@ -1,11 +1,9 @@
 package steps;
 
 import hooks.Setup;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import pages.BasePage;
 import pages.PrestashopPage;
 
 /**
@@ -14,10 +12,10 @@ import pages.PrestashopPage;
 public class PrestashopPageSteps {
 
     // Une instance de WebDriver de la classe Setup
-    WebDriver driver = Setup.driver;
+    WebDriver webDriver = Setup.driver;
 
     // Création d'une instance de la page PrestaShop
-    PrestashopPage prestashopPage = new PrestashopPage(driver);
+    PrestashopPage prestashopPage = new PrestashopPage(webDriver);
 
     /**
      * Implémentation de l'étape "I am redirected to the PrestaShop partner site".
