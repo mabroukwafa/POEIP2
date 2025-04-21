@@ -11,12 +11,18 @@ import pages.*;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Cette classe contient les étapes de test pour la page {@link YouraddressesPage}.
+ */
 public class yourAddressesPageSteps {
     WebDriver driver = Setup.driver;
-    BasePage basePage = new BasePage(driver);
     YouraddressesPage addressesPage = new YouraddressesPage(driver);
 
-
+    /**
+     * Implémentation de l'étape "I fill in the following fields:".
+     * Cette méthode remplit les différents champs du formulaire via l'objet dataTable.
+     * @param dataTable Tableau de données contenant les informations à remplir.
+     */
     @And("I fill in the following fields:")
     public void IFillInTheFollowingFields(DataTable dataTable){
         List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
@@ -35,12 +41,20 @@ public class yourAddressesPageSteps {
         addressesPage.sendAddressTitle(rows.get(0).get("addressTitle"));
     }
 
+    /**
+     * Implémentation de l'étape "I save the changes".
+     * Cette méthode clique sur le bouton de sauvegarde.
+     */
     @And("I save the changes")
     public void iSaveTheChanges() {
         addressesPage.clickButton();
     }
 
 
+    /**
+     * Implémentation de l'étape "I fill in the new following fields:".
+     * @param dataTable Tableau de données contenant les informations à remplir.
+     */
     @And("I fill in the new following fields:")
     public void iFillInTheNewFollowingFields(DataTable dataTable) {
         List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
@@ -48,8 +62,14 @@ public class yourAddressesPageSteps {
         addressesPage.sendAddress1(rows.get(0).get("address"));
     }
 
+    /**
+     * Implémentation de l'étape "I am redirected to the address entry page".
+     * Vérifie que l'utilisateur est bien redirigé vers la page d'entrée d'adresse
+     * en confirmant l'affichage du titre spécifique à cette page.
+     * @throws AssertionError si le titre de la page d'entrée d'adresse n'est pas visible
+     */
     @Then("I am redirected to the address entry page")
     public void iAmRedirectedToTheAddressEntryPage() {
-        Assert.assertEquals(addressesPage.getPageTitle(), "YOUR ADDRESSES");
+        Assert.assertEquals("YOUR ADDRESSES", addressesPage.getPageTitle());
     }
 }
