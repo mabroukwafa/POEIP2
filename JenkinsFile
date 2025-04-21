@@ -2,7 +2,7 @@ pipeline {
     agent any
 
 parameters {
-        string(name: 'KEYS', defaultValue: '', description: 'Veuillez renseigner les cles de test a executer separees par un ;\nLes cles a utiliser sont les suivantes:\nAcces au panier: POEI25P2G4-86\nRecherche d articles: POEI25P2G4-87\nLogo: POEI25P2G4-88\nGestion du compte client: POEI25P2G4-89\nAcces au compte client: POEI25P2G4-90\nCreation de compte: POEI25P2G4-91\nPage d accueil: POEI25P2G4-87')
+        string(name: 'KEYS', defaultValue: '', description: 'Veuillez renseigner les cles de test a executer separees par un ;\nLes cles a utiliser sont les suivantes:\nAcces au panier: POEI25P2G4-86\nRecherche d articles: POEI25P2G4-87\nLogo: POEI25P2G4-88\nGestion du compte client: POEI25P2G4-89\nAcces au compte client: POEI25P2G4-90\nCreation de compte: POEI25P2G4-91\nPage d accueil: POEI25P2G4-92\nPour lancer l ensemble des tests de la campagne: POEI25P2G4-86;POEI25P2G4-87;POEI25P2G4-88;POEI25P2G4-89;POEI25P2G4-90;POEI25P2G4-91;POEI25P2G4-92')
         string(name: 'BROWSER', defaultValue: 'chrome', description: 'Le navigateur sur lequel executer les tests, les valeurs acceptees sont: chrome, firefox ou edge')
         string(name: 'URL', defaultValue: 'http://www.automationpractice.pl/index.php', description: 'L url de la page d accueil de l application')
         string(name: 'HEADLESS', defaultValue: 'false', description: 'Choix de lancer le driver en headless (le navigateur s execute en arriere plan) ou non')
