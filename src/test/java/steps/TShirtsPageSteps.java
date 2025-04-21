@@ -25,7 +25,7 @@ public class TShirtsPageSteps {
      * @throws AssertionError si le titre de la page T-Shirts n'est pas visible
      */
     @Then("I am redirected to the T-Shirts product page")
-    public void iAmRedirectedToTheOngletProductPage() {
+    public void assertOnTShirtsProductPage() {
         Assert.assertTrue(
                 "Le titre de la page T-Shirts devrait être visible",
                 tShirtsPage.tShirtTitleIsDisplayed()

@@ -38,7 +38,7 @@ public class LoginPageSteps {
      * @param email L'adresse e-mail à entrer dans le champ.
      */
     @When("I enter {string} in the <Email address> field")
-    public void iEnterInTheEmailAddressField(String email) {
+    public void enterEmailAddressToLogin(String email) {
         loginPage.sendEmail(email);
     }
 
@@ -47,7 +47,7 @@ public class LoginPageSteps {
      * @param password Le mot de passe à entrer dans le champ.
      */
     @And("I enter {string} in the <Password> field")
-    public void iEnterInThePasswordField(String password) {
+    public void enterPassword(String password) {
         loginPage.sendPassword(password);
     }
 
@@ -56,7 +56,7 @@ public class LoginPageSteps {
      * Cette méthode clique sur le bouton de connexion.
      */
     @And("I click <Sign in>")
-    public void iClickSignIn() {
+    public void clickSignIn() {
         loginPage.clickLoginButton();
     }
 
@@ -66,7 +66,7 @@ public class LoginPageSteps {
      * @param message Le message d'erreur attendu.
      */
     @Then("I should see {string} error message")
-    public void iShouldSeeErrorMessage(String message) {
+    public void assertErrorMessage(String message) {
         Assert.assertEquals(message, loginPage.getLoginErrorMessage());
     }
 
@@ -75,7 +75,7 @@ public class LoginPageSteps {
      * Cette méthode clique sur le lien de réinitialisation du mot de passe.
      */
     @When("I click on the <Forgot your password?>")
-    public void iClickOnTheForgotYourPassword() {
+    public void clickOnForgotPasswordLink() {
         loginPage.clickForgotPassword();
     }
 
@@ -86,7 +86,7 @@ public class LoginPageSteps {
      * @param email L'adresse e-mail à entrer dans le champ.
      */
     @When("I enter {string} in the <Email address> field to create an account")
-    public void iEnterInTheEmailAddressFieldToCreateAnAccount(String email) {
+    public void enterEmailAddressToCreateAnAccount(String email) {
         loginPage.sendEmailCreate(email);
     }
 
@@ -95,13 +95,19 @@ public class LoginPageSteps {
      * Cette méthode clique sur le bouton de création de compte.
      */
     @Then("I click on Create an account")
-    public void iClickOnCreateAnAccount() {
+    public void clickOnCreateAnAccount() {
         loginPage.clickCreateAccountButton();
     }
 
+    /**
+     * Implémentation de l'étape "I enter a valid email in the <Email address> field to create an account".
+     * Entre une adresse mail valide générée aléatoirement pour créer un nouveau compte
+     */
     @When("I enter a valid email in the <Email address> field to create an account")
-    public void iEnterAValidEmailInTheEmailAddressFieldToCreateAnAccount() {
-        loginPage.sendEmailCreate(Utils.generateRandomEmail(15,15));
+    public void enterValidEmailToCreateAnAccount() {
+        loginPage.sendEmailCreate(
+                Utils.generateRandomEmail(Integer.parseInt(ConfigReader.getProperty("numberOfCharactersBeforeAt")),
+                        Integer.parseInt(ConfigReader.getProperty("numberOfCharactersAfterAt"))));
     }
 
 
@@ -110,7 +116,7 @@ public class LoginPageSteps {
      * Cette méthode simule la connexion d'un utilisateur sans adresse enregistrée.
      */
     @Given("I'm logged in without a saved address")
-    public void iMLoggedInWithoutASavedAddress() {
+    public void connectWithoutSavedAddress() {
         homePage.clickOnSignIn();
         loginPage.sendEmail(ConfigReader.getProperty("emailValid2"));
         loginPage.sendPassword(ConfigReader.getProperty("mdpValid2"));
@@ -122,7 +128,7 @@ public class LoginPageSteps {
      * Cette méthode vérifie qu'un message d'erreur est affiché.
      */
     @Then("an Invalid email address message appears")
-    public void anInvalidEmailAddressMessageAppears() {
+    public void assertInvalidEmailAddressMessage() {
         Assert.assertTrue(loginPage.isCreateAccountErrorMessageVisible());
     }
 }

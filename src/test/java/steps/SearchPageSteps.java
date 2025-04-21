@@ -33,7 +33,7 @@ public class SearchPageSteps {
      * @param articleName le nom de l'article à rechercher
      */
     @And("I see the article {string}")
-    public void iSeeTheArticle(String articleName) {
+    public void assertArticle(String articleName) {
         Assert.assertTrue(searchPage.isProductVisible(articleName));
     }
 }

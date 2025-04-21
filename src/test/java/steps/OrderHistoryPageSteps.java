@@ -22,7 +22,7 @@ public class OrderHistoryPageSteps {
      * @throws AssertionError si le titre de la page d'historique des commandes n'est pas visible
      */
     @Then("I see the list of my orders on the Order History page")
-    public void iSeeTheListOfMyOrdersOnTheOrderHistoryPage(){
+    public void assertOnOrderHistoryPage(){
         Assert.assertEquals("ORDER HISTORY", orderHistoryPage.getPageTitle());
     }
 

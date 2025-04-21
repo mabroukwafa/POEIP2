@@ -22,7 +22,7 @@ public class MyAddressesPageSteps {
      * Cette méthode simule le clic sur le bouton "Add a new Address"
      */
     @And("I click on <Add a new Address>")
-    public void iClickOnAddANewAddress() {
+    public void clickOnAddANewAddress() {
         myAdressesPage.clickMyAddressButton();
     }
 
@@ -32,7 +32,7 @@ public class MyAddressesPageSteps {
      * @param title le titre de la page
      */
     @Then("The displayed title should be {string}")
-    public void theDisplayedTitleShouldBe(String title) {
+    public void assertDisplayedTitle(String title) {
         assertEquals(myAdressesPage.getAddressTitle(), title);
         myAdressesPage.deleteLastAddress();
     }
@@ -42,7 +42,7 @@ public class MyAddressesPageSteps {
      * Cette méthode simule le clic sur le bouton "Update"
      */
     @When("I click on <Update>")
-    public void iClickOn() {
+    public void clickOnUpdate() {
         myAdressesPage.clickUpdateButton();
     }
 
@@ -52,17 +52,17 @@ public class MyAddressesPageSteps {
      * @param address l'adresse à vérifier
      */
     @And("The displayed address should be {string}")
-    public void theDisplayedAddressShouldBe(String address) {
+    public void AssertDisplayedAddress(String address) {
         assertEquals(myAdressesPage.getUpdatedAddress1Title(), address);
     }
 
     /**
      * Implémentation de l'étape "The displayed phone should be {string}".
      * Cette méthode vérifie que le téléphone affiché est correcte
-     * @param phone le téléphone à vérifié.
+     * @param phone le téléphone à vérifier.
      */
     @And("The displayed phone should be {string}")
-    public void theDisplayedPhoneShouldBe(String phone) {
+    public void assertDisplayedPhone(String phone) {
         Assert.assertEquals(myAdressesPage.getUpdatedPhone(), phone);
     }
 
@@ -72,7 +72,7 @@ public class MyAddressesPageSteps {
      * @throws AssertionError si le titre de la page "My Addresses" n'est pas visible
      */
     @Then("I am redirected to the <My Addresses> page")
-    public void iAmRedirectedToThePage() {
+    public void assertOnMyAddressesPage() {
     Assert.assertEquals("MY ADDRESSES", myAdressesPage.getPageTitle());
     }
 
@@ -82,7 +82,7 @@ public class MyAddressesPageSteps {
      * @param firstName le prénom à vérifier
      */
     @And("The displayed firstname should be {string}")
-    public void theDisplayedNameShouldBe(String firstName) {
+    public void assertDisplayedFirstName(String firstName) {
         Assert.assertEquals(myAdressesPage.getFirstName(), firstName);
     }
 
@@ -92,10 +92,8 @@ public class MyAddressesPageSteps {
      * @param lastName le nom à vérifier
      */
     @And("The displayed lastname should be {string}")
-    public void theDisplayedLastnameShouldBe(String lastName) {
+    public void assertDisplayedLastname(String lastName) {
         Assert.assertEquals(myAdressesPage.getLastName(), lastName);
 
     }
-
-
 }

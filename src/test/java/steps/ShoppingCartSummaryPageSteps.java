@@ -23,7 +23,7 @@ public class ShoppingCartSummaryPageSteps {
 
      */
     @Then("I am redirected to the <Shopping Cart Summary> page")
-    public void iAmRedirectedToTheShoppingCartSummaryPage() {
+    public void assertOnCartSummaryPage() {
         Assert.assertEquals("SHOPPING-CART SUMMARY", shoppingCartSummaryPage.getTitle());
     }
 }

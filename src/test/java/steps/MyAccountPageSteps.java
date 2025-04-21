@@ -22,7 +22,7 @@ public class MyAccountPageSteps {
      * @throws AssertionError si le titre de la page My Account n'est pas visible
      */
     @Then("I should be redirected to <My Account> page")
-    public void iShouldBeRedirectedToMyAccountPage() {
+    public void assertOnMyAccountPage() {
         Assert.assertEquals("MY ACCOUNT",myAccountPage.getTitle());
     }
 
@@ -31,7 +31,7 @@ public class MyAccountPageSteps {
      * Effectue un clic sur le bouton "My Addresses" de la page My Account.
      */
     @When("I click on <My Addresses>")
-    public void iClickOnAddAddress() {
+    public void clickOnMyAddress() {
         myAccountPage.clickMyAddressButton();
     }
 
@@ -41,7 +41,7 @@ public class MyAccountPageSteps {
      * Effectue un clic sur le bouton "Home" de la page My Account.
      */
     @When("I click on <Home> button")
-    public void iClickOnHomeButton() {
+    public void clickOnHomeButton() {
         myAccountPage.clickHomeButton();
 
     }
@@ -51,7 +51,7 @@ public class MyAccountPageSteps {
      * Effectue un clic sur le bouton "Personal information" de la page My Account.
      */
     @When("I click on the <Personal information> button")
-    public void iClickOnThePersonalInformationButton() {
+    public void clickOnPersonalInformationButton() {
         myAccountPage.clickPersonalInformationButton();
     }
 
@@ -60,7 +60,7 @@ public class MyAccountPageSteps {
      * Effectue un clic sur le bouton "Orders history" de la page My Account.
      */
     @When("I click on the <Order history> option")
-    public void iClickOnTheOrderHistoryOption() {
+    public void clickOnOrderHistoryOption() {
         myAccountPage.clickOrderButton();
     }
 
@@ -69,7 +69,7 @@ public class MyAccountPageSteps {
      * Effectue un clic sur le bouton "My Credit Slips" de la page My Account.
      */
     @When("I click on the <My Credit Slips> option")
-    public void iClickOnTheMyCreditSlipsOption() {
+    public void clickOnMyCreditSlipsOption() {
         myAccountPage.clickCreditsButton();
     }
 
@@ -78,7 +78,7 @@ public class MyAccountPageSteps {
      * Effectue un clic sur le button d'ajout d'une nouvelle adresse de la page My Account.
      */
     @When("I click on <Add my first Address>")
-    public void iClickOnAddMyFirstAddress() {
+    public void clickOnAddMyFirstAddress() {
         myAccountPage.clickAddMyFirstAddressButton();
     }
 }

@@ -21,7 +21,7 @@ public class MyCreditSlipsPageSteps {
      * @throws AssertionError si le titre de la page My Credit Slips n'est pas visible
      */
     @Then("I see the list of my assets")
-    public void iSeeTheListOfMyAssets(){
+    public void assertOnAssetsLists(){
                Assert.assertEquals("CREDIT SLIPS", myCreditSlipsPage.getPageTitle());
     }
 

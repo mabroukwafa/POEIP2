@@ -18,11 +18,12 @@ public class ContactUsPageSteps {
     ContactUsPage contactUsPage = new ContactUsPage(webDriver);
 
     /**
+     * Implémentation de l'étape "I am redirected to the Contact us".
      * Cette méthode vérifie que l'utilisateur est redirigé vers la page ContactUs
      * @throws AssertionError si le titre de la page de contact n'est pas affiché.
      */
     @Then("I am redirected to the Contact us page")
-    public void iAmRedirectedToTheContactUsPage() {
+    public void assertOnContactUsPage() {
         Assert.assertTrue(contactUsPage.contactUsTitleIsDisplayed());
     }
 }

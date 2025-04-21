@@ -31,11 +31,7 @@ public class Utils {
                         var1.switchTo().frame(var0);
                         return true;
                     }
-                } catch (NoSuchFrameException var3) {
-                    return false;
-                } catch (NoSuchElementException var4) {
-                    return false;
-                } catch (StaleElementReferenceException var5) {
+                } catch (NoSuchFrameException | NoSuchElementException | StaleElementReferenceException var3) {
                     return false;
                 }
                 return false;

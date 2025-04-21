@@ -25,8 +25,7 @@ public class PrestashopPageSteps {
      * @throws AssertionError si le titre de la page PrestaShop n'est pas visible
      */
     @Then("I am redirected to the PrestaShop partner site")
-    public void iAmRedirectedToThePrestaShopPartnerSite() {
-        // Assertion pour vérifier que le titre de la page PrestaShop est affiché
+    public void assertOnPrestaShopPartnerSite() {
         Assert.assertTrue(
                 "Le titre de la page PrestaShop devrait être affiché",
                 prestashopPage.isPrestashopTitleDisplayed()

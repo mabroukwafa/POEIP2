@@ -20,7 +20,7 @@ public class PersonalInformationPageSteps {
      * @throws AssertionError si le titre de la page Personal Information n'est pas visible
      */
     @Then("I can view my personal information on the Personal information page")
-    public void iCanViewMyPersonalInformationOnThePersonalInformationPage() {
+    public void assertOnPersonalInformationPage() {
         Assert.assertEquals("YOUR PERSONAL INFORMATION", personalInformationPage.getTitle());
     }
 

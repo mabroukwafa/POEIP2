@@ -30,7 +30,7 @@ public class HomePageSteps {
      * Cette action déclenche normalement une redirection.
      */
     @When("I click on an advertisement")
-    public void iClickOnAnAdvertisement() {
+    public void clickOnAnAdvertisement() {
         homePage.clickOnAdvertisement();
     }
 

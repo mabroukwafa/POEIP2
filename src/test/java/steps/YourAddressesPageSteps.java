@@ -24,7 +24,7 @@ public class YourAddressesPageSteps {
      * @param dataTable Tableau de données contenant les informations à remplir.
      */
     @And("I fill in the following fields:")
-    public void IFillInTheFollowingFields(DataTable dataTable){
+    public void fillInAllFields(DataTable dataTable){
         List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
         addressesPage.sendFirstName(rows.get(0).get("firstname"));
         addressesPage.sendLastName(rows.get(0).get("lastname"));
@@ -46,17 +46,16 @@ public class YourAddressesPageSteps {
      * Cette méthode clique sur le bouton de sauvegarde.
      */
     @And("I save the changes")
-    public void iSaveTheChanges() {
+    public void saveChanges() {
         addressesPage.clickSaveButton();
     }
-
 
     /**
      * Implémentation de l'étape "I fill in the new following fields:".
      * @param dataTable Tableau de données contenant les informations à remplir.
      */
     @And("I fill in the new following fields:")
-    public void iFillInTheNewFollowingFields(DataTable dataTable) {
+    public void fillInOtherFields(DataTable dataTable) {
         List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
         addressesPage.sendMobilePhone(rows.get(0).get("phone"));
         addressesPage.sendAddress1(rows.get(0).get("address"));
@@ -69,7 +68,7 @@ public class YourAddressesPageSteps {
      * @throws AssertionError si le titre de la page d'entrée d'adresse n'est pas visible
      */
     @Then("I am redirected to the address entry page")
-    public void iAmRedirectedToTheAddressEntryPage() {
+    public void assertOnAddressEntryPage() {
         Assert.assertEquals("YOUR ADDRESSES", addressesPage.getPageTitle());
     }
 }

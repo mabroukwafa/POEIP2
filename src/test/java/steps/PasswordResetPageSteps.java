@@ -27,7 +27,7 @@ public class PasswordResetPageSteps {
      * @throws AssertionError si le titre de la page de réinitialisation du mot de passe n'est pas visible
      */
     @Then("I am redirected on the <Password reset> page")
-    public void iRedirectedOnThePasswordResetPage() {
+    public void assertOnPasswordResetPage() {
         Assert.assertEquals("FORGOT YOUR PASSWORD?", passwordResetPage.getTitle());
     }
 
@@ -39,7 +39,7 @@ public class PasswordResetPageSteps {
      * @throws AssertionError si le titre de la page de réinitialisation du mot de passe n'est pas visible
      */
     @Given("I am on the <Password reset> page")
-    public void iAmOnThePasswordResetPage() {
+    public void goToPasswordResetPage() {
         homePage.clickOnSignIn();
         loginPage.sendEmailCreate(YopMailPageSteps.resetPasswordMail);
         loginPage.clickCreateAccountButton();
@@ -56,7 +56,7 @@ public class PasswordResetPageSteps {
      * Envoie l'email enregistré pour la réinitialisation du mot de passe.
      */
     @When("I enter my registered email")
-    public void iEnterMyRegisteredEmail() {
+    public void enterRegisteredEmail() {
         passwordResetPage.sendEmail(YopMailPageSteps.resetPasswordMail);
     }
 
@@ -66,7 +66,7 @@ public class PasswordResetPageSteps {
      * @throws AssertionError si le message de confirmation avant la réinitialisation n'est pas visible
      */
     @And("I click the <Retrieve Password> button")
-    public void iClickTheRetrievePasswordButton() {
+    public void clickRetrievePasswordButton() {
         passwordResetPage.clickRetrievePasswordButton();
         Assert.assertTrue(passwordResetPage.isConfirmationMessageBeforeResetVisible());
     }
@@ -77,7 +77,7 @@ public class PasswordResetPageSteps {
      * @throws AssertionError si le message de confirmation après la réinitialisation n'est pas visible
      */
     @Then("I should see a message that confirms the password change")
-    public void iShouldSeeAMessageThatConfirmsThePasswordChange() {
+    public void assertPasswordChangeMessage() {
         Assert.assertTrue(passwordResetPage.isConfirmationMessageAfterResetVisible());
     }
 }

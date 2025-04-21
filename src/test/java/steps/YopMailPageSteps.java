@@ -38,7 +38,7 @@ public class YopMailPageSteps {
      * @throws InterruptedException si le thread est interrompu pendant le sleep
      */
     @And("I check my emails")
-    public void iCheckMyEmails() throws InterruptedException {
+    public void checkEmails() throws InterruptedException {
         Thread.sleep(1000L *  Integer.parseInt(ConfigReader.getProperty("yopmailTimeout")));
         yopMailPage.goToYopMailHomePage();
         yopMailPage.enterLogin(resetPasswordMail);
@@ -50,7 +50,7 @@ public class YopMailPageSteps {
      * Cette méthode simule le clic sur le lien de réinitialisation du mot de passe dans l'e-mail.
      */
     @And("I click on the reset password link")
-    public void iClickOnTheResetPasswordLink(){
+    public void clickOnResetPasswordLink(){
         yopMailPage.clickPasswordResetLink();
         yopMailPage.goToTab(2);
     }
