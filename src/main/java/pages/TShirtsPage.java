@@ -16,7 +16,7 @@ public class TShirtsPage extends BasePage{
      * Trouve l'élément span avec classe 'cat-name' dont le texte commence par 'T-shirts'
      */
     @FindBy(xpath = "//span[@class='cat-name' and starts-with(normalize-space(), 'T-shirts')]")
-    private WebElement tShirtTitle;
+    WebElement tShirtTitle;
 
     /**
      * Constructeur de la classe {@link BasePage} que la classe TShirtsPage hérite.

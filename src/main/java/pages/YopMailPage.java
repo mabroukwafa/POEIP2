@@ -30,9 +30,6 @@ public class YopMailPage extends BasePage {
     @FindBy(xpath = "(//a)[2]")
     WebElement passwordResetLink;
 
-    @FindBy(id = "refresh")
-    WebElement refreshButton;
-
     @FindBy(id = "ifmail")
     WebElement iframeMail;
 
@@ -51,7 +48,7 @@ public class YopMailPage extends BasePage {
     }
 
     /**
-     * Méthode pour ouvrir un nouvel onglet et accéder à la page YopMail.
+     * Méthode pour ouvrir un nouvel onglet et accéder à la page de génération de mail YopMail.
      */
     public void goToYopMailGenerator(){
         webDriver.switchTo().newWindow(WindowType.TAB);
@@ -59,7 +56,7 @@ public class YopMailPage extends BasePage {
     }
 
     /**
-     * Méthode pour ouvrir un nouvel onglet et accéder à la page YopMail.
+     * Méthode pour ouvrir un nouvel onglet et accéder à la page d'accueil de YopMail.
      */
     public void goToYopMailHomePage(){
         webDriver.switchTo().newWindow(WindowType.TAB);
@@ -74,7 +71,7 @@ public class YopMailPage extends BasePage {
     }
 
     /**
-     * Méthode pour cliquer sur le bouton "Nouveau Générateur" sur la page YopMail.
+     * Méthode pour cliquer sur le bouton "Nouveau" sur la page YopMail.
      */
     public void clickNewGenButton(){
         newGenButton.click();
@@ -105,12 +102,9 @@ public class YopMailPage extends BasePage {
     }
 
     /**
-     * Méthode pour cliquer sur le bouton de rafraîchissement de la page YopMail.
+     * Méthode pour entrer le mail yopmail sur lequel se connecter
+     * @param login Le mail à entrer
      */
-    public void clickRefreshButton(){
-        refreshButton.click();
-    }
-
     public void enterLogin(String login){
         loginField.clear();
         loginField.sendKeys(login);

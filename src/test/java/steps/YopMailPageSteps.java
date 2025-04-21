@@ -48,11 +48,9 @@ public class YopMailPageSteps {
     /**
      * Implémentation de l'étape "I click on the reset password link".
      * Cette méthode simule le clic sur le lien de réinitialisation du mot de passe dans l'e-mail.
-     * @throws InterruptedException si le thread est interrompu pendant le sleep
      */
     @And("I click on the reset password link")
-    public void iClickOnTheResetPasswordLink() throws InterruptedException {
-        yopMailPage.clickRefreshButton();
+    public void iClickOnTheResetPasswordLink(){
         yopMailPage.clickPasswordResetLink();
         yopMailPage.goToTab(2);
     }
