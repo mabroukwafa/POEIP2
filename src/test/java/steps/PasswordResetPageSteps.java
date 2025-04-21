@@ -67,7 +67,7 @@ public class PasswordResetPageSteps {
      */
     @And("I click the <Retrieve Password> button")
     public void iClickTheRetrievePasswordButton() {
-        passwordResetPage.clickButton();
+        passwordResetPage.clickRetrievePasswordButton();
         Assert.assertTrue(passwordResetPage.isConfirmationMessageBeforeResetVisible());
     }
 

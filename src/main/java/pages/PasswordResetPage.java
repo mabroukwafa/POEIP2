@@ -18,17 +18,14 @@ public class PasswordResetPage extends BasePage{
         super(webDriver);
     }
 
-    /**
-     * Localisateur XPath
-     */
     @FindBy(xpath = "//h1[@class='page-subheading' and text()='Forgot your password?']")
     WebElement title;
 
-    @FindBy(xpath = "//input[@id='email' and @name='email']")
+    @FindBy(xpath = "//input[@id='email']")
     WebElement emailField;
 
     @FindBy(xpath = "//button[@type='submit']//span[contains(text(), 'Retrieve Password')]")
-    WebElement buttonRetrievePassword;
+    WebElement retrievePasswordButton;
 
     @FindBy(xpath = "//p[contains(@class, 'alert-success') and contains(text(), 'confirmation email has been sent')]")
     WebElement confirmationMessageBeforeReset;
@@ -44,25 +41,19 @@ public class PasswordResetPage extends BasePage{
         return title.getText();
     }
 
-    /*
-    * Méthode pour récupérer le message de confirmation.
-     */
-    public String getConfirmationMessageBeforeReset(){
-        return confirmationMessageBeforeReset.getText();
-    }
 
-    /*
+    /**
     * Méthode qui insère l'email dans le champ de saisie associé.
      */
     public void sendEmail(String email){
         emailField.sendKeys(email);
     }
 
-    /*
+    /**
     * Méthode pour cliquer sur le bouton de réinitialisation du mot de passe.²
      */
-    public void clickButton(){
-            buttonRetrievePassword.click();
+    public void clickRetrievePasswordButton(){
+            retrievePasswordButton.click();
     }
 
     /**
