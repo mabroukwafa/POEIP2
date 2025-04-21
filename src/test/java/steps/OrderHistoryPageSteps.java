@@ -23,7 +23,7 @@ public class OrderHistoryPageSteps {
      */
     @Then("I see the list of my orders on the Order History page")
     public void iSeeTheListOfMyOrdersOnTheOrderHistoryPage(){
-        Assert.assertEquals("ORDER HISTORY", orderHistoryPage.pageTitle());
+        Assert.assertEquals("ORDER HISTORY", orderHistoryPage.getPageTitle());
     }
 
 

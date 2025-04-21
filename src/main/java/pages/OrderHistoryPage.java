@@ -26,7 +26,7 @@ public class OrderHistoryPage extends BasePage{
      * Méthode pour récupérer le titre de la page d'historique des commandes.
      * @return Le titre de la page d'historique des commandes
      */
-    public String pageTitle(){
+    public String getPageTitle(){
     return pageTitle.getText();
     }
 }
