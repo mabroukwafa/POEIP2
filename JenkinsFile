@@ -45,7 +45,10 @@ parameters {
             del features.zip
             del key.txt
         """
+        bat 'mvn clean'
+
         catchError (buildResult: 'FAILURE', stageResult: 'FAILURE'){bat 'mvn test'}
+
         bat"""
             set /p TOKEN=<token.txt
             curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer %TOKEN%" ^
