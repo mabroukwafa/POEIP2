@@ -47,12 +47,6 @@ public class PasswordResetPageSteps {
         Assert.assertTrue(passwordResetPage.isConfirmationMessageBeforeResetVisible());
     }
 
-
-    @Then("I should see a message {string}")
-    public void iShouldSeeAMessage(String msg) {
-        Assert.assertEquals(passwordResetPage.getConfirmationMessageBeforeReset(),msg);
-    }
-
     @Then("I should see a message that confirms the password change")
     public void iShouldSeeAMessageThatConfirmsThePasswordChange() {
         Assert.assertTrue(passwordResetPage.isConfirmationMessageAfterResetVisible());

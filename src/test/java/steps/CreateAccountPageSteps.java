@@ -50,21 +50,6 @@ public class CreateAccountPageSteps {
     }
 
     /**
-     * Implémentation de l'étape "no error message appears".
-     * Cette méthode vérifie qu'aucun message d'erreur n'est affiché.
-     */
-    // TODO: catch NoSuchElementException ?
-    @Then("no error message appears")
-    public void no_error_message_appears() {
-        try {
-            String error = loginPage.getLoginErrorMessage();
-            assertTrue("Un message d'erreur est affiché : " + error, error.trim().isEmpty());
-        } catch (NoSuchElementException e) {
-
-        }
-    }
-
-    /**
      * Implémentation de l'étape "I fill in only the required fields".
      * Cette méthode remplit uniquement les champs obligatoires du formulaire de création de compte.
      * @param dataTable Les données à remplir dans le formulaire.

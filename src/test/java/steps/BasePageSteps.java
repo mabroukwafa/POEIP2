@@ -7,7 +7,6 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
-import pages.BlogPage;
 import pages.LoginPage;
 import pages.MyAccountPage;
 import utils.ConfigReader;
@@ -61,8 +60,8 @@ public class BasePageSteps {
     }
 
     @When("I click on the {string} tab")
-    public void iClickOnTheTab(String arg0) {
-        switch (arg0){
+    public void iClickOnTheTab(String tabName) {
+        switch (tabName){
             case "Women":
                 basePage.clickOnFiltreWomen();
                 break;

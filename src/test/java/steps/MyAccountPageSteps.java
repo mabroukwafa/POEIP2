@@ -11,22 +11,11 @@ import utils.ConfigReader;
 
 public class MyAccountPageSteps {
     WebDriver webDriver = Setup.driver;
-    HomePage homePage = new HomePage(webDriver);
-    LoginPage loginPage = new LoginPage(webDriver);
     MyAccountPage myAccountPage = new MyAccountPage(webDriver);
 
     @Then("I should be redirected to <My Account> page")
     public void iShouldBeRedirectedToMyAccountPage() {
         Assert.assertEquals("MY ACCOUNT",myAccountPage.getTitle());
-    }
-
-
-    @Given("I am on the <My Account> page")
-    public void iAmOnTheMyAccountPage() {
-        homePage.clickOnSignIn();
-        loginPage.sendEmail(ConfigReader.getProperty("emailValid"));
-        loginPage.sendPassword(ConfigReader.getProperty("mdpValid"));
-        loginPage.clickLoginButton();
     }
 
     @When("I click on <My Addresses>")
