@@ -34,7 +34,7 @@ public class MyAddressesPage extends BasePage{
     WebElement title;
 
     @FindBy(xpath = "//ul[contains(@class, 'last_item')]//li/span[@class='address_address1']")
-    WebElement updatedAddress;
+    WebElement updatedAddress1;
 
     @FindBy(xpath = "//ul[contains(@class, 'last_item')]//li/span[@class='address_name'][1]")
     WebElement myFirstName ;
@@ -72,7 +72,7 @@ public class MyAddressesPage extends BasePage{
      * @return le titre de l'adresse mise à jour.
      */
     public String getUpdatedAddress1Title(){
-        return updatedAddress.getText();
+        return updatedAddress1.getText();
     }
 
     /**

@@ -136,9 +136,9 @@ public class CreateAccountPage extends BasePage {
         lastNameInput.sendKeys(lastName);
         passwordField.sendKeys(password);
         if (newsletter.equalsIgnoreCase("yes")) newsletterCheckbox.click();
-        dayDropdown.sendKeys(days);
-        monthDropdown.sendKeys(months);
-        yearDropdown.sendKeys(years);
+        chooseSelectionByVisibleText(dayDropdown,days);
+        chooseSelectionByVisibleText(monthDropdown,months);
+        chooseSelectionByVisibleText(yearDropdown,years);
         selectGender(gender);
     }
 

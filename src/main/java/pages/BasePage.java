@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -199,5 +200,15 @@ public class BasePage {
      */
     public void closeTab(){
         webDriver.close();
+    }
+
+    /**
+     * Méthode permettant de choisir une proposition dans un select à partir de son nom
+     * @param selectElement Le select contenant les propositions
+     * @param text Le nom de la proposition à choisir
+     */
+    public void chooseSelectionByVisibleText(WebElement selectElement,String text){
+        Select select = new Select(selectElement);
+        select.selectByVisibleText(text);
     }
 }
