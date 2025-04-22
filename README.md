@@ -1,5 +1,5 @@
 # Projet 2 POEI groupe 4
-Ce répertoire contient le scripts d'automatisation de test en selenium du groupe 4 composé de Wafa, Amy, Asanka et Julien MICHEL pour le projet 2 de la POEI2025 dont le lien Jira est [ici](https://team-1612820401992.atlassian.net/jira/software/projects/POEI25P2G4)
+Ce répertoire contient le scripts d'automatisation de test en selenium du groupe 4 composé de Wafa ELMABROUK, Amy SEYE, Asanka VARRAT et Julien MICHEL pour le projet 2 de la POEI2025 dont le lien Jira est [ici](https://team-1612820401992.atlassian.net/jira/software/projects/POEI25P2G4)
 ## Organisation du projet maven
 Le projet est un projetmaven organisé de la façon suivante:
 - Dans le dossier main:
