@@ -15,7 +15,7 @@ parameters {
         string(name: 'PWD_2', defaultValue: 'password', description: 'Le mot de passe utilise pour se connecter a un compte sans adresse')
         string(name: 'YOPMAIL_TIMEOUT', defaultValue: '10', description: 'La duree a attendre pour recevoir le mail de reinitialisation de mot de passe')
         string(name: 'BEFORE_AT', defaultValue: '15', description: 'Le nombre de caracteres a utiliser avant le @ pour generer aleatoirement une adresse mail')
-        string(name: 'AFTER_AT', defaultValue: '15', description: 'Le nombre de caracteres a utiliser apres le @ pour generer aleatoirement une adresse mail')    }
+        string(name: 'AFTER_AT', defaultValue: '15', description: 'Le nombre de caracteres a utiliser apres le @ pour generer aleatoirement une adresse mail')
     }
 
   environment {
