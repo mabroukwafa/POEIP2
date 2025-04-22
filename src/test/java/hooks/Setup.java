@@ -48,7 +48,7 @@ public class Setup {
             if (useGrid) {
                 String gridUrl = ConfigReader.getProperty("gridUrl");
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-                desiredCapabilities.setBrowserName(ConfigReader.getProperty("browser").toLowerCase());
+                desiredCapabilities.setBrowserName(ConfigReader.getProperty("browser"));
                 driver = new RemoteWebDriver(new URL(gridUrl), desiredCapabilities);
             }
             else {
