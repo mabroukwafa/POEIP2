@@ -23,12 +23,20 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * Cette classe gère la configuration du WebDriver et les captures d'écran en cas d'échec des tests.
+ * Elle utilise Cucumber pour intégrer les étapes de test.
+ */
 public class Setup {
 
         public static WebDriver driver;
 
-
+        /**
+         * Cette méthode est exécutée après chaque scénario de test.
+         * Elle prend une capture d'écran si le scénario échoue et ferme le navigateur.
+         *
+         * @param scenario Le scénario de test Cucumber
+         */
         @After
         public void takeScreenShotsOnStepFailure(Scenario scenario) {
             if (scenario.isFailed()) {
@@ -38,13 +46,21 @@ public class Setup {
             driver.quit();
         }
 
+        /**
+         * Cette méthode est exécutée avant chaque scénario de test.
+         * Elle initialise le WebDriver en fonction des paramètres de configuration.
+         *
+         * @throws MalformedURLException si l'URL du serveur Selenium Grid est mal formée
+         */
         @Before
         public void setupDriverAndPages() throws MalformedURLException {
 
-
+            // Chargement des propriétés de configuration
             String url = ConfigReader.getProperty("homePageUrl");
             boolean useGrid = Boolean.parseBoolean(ConfigReader.getProperty("useGrid"));
             int seconds = Integer.parseInt(ConfigReader.getProperty("timeout"));
+
+            // Configuration des options du navigateur
             if (useGrid) {
                 String gridUrl = ConfigReader.getProperty("gridUrl");
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
