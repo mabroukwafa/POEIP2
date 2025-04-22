@@ -2,19 +2,20 @@ pipeline {
     agent any
 
 parameters {
-        string(name: 'KEYS', defaultValue: '', description: 'Veuillez renseigner les cles de test a executer separees par un ;\nLes cles a utiliser sont les suivantes:\nAcces au panier: POEI25P2G4-86\nRecherche d articles: POEI25P2G4-87\nLogo: POEI25P2G4-88\nGestion du compte client: POEI25P2G4-89\nAcces au compte client: POEI25P2G4-90\nCreation de compte: POEI25P2G4-91\nPage d accueil: POEI25P2G4-92\nPour lancer l ensemble des tests de la campagne: POEI25P2G4-86;POEI25P2G4-87;POEI25P2G4-88;POEI25P2G4-89;POEI25P2G4-90;POEI25P2G4-91;POEI25P2G4-92')
+        string(name: 'KEYS', defaultValue: '', description: 'Veuillez renseigner les cles de test a executer separees par un ;\nLes cles a utiliser sont les suivantes:\nAcces au panier: POEI25P2G4-86\nRecherche d\'articles: POEI25P2G4-87\nLogo: POEI25P2G4-88\nGestion du compte client: POEI25P2G4-89\nAcces au compte client: POEI25P2G4-90\nCreation de compte: POEI25P2G4-91\nPage d\'accueil: POEI25P2G4-92\nPour lancer l\'ensemble des tests de la campagne: POEI25P2G4-86;POEI25P2G4-87;POEI25P2G4-88;POEI25P2G4-89;POEI25P2G4-90;POEI25P2G4-91;POEI25P2G4-92')
         string(name: 'BROWSER', defaultValue: 'chrome', description: 'Le navigateur sur lequel executer les tests, les valeurs acceptees sont: chrome, firefox ou edge')
-        string(name: 'URL', defaultValue: 'http://www.automationpractice.pl/index.php', description: 'L url de la page d accueil de l application')
-        string(name: 'HEADLESS', defaultValue: 'false', description: 'Choix de lancer le driver en headless (le navigateur s execute en arriere plan) ou non')
+        string(name: 'URL', defaultValue: 'http://www.automationpractice.pl/index.php', description: 'L\'url de la page d\'accueil de l\'application')
+        string(name: 'HEADLESS', defaultValue: 'false', description: 'Choix de lancer le driver en headless (le navigateur s\'execute en arriere plan) ou non')
         string(name: 'USE_GRID', defaultValue: 'false', description: 'Choix de lancer ou non les tests sur selenium grid')
-        string(name: 'GRID_URL', defaultValue: 'http://192.168.1.105:4444', description: 'L url du grid sur lequel lancer les tests.\nCe parametre n a pas d incidence si USE_GRID est a false')
+        string(name: 'GRID_URL', defaultValue: 'http://192.168.1.105:4444', description: 'L\'url du grid sur lequel lancer les tests.\nCe parametre n\'a pas d\'incidence si USE_GRID est a false')
         string(name: 'TIMEOUT', defaultValue: '10', description: 'La duree maximale (en secondes) pour realiser une action')
-        string(name: 'EMAIL', defaultValue: 'account.with.address@group4.com', description: 'L adresse mail utilisee pour se connecter a un compte valide')
+        string(name: 'EMAIL', defaultValue: 'account.with.address@group4.com', description: 'L\'adresse mail utilisee pour se connecter a un compte valide')
         string(name: 'PWD', defaultValue: 'password', description: 'Le mot de passe utilise pour se connecter a un compte valide')
-        string(name: 'EMAIL_2', defaultValue: 'account.without.address@group4.com', description: 'L adresse mail utilisee pour se connecter a un compte sans adresse')
+        string(name: 'EMAIL_2', defaultValue: 'account.without.address@group4.com', description: 'L\'adresse mail utilisee pour se connecter a un compte sans adresse')
         string(name: 'PWD_2', defaultValue: 'password', description: 'Le mot de passe utilise pour se connecter a un compte sans adresse')
         string(name: 'YOPMAIL_TIMEOUT', defaultValue: '10', description: 'La duree a attendre pour recevoir le mail de reinitialisation de mot de passe')
-    }
+        string(name: 'BEFORE_AT', defaultValue: '15', description: 'Le nombre de caracteres a utiliser avant le @ pour generer aleatoirement une adresse mail')
+        string(name: 'AFTER_AT', defaultValue: '15', description: 'Le nombre de caracteres a utiliser apres le @ pour generer aleatoirement une adresse mail')    }
 
   environment {
         JIRA_ID    = credentials('JIRA_IDS')
@@ -31,7 +32,7 @@ parameters {
     script{
         def keys_array = params.KEYS.split(';')
         bat 'del "src\\main\\resources\\config.properties"'
-        writeFile (file: 'src/main/resources/config.properties', text: "browser = ${params.BROWSER}\nhomePageUrl = ${params.URL}\nheadless = ${params.HEADLESS}\nuseGrid = ${params.USE_GRID}\ngridUrl = ${params.GRID_URL}\ntimeout = ${params.TIMEOUT}\nemailValid = ${params.EMAIL}\nmdpValid = ${params.PWD}\nemailValid2 = ${params.EMAIL_2}\nmdpValid2 = ${params.PWD_2}\nyopmailTimeout = ${params.YOPMAIL_TIMEOUT}")
+        writeFile (file: 'src/main/resources/config.properties', text: "browser = ${params.BROWSER}\nhomePageUrl = ${params.URL}\nheadless = ${params.HEADLESS}\nuseGrid = ${params.USE_GRID}\ngridUrl = ${params.GRID_URL}\ntimeout = ${params.TIMEOUT}\nemailValid = ${params.EMAIL}\nmdpValid = ${params.PWD}\nemailValid2 = ${params.EMAIL_2}\nmdpValid2 = ${params.PWD_2}\nyopmailTimeout = ${params.YOPMAIL_TIMEOUT}\nnumberOfCharactersBeforeAt = ${params.BEFORE_AT}\nnumberOfCharactersAfterAt = ${params.AFTER_AT}")
         bat 'curl -H "Content-Type: application/json" -X POST --data "{ \\"client_id\\": \\"%JIRA_ID_USR%\\",\\"client_secret\\": \\"%JIRA_ID_PSW%\\" }"  https://xray.cloud.getxray.app/api/v2/authenticate >token.txt'
         keys_array.each{
         writeFile (file: 'key.txt', text: it)
