@@ -34,4 +34,5 @@ Il est également possible de lancer les tests depuis Jenkins:
 3. Lancer une première fois la pipeline "Dans le vide" pour permettre le choix des paramètres
 4. Cliquer sur "Lancer un build avec des paramètres" puis choisir les paramètres à lancer dont les clés des tests executions sont trouvables dans ce [filtre](https://team-1612820401992.atlassian.net/issues/?filter=12068)
 
-Avec les deux méthodes d'exécutions, les tests peuvent être lancés sur un Grid en changeant les propriétés dans le fichier config.properties ou en changeant les paramètres depuis la pipeline
+Avec les deux méthodes d'exécutions, les tests peuvent être lancés sur un Grid en changeant les propriétés dans le fichier config.properties ou en changeant les paramètres depuis la pipeline.
+Dans ce cas les paramètres à entrer pour le navigateur sont chrome, MicrosoftEdge ou firefox
