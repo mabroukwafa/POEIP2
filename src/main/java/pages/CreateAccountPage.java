@@ -79,6 +79,11 @@ public class CreateAccountPage extends BasePage {
      * @param email L'email à entrer dans le champ de création de compte.
      */
     public void enterEmailToCreateAccount(String email) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         reinitElements();
         emailCreateField.clear();
         emailCreateField.sendKeys(email);
@@ -93,6 +98,11 @@ public class CreateAccountPage extends BasePage {
      * @param password Le mot de passe à entrer dans le champ de création de compte.
      */
     public void enterPasswordToCreateAccount(String password){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         reinitElements();
         passwordField.clear();
         passwordField.sendKeys(password);
